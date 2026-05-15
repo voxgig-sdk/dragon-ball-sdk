@@ -1,0 +1,41 @@
+{
+  "existing": {
+    "planet": {
+      "PLANET00": {
+        "deleted_at": "s3c",
+        "description": "s3d",
+        "id": "PLANET00",
+        "image": "s3f",
+        "is_destroyed": true,
+        "name": "s41"
+      },
+      "PLANET01": {
+        "deleted_at": "s78",
+        "description": "s79",
+        "id": "PLANET01",
+        "image": "s7b",
+        "is_destroyed": true,
+        "name": "s7d"
+      },
+      "PLANET02": {
+        "deleted_at": "sb4",
+        "description": "sb5",
+        "id": "PLANET02",
+        "image": "sb7",
+        "is_destroyed": true,
+        "name": "sb9"
+      }
+    }
+  },
+  "new": {
+    "planet": {
+      "planet_ref01": {
+        "deleted_at": "sf0",
+        "description": "sf1",
+        "image": "sf3",
+        "is_destroyed": true,
+        "name": "sf5"
+      }
+    }
+  }
+}

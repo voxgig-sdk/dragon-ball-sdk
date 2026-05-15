@@ -1,0 +1,65 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "affiliation": "s78",
+        "deleted_at": "s79",
+        "description": "s7a",
+        "gender": "s7b",
+        "id": "CHARACTER00",
+        "image": "s7d",
+        "ki": "s7e",
+        "max_ki": "s7f",
+        "name": "s80",
+        "origin_planet": {},
+        "race": "s82",
+        "transformation": []
+      },
+      "CHARACTER01": {
+        "affiliation": "sf0",
+        "deleted_at": "sf1",
+        "description": "sf2",
+        "gender": "sf3",
+        "id": "CHARACTER01",
+        "image": "sf5",
+        "ki": "sf6",
+        "max_ki": "sf7",
+        "name": "sf8",
+        "origin_planet": {},
+        "race": "sfa",
+        "transformation": []
+      },
+      "CHARACTER02": {
+        "affiliation": "s168",
+        "deleted_at": "s169",
+        "description": "s16a",
+        "gender": "s16b",
+        "id": "CHARACTER02",
+        "image": "s16d",
+        "ki": "s16e",
+        "max_ki": "s16f",
+        "name": "s170",
+        "origin_planet": {},
+        "race": "s172",
+        "transformation": []
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {
+        "affiliation": "s1e0",
+        "deleted_at": "s1e1",
+        "description": "s1e2",
+        "gender": "s1e3",
+        "image": "s1e5",
+        "ki": "s1e6",
+        "max_ki": "s1e7",
+        "name": "s1e8",
+        "origin_planet": {},
+        "race": "s1ea",
+        "transformation": []
+      }
+    }
+  }
+}

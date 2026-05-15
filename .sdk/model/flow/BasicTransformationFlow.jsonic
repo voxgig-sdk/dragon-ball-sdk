@@ -1,0 +1,44 @@
+# BasicTransformationFlow
+
+main: kit: flow: BasicTransformationFlow:
+{
+  entity: "transformation",
+  kind: "basic",
+  name: "BasicTransformationFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "transformation_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "transformation_ref01",
+        srcdatavar: "transformation_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "transformation01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-transformation_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicTransformationFlow"
+}

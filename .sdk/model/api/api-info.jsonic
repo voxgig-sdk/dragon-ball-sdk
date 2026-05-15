@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://web.dragonball-api.com/documentation"
+      }
+      description: "The Dragon Ball API provides comprehensive information about characters, transformations, power stats, planets, and locations from the Dragon Ball universe. It allows users to retrieve data through various endpoints for easy integration into applications or services."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://dragonball-api.com/api"
+        }
+      ]
+      title: "Dragon Ball API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

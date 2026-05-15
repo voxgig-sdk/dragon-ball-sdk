@@ -1,0 +1,668 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Dragon Ball API",
+    "description": "The Dragon Ball API provides comprehensive information about characters, transformations, power stats, planets, and locations from the Dragon Ball universe. It allows users to retrieve data through various endpoints for easy integration into applications or services.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://web.dragonball-api.com/documentation"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://dragonball-api.com/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/characters": {
+      "get": {
+        "summary": "Get all characters",
+        "description": "Retrieve a list of all Dragon Ball characters with their details including transformations, power stats, and biographical information.",
+        "operationId": "getCharacters",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter characters by name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "race",
+            "in": "query",
+            "description": "Filter characters by race",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "affiliation",
+            "in": "query",
+            "description": "Filter characters by affiliation",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of characters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Character"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/PaginationMeta"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginationLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/characters/{id}": {
+      "get": {
+        "summary": "Get character by ID",
+        "description": "Retrieve detailed information about a specific Dragon Ball character by their unique identifier.",
+        "operationId": "getCharacterById",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the character",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with character details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Character"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/planets": {
+      "get": {
+        "summary": "Get all planets",
+        "description": "Retrieve a list of all planets and locations from the Dragon Ball universe.",
+        "operationId": "getPlanets",
+        "tags": [
+          "Planets"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter planets by name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of planets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Planet"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/PaginationMeta"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginationLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/planets/{id}": {
+      "get": {
+        "summary": "Get planet by ID",
+        "description": "Retrieve detailed information about a specific planet or location by its unique identifier.",
+        "operationId": "getPlanetById",
+        "tags": [
+          "Planets"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the planet",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with planet details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Planet"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Planet not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transformations": {
+      "get": {
+        "summary": "Get all transformations",
+        "description": "Retrieve a list of all character transformations in the Dragon Ball universe.",
+        "operationId": "getTransformations",
+        "tags": [
+          "Transformations"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of results per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10,
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with list of transformations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Transformation"
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/PaginationMeta"
+                    },
+                    "links": {
+                      "$ref": "#/components/schemas/PaginationLinks"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/transformations/{id}": {
+      "get": {
+        "summary": "Get transformation by ID",
+        "description": "Retrieve detailed information about a specific transformation by its unique identifier.",
+        "operationId": "getTransformationById",
+        "tags": [
+          "Transformations"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the transformation",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with transformation details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transformation"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Transformation not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Character": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the character"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the character"
+          },
+          "ki": {
+            "type": "string",
+            "description": "Current ki (power level) of the character"
+          },
+          "maxKi": {
+            "type": "string",
+            "description": "Maximum ki the character can achieve"
+          },
+          "race": {
+            "type": "string",
+            "description": "Race or species of the character"
+          },
+          "gender": {
+            "type": "string",
+            "description": "Gender of the character",
+            "enum": [
+              "Male",
+              "Female",
+              "Unknown"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the character"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to character image"
+          },
+          "affiliation": {
+            "type": "string",
+            "description": "Character's affiliation or allegiance"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Deletion timestamp if character is deleted"
+          },
+          "transformations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Transformation"
+            },
+            "description": "List of transformations available to the character"
+          },
+          "originPlanet": {
+            "$ref": "#/components/schemas/Planet",
+            "description": "Planet where the character originated"
+          }
+        }
+      },
+      "Transformation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the transformation"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the transformation"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to transformation image"
+          },
+          "ki": {
+            "type": "string",
+            "description": "Ki level in this transformation"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Deletion timestamp if transformation is deleted"
+          }
+        }
+      },
+      "Planet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "Unique identifier for the planet"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the planet"
+          },
+          "isDestroyed": {
+            "type": "boolean",
+            "description": "Whether the planet has been destroyed"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the planet"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to planet image"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true,
+            "description": "Deletion timestamp if planet is deleted"
+          }
+        }
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "properties": {
+          "totalItems": {
+            "type": "integer",
+            "description": "Total number of items available"
+          },
+          "itemCount": {
+            "type": "integer",
+            "description": "Number of items in current response"
+          },
+          "itemsPerPage": {
+            "type": "integer",
+            "description": "Number of items per page"
+          },
+          "totalPages": {
+            "type": "integer",
+            "description": "Total number of pages"
+          },
+          "currentPage": {
+            "type": "integer",
+            "description": "Current page number"
+          }
+        }
+      },
+      "PaginationLinks": {
+        "type": "object",
+        "properties": {
+          "first": {
+            "type": "string",
+            "format": "uri",
+            "description": "Link to first page"
+          },
+          "previous": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true,
+            "description": "Link to previous page"
+          },
+          "next": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true,
+            "description": "Link to next page"
+          },
+          "last": {
+            "type": "string",
+            "format": "uri",
+            "description": "Link to last page"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "statusCode": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error type"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Characters",
+      "description": "Operations related to Dragon Ball characters"
+    },
+    {
+      "name": "Transformations",
+      "description": "Operations related to character transformations"
+    },
+    {
+      "name": "Planets",
+      "description": "Operations related to planets and locations"
+    }
+  ]
+}

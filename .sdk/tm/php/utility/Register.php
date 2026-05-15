@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// DragonBall SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+DragonBallUtility::setRegistrar(function (DragonBallUtility $u): void {
+    $u->clean = [DragonBallClean::class, 'call'];
+    $u->done = [DragonBallDone::class, 'call'];
+    $u->make_error = [DragonBallMakeError::class, 'call'];
+    $u->feature_add = [DragonBallFeatureAdd::class, 'call'];
+    $u->feature_hook = [DragonBallFeatureHook::class, 'call'];
+    $u->feature_init = [DragonBallFeatureInit::class, 'call'];
+    $u->fetcher = [DragonBallFetcher::class, 'call'];
+    $u->make_fetch_def = [DragonBallMakeFetchDef::class, 'call'];
+    $u->make_context = [DragonBallMakeContext::class, 'call'];
+    $u->make_options = [DragonBallMakeOptions::class, 'call'];
+    $u->make_request = [DragonBallMakeRequest::class, 'call'];
+    $u->make_response = [DragonBallMakeResponse::class, 'call'];
+    $u->make_result = [DragonBallMakeResult::class, 'call'];
+    $u->make_point = [DragonBallMakePoint::class, 'call'];
+    $u->make_spec = [DragonBallMakeSpec::class, 'call'];
+    $u->make_url = [DragonBallMakeUrl::class, 'call'];
+    $u->param = [DragonBallParam::class, 'call'];
+    $u->prepare_auth = [DragonBallPrepareAuth::class, 'call'];
+    $u->prepare_body = [DragonBallPrepareBody::class, 'call'];
+    $u->prepare_headers = [DragonBallPrepareHeaders::class, 'call'];
+    $u->prepare_method = [DragonBallPrepareMethod::class, 'call'];
+    $u->prepare_params = [DragonBallPrepareParams::class, 'call'];
+    $u->prepare_path = [DragonBallPreparePath::class, 'call'];
+    $u->prepare_query = [DragonBallPrepareQuery::class, 'call'];
+    $u->result_basic = [DragonBallResultBasic::class, 'call'];
+    $u->result_body = [DragonBallResultBody::class, 'call'];
+    $u->result_headers = [DragonBallResultHeaders::class, 'call'];
+    $u->transform_request = [DragonBallTransformRequest::class, 'call'];
+    $u->transform_response = [DragonBallTransformResponse::class, 'call'];
+});
