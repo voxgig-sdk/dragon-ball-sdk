@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/dragon-ball-sdk"
-	"github.com/voxgig-sdk/dragon-ball-sdk/core"
+	sdk "github.com/voxgig-sdk/dragon-ball-sdk/go"
+	"github.com/voxgig-sdk/dragon-ball-sdk/go/core"
 )
 
 func TestPlanetDirect(t *testing.T) {

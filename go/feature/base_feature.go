@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/dragon-ball-sdk/core"
+	"github.com/voxgig-sdk/dragon-ball-sdk/go/core"
 )
 
 type BaseFeature struct {

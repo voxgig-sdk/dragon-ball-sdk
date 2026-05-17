@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/dragon-ball-sdk"
+	sdk "github.com/voxgig-sdk/dragon-ball-sdk/go"
 )
 
 func TestCustomUtility(t *testing.T) {

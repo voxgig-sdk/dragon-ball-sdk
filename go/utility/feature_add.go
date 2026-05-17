@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/dragon-ball-sdk/core"
+import "github.com/voxgig-sdk/dragon-ball-sdk/go/core"
 
 func featureAddUtil(ctx *core.Context, f core.Feature) {
 	client := ctx.Client

@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/dragon-ball-sdk/core"
+import "github.com/voxgig-sdk/dragon-ball-sdk/go/core"
 
 func makeErrorUtil(ctx *core.Context, err error) (any, error) {
 	if ctx == nil {

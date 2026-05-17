@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/dragon-ball-sdk"
-	"github.com/voxgig-sdk/dragon-ball-sdk/core"
+	sdk "github.com/voxgig-sdk/dragon-ball-sdk/go"
+	"github.com/voxgig-sdk/dragon-ball-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/dragon-ball-sdk/go/utility/struct"
 )
 
 func TestTransformationEntity(t *testing.T) {

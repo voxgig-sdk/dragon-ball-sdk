@@ -1,10 +1,10 @@
 package voxgigdragonballsdk
 
 import (
-	"github.com/voxgig-sdk/dragon-ball-sdk/core"
-	"github.com/voxgig-sdk/dragon-ball-sdk/entity"
-	"github.com/voxgig-sdk/dragon-ball-sdk/feature"
-	_ "github.com/voxgig-sdk/dragon-ball-sdk/utility"
+	"github.com/voxgig-sdk/dragon-ball-sdk/go/core"
+	"github.com/voxgig-sdk/dragon-ball-sdk/go/entity"
+	"github.com/voxgig-sdk/dragon-ball-sdk/go/feature"
+	_ "github.com/voxgig-sdk/dragon-ball-sdk/go/utility"
 )
 
 // Type aliases preserve external API.
