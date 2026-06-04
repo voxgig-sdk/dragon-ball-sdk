@@ -20,9 +20,6 @@ class DragonBallConfig
             ],
             "options" => [
                 "base" => "https://dragonball-api.com/api",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],

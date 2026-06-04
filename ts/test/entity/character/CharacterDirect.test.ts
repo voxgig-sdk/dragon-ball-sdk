@@ -136,14 +136,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'DRAGONBALL_TEST_CHARACTER_ENTID': {},
     'DRAGONBALL_TEST_LIVE': 'FALSE',
-    'DRAGONBALL_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.DRAGONBALL_TEST_LIVE
 
   if (live) {
     const client = new DragonBallSDK({
-      apikey: env.DRAGONBALL_APIKEY,
     })
 
     let idmap: any = env['DRAGONBALL_TEST_CHARACTER_ENTID']

@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'DRAGON_BALL_TEST_TRANSFORMATION_ENTID': idmap,
     'DRAGON_BALL_TEST_LIVE': 'FALSE',
     'DRAGON_BALL_TEST_EXPLAIN': 'FALSE',
-    'DRAGON_BALL_APIKEY': 'NONE',
   })
 
   idmap = env['DRAGON_BALL_TEST_TRANSFORMATION_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new DragonBallSDK(merge([
       {
-        apikey: env.DRAGON_BALL_APIKEY,
       },
       extra
     ]))

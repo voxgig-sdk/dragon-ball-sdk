@@ -123,14 +123,12 @@ function transformation_direct_setup($mockres)
     $env = Runner::env_override([
         "DRAGONBALL_TEST_TRANSFORMATION_ENTID" => [],
         "DRAGONBALL_TEST_LIVE" => "FALSE",
-        "DRAGONBALL_APIKEY" => "NONE",
     ]);
 
     $live = $env["DRAGONBALL_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["DRAGONBALL_APIKEY"],
         ];
         $client = new DragonBallSDK($merged_opts);
         return [
