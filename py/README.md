@@ -10,7 +10,7 @@ The Python SDK for the DragonBall API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install dragon-ball-sdk
+pip install voxgig-sdk-dragon-ball
 ```
 
 Or install from source:

@@ -10,13 +10,13 @@ The Ruby SDK for the DragonBall API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install dragon-ball-sdk
+gem install voxgig-sdk-dragon-ball
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "dragon-ball-sdk"
+gem "voxgig-sdk-dragon-ball"
 ```
 
 Then run:

@@ -10,7 +10,7 @@ The TypeScript SDK for the DragonBall API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install dragon-ball
+npm install @voxgig-sdk/dragon-ball
 ```
 ## Tutorial: your first API call
 

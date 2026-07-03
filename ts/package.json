@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/dragon-ball",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Dragon Ball public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "dragon-ball"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/dragon-ball-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/dragon-ball-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/dragon-ball-sdk/issues"
+  },
   "main": "dist/DragonBallSDK.js",
   "type": "commonjs",
   "types": "dist/DragonBallSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "DragonBall",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

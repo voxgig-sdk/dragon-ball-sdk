@@ -8,12 +8,14 @@ source = {
   dir = "dragon-ball-sdk/lua"
 }
 description = {
-  summary = "DragonBall SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Dragon Ball public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/dragon-ball-sdk",
+  issues_url = "https://github.com/voxgig-sdk/dragon-ball-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "dragon-ball" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

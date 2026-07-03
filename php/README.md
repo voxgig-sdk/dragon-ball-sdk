@@ -10,7 +10,7 @@ The PHP SDK for the DragonBall API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/dragon-ball-sdk
+composer require voxgig-sdk/dragon-ball
 ```
 
 

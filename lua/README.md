@@ -10,7 +10,7 @@ The Lua SDK for the DragonBall API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install dragon-ball-sdk
+luarocks install voxgig-sdk-dragon-ball
 ```
 
 If the module is not yet published, add the source directory to
