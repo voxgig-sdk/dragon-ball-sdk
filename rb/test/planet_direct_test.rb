@@ -116,12 +116,14 @@ def planet_direct_setup(mockres)
   env = Runner.env_override({
     "DRAGONBALL_TEST_PLANET_ENTID" => {},
     "DRAGONBALL_TEST_LIVE" => "FALSE",
+    "DRAGONBALL_APIKEY" => "NONE",
   })
 
   live = env["DRAGONBALL_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["DRAGONBALL_APIKEY"],
     }
     client = DragonBallSDK.new(merged_opts)
     return {

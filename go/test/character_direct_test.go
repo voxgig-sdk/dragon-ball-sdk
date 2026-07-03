@@ -194,12 +194,14 @@ func characterDirectSetup(mockres any) *characterDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DRAGONBALL_TEST_CHARACTER_ENTID": map[string]any{},
 		"DRAGONBALL_TEST_LIVE":    "FALSE",
+		"DRAGONBALL_APIKEY":       "NONE",
 	})
 
 	live := env["DRAGONBALL_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["DRAGONBALL_APIKEY"],
 		}
 		client := sdk.NewDragonBallSDK(mergedOpts)
 

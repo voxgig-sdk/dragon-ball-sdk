@@ -16,24 +16,7 @@ main: {
       ]
       title: "Dragon Ball API"
       version: "1.0.0"
-      tagline: "Query characters, transformations, power stats, planets, and locations from the Dragon Ball universe"
-      homepage: "https://dragonball-api.com/"
-      docs_url: "https://web.dragonball-api.com/documentation"
-      about_md: `The Dragon Ball API is a free, community-run REST API that serves data drawn from the Dragon Ball franchise — characters, their transformations, power statistics, planets, and notable locations. Documentation and an interactive explorer are available at [web.dragonball-api.com](https://web.dragonball-api.com/documentation).
-
-What you get from the API:
-
-- Character records (e.g. \`/api/characters\`) covering figures across the Dragon Ball series
-- Planet records (e.g. \`/api/planets\`) describing locations in the universe
-- Transformation data linked to characters, with power-related stats
-
-The API is open and requires no authentication. Endpoints generally return JSON over HTTPS. CORS is reported as disabled on the main endpoints, so browser-based clients may need a proxy.`
-      entity_desc: {
-        character: "A Dragon Ball character with biographical and combat-related fields, served from `/api/characters`."
-        planet: "A planet or notable location in the Dragon Ball universe, served from `/api/planets`."
-        transformation: "A transformation belonging to a character, exposing the altered form and its associated power stats."
-      }
-      auth: false
     }
   }
 }
+

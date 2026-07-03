@@ -102,6 +102,7 @@ def _planet_basic_setup(extra):
         "DRAGONBALL_TEST_PLANET_ENTID": idmap,
         "DRAGONBALL_TEST_LIVE": "FALSE",
         "DRAGONBALL_TEST_EXPLAIN": "FALSE",
+        "DRAGONBALL_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -112,6 +113,7 @@ def _planet_basic_setup(extra):
     if env.get("DRAGONBALL_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("DRAGONBALL_APIKEY"),
             },
             extra or {},
         ])
