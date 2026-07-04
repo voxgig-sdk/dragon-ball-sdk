@@ -206,42 +206,21 @@ class DragonBallSDK {
 
 
 
-  _character?: CharacterEntity
-
-  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
-  get character(): CharacterEntity {
-    return (this._character ??= new CharacterEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.character` instead. */
+  // Entity access: `client.Character().list()` / `client.Character().load({ id })`.
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
-  _planet?: PlanetEntity
-
-  // Idiomatic facade: `client.planet.list()` / `client.planet.load({ id })`.
-  get planet(): PlanetEntity {
-    return (this._planet ??= new PlanetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.planet` instead. */
+  // Entity access: `client.Planet().list()` / `client.Planet().load({ id })`.
   Planet(data?: any) {
     const self = this
     return new PlanetEntity(self,data)
   }
 
 
-  _transformation?: TransformationEntity
-
-  // Idiomatic facade: `client.transformation.list()` / `client.transformation.load({ id })`.
-  get transformation(): TransformationEntity {
-    return (this._transformation ??= new TransformationEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.transformation` instead. */
+  // Entity access: `client.Transformation().list()` / `client.Transformation().load({ id })`.
   Transformation(data?: any) {
     const self = this
     return new TransformationEntity(self,data)

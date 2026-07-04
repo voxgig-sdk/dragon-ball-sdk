@@ -233,10 +233,10 @@ class DragonBallSDK
 
     private $_character = null;
 
-    // Idiomatic facade: $client->character()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Character() (PHP method
-    // names are case-insensitive).
-    public function character($data = null)
+    // Canonical facade: $client->Character()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->character()
+    // resolves here too.
+    public function Character($data = null)
     {
         require_once __DIR__ . '/entity/character_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class DragonBallSDK
 
     private $_planet = null;
 
-    // Idiomatic facade: $client->planet()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Planet() (PHP method
-    // names are case-insensitive).
-    public function planet($data = null)
+    // Canonical facade: $client->Planet()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->planet()
+    // resolves here too.
+    public function Planet($data = null)
     {
         require_once __DIR__ . '/entity/planet_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class DragonBallSDK
 
     private $_transformation = null;
 
-    // Idiomatic facade: $client->transformation()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Transformation() (PHP method
-    // names are case-insensitive).
-    public function transformation($data = null)
+    // Canonical facade: $client->Transformation()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->transformation()
+    // resolves here too.
+    public function Transformation($data = null)
     {
         require_once __DIR__ . '/entity/transformation_entity.php';
         if ($data === null) {

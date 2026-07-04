@@ -208,39 +208,21 @@ class DragonBallSDK
   end
 
 
-  # Idiomatic facade: client.character.list / client.character.load({ "id" => ... })
-  def character
-    require_relative 'entity/character_entity'
-    @character ||= CharacterEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.character instead.
+  # Canonical facade: client.Character.list / client.Character.load({ "id" => ... })
   def Character(data = nil)
     require_relative 'entity/character_entity'
     CharacterEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.planet.list / client.planet.load({ "id" => ... })
-  def planet
-    require_relative 'entity/planet_entity'
-    @planet ||= PlanetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.planet instead.
+  # Canonical facade: client.Planet.list / client.Planet.load({ "id" => ... })
   def Planet(data = nil)
     require_relative 'entity/planet_entity'
     PlanetEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.transformation.list / client.transformation.load({ "id" => ... })
-  def transformation
-    require_relative 'entity/transformation_entity'
-    @transformation ||= TransformationEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.transformation instead.
+  # Canonical facade: client.Transformation.list / client.Transformation.load({ "id" => ... })
   def Transformation(data = nil)
     require_relative 'entity/transformation_entity'
     TransformationEntity.new(self, data)

@@ -220,57 +220,27 @@ class DragonBallSDK:
         }
 
 
-    @property
-    def character(self):
-        """Idiomatic facade: client.character.list() / client.character.load({"id": ...})."""
-        from entity.character_entity import CharacterEntity
-        cached = getattr(self, "_character", None)
-        if cached is None:
-            cached = CharacterEntity(self, None)
-            self._character = cached
-        return cached
-
-    def Character(self, data=None):
-        # Deprecated: use client.character instead.
+    def Character(self, data=None) -> "CharacterEntity":
+        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
-    @property
-    def planet(self):
-        """Idiomatic facade: client.planet.list() / client.planet.load({"id": ...})."""
-        from entity.planet_entity import PlanetEntity
-        cached = getattr(self, "_planet", None)
-        if cached is None:
-            cached = PlanetEntity(self, None)
-            self._planet = cached
-        return cached
-
-    def Planet(self, data=None):
-        # Deprecated: use client.planet instead.
+    def Planet(self, data=None) -> "PlanetEntity":
+        """Entity factory: client.Planet().list({}) / client.Planet().load({"id": ...})."""
         from entity.planet_entity import PlanetEntity
         return PlanetEntity(self, data)
 
 
-    @property
-    def transformation(self):
-        """Idiomatic facade: client.transformation.list() / client.transformation.load({"id": ...})."""
-        from entity.transformation_entity import TransformationEntity
-        cached = getattr(self, "_transformation", None)
-        if cached is None:
-            cached = TransformationEntity(self, None)
-            self._transformation = cached
-        return cached
-
-    def Transformation(self, data=None):
-        # Deprecated: use client.transformation instead.
+    def Transformation(self, data=None) -> "TransformationEntity":
+        """Entity factory: client.Transformation().list({}) / client.Transformation().load({"id": ...})."""
         from entity.transformation_entity import TransformationEntity
         return TransformationEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "DragonBallSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -290,3 +260,11 @@ class DragonBallSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.character_entity import CharacterEntity
+    from entity.planet_entity import PlanetEntity
+    from entity.transformation_entity import TransformationEntity

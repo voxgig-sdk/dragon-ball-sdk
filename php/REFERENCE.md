@@ -93,7 +93,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CharacterEntity
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 ```
 
 ### Fields
@@ -120,7 +120,7 @@ $character = $client->character();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->character()->list([]);
+$results = $client->Character()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -128,7 +128,7 @@ $results = $client->character()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->character()->load(["id" => "character_id"]);
+$result = $client->Character()->load(["id" => "character_id"]);
 ```
 
 ### Common Methods
@@ -164,7 +164,7 @@ Return the entity name.
 ## PlanetEntity
 
 ```php
-$planet = $client->planet();
+$planet = $client->Planet();
 ```
 
 ### Fields
@@ -185,7 +185,7 @@ $planet = $client->planet();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->planet()->list([]);
+$results = $client->Planet()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -193,7 +193,7 @@ $results = $client->planet()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->planet()->load(["id" => "planet_id"]);
+$result = $client->Planet()->load(["id" => "planet_id"]);
 ```
 
 ### Common Methods
@@ -229,7 +229,7 @@ Return the entity name.
 ## TransformationEntity
 
 ```php
-$transformation = $client->transformation();
+$transformation = $client->Transformation();
 ```
 
 ### Fields
@@ -249,7 +249,7 @@ $transformation = $client->transformation();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->transformation()->list([]);
+$results = $client->Transformation()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -257,7 +257,7 @@ $results = $client->transformation()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->transformation()->load(["id" => "transformation_id"]);
+$result = $client->Transformation()->load(["id" => "transformation_id"]);
 ```
 
 ### Common Methods

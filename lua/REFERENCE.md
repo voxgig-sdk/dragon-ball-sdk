@@ -91,7 +91,7 @@ same parameters as `direct()`.
 ## CharacterEntity
 
 ```lua
-local character = client:character(nil)
+local character = client:Character(nil)
 ```
 
 ### Fields
@@ -118,7 +118,7 @@ local character = client:character(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:character():list()
+local results, err = client:Character():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -126,7 +126,7 @@ local results, err = client:character():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:character():load({ id = "character_id" })
+local result, err = client:Character():load({ id = "character_id" })
 ```
 
 ### Common Methods
@@ -162,7 +162,7 @@ Return the entity name.
 ## PlanetEntity
 
 ```lua
-local planet = client:planet(nil)
+local planet = client:Planet(nil)
 ```
 
 ### Fields
@@ -183,7 +183,7 @@ local planet = client:planet(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:planet():list()
+local results, err = client:Planet():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -191,7 +191,7 @@ local results, err = client:planet():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:planet():load({ id = "planet_id" })
+local result, err = client:Planet():load({ id = "planet_id" })
 ```
 
 ### Common Methods
@@ -227,7 +227,7 @@ Return the entity name.
 ## TransformationEntity
 
 ```lua
-local transformation = client:transformation(nil)
+local transformation = client:Transformation(nil)
 ```
 
 ### Fields
@@ -247,7 +247,7 @@ local transformation = client:transformation(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:transformation():list()
+local results, err = client:Transformation():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -255,7 +255,7 @@ local results, err = client:transformation():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:transformation():load({ id = "transformation_id" })
+local result, err = client:Transformation():load({ id = "transformation_id" })
 ```
 
 ### Common Methods

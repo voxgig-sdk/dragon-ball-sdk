@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
-function DragonBallSDK:character(data)
+-- Idiomatic facade: client:Character():list() / client:Character():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DragonBallSDK:Character(data)
   local EntityMod = require("entity.character_entity")
   if data == nil then
     if self._character == nil then
@@ -256,15 +257,10 @@ function DragonBallSDK:character(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:character() instead.
-function DragonBallSDK:Character(data)
-  local EntityMod = require("entity.character_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:planet():list() / client:planet():load({ id = ... })
-function DragonBallSDK:planet(data)
+-- Idiomatic facade: client:Planet():list() / client:Planet():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DragonBallSDK:Planet(data)
   local EntityMod = require("entity.planet_entity")
   if data == nil then
     if self._planet == nil then
@@ -275,15 +271,10 @@ function DragonBallSDK:planet(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:planet() instead.
-function DragonBallSDK:Planet(data)
-  local EntityMod = require("entity.planet_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:transformation():list() / client:transformation():load({ id = ... })
-function DragonBallSDK:transformation(data)
+-- Idiomatic facade: client:Transformation():list() / client:Transformation():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DragonBallSDK:Transformation(data)
   local EntityMod = require("entity.transformation_entity")
   if data == nil then
     if self._transformation == nil then
@@ -291,12 +282,6 @@ function DragonBallSDK:transformation(data)
     end
     return self._transformation
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:transformation() instead.
-function DragonBallSDK:Transformation(data)
-  local EntityMod = require("entity.transformation_entity")
   return EntityMod.new(self, data)
 end
 

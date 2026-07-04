@@ -4,94 +4,89 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Character:
-    affiliation: Optional[str] = None
-    deleted_at: Optional[str] = None
-    description: Optional[str] = None
-    gender: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    ki: Optional[str] = None
-    max_ki: Optional[str] = None
-    name: Optional[str] = None
-    origin_planet: Optional[dict] = None
-    race: Optional[str] = None
-    transformation: Optional[list] = None
+class Character(TypedDict, total=False):
+    affiliation: str
+    deleted_at: str
+    description: str
+    gender: str
+    id: int
+    image: str
+    ki: str
+    max_ki: str
+    name: str
+    origin_planet: dict
+    race: str
+    transformation: list
 
 
-@dataclass
-class CharacterLoadMatch:
+class CharacterLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class CharacterListMatch:
-    affiliation: Optional[str] = None
-    deleted_at: Optional[str] = None
-    description: Optional[str] = None
-    gender: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    ki: Optional[str] = None
-    max_ki: Optional[str] = None
-    name: Optional[str] = None
-    origin_planet: Optional[dict] = None
-    race: Optional[str] = None
-    transformation: Optional[list] = None
+class CharacterListMatch(TypedDict, total=False):
+    affiliation: str
+    deleted_at: str
+    description: str
+    gender: str
+    id: int
+    image: str
+    ki: str
+    max_ki: str
+    name: str
+    origin_planet: dict
+    race: str
+    transformation: list
 
 
-@dataclass
-class Planet:
-    deleted_at: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    is_destroyed: Optional[bool] = None
-    name: Optional[str] = None
+class Planet(TypedDict, total=False):
+    deleted_at: str
+    description: str
+    id: int
+    image: str
+    is_destroyed: bool
+    name: str
 
 
-@dataclass
-class PlanetLoadMatch:
+class PlanetLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class PlanetListMatch:
-    deleted_at: Optional[str] = None
-    description: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    is_destroyed: Optional[bool] = None
-    name: Optional[str] = None
+class PlanetListMatch(TypedDict, total=False):
+    deleted_at: str
+    description: str
+    id: int
+    image: str
+    is_destroyed: bool
+    name: str
 
 
-@dataclass
-class Transformation:
-    deleted_at: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    ki: Optional[str] = None
-    name: Optional[str] = None
+class Transformation(TypedDict, total=False):
+    deleted_at: str
+    id: int
+    image: str
+    ki: str
+    name: str
 
 
-@dataclass
-class TransformationLoadMatch:
+class TransformationLoadMatch(TypedDict):
     id: int
 
 
-@dataclass
-class TransformationListMatch:
-    deleted_at: Optional[str] = None
-    id: Optional[int] = None
-    image: Optional[str] = None
-    ki: Optional[str] = None
-    name: Optional[str] = None
-
+class TransformationListMatch(TypedDict, total=False):
+    deleted_at: str
+    id: int
+    image: str
+    ki: str
+    name: str

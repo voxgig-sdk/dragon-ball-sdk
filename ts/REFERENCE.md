@@ -133,7 +133,7 @@ Alias for `DragonBallSDK.test()`.
 ## CharacterEntity
 
 ```ts
-const character = client.character
+const character = client.Character()
 ```
 
 ### Fields
@@ -160,7 +160,7 @@ const character = client.character
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.character.list()
+const results = await client.Character().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -168,7 +168,7 @@ const results = await client.character.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.character.load({ id: 'character_id' })
+const result = await client.Character().load({ id: 'character_id' })
 ```
 
 ### Common Methods
@@ -202,7 +202,7 @@ Return a copy of the entity options.
 ## PlanetEntity
 
 ```ts
-const planet = client.planet
+const planet = client.Planet()
 ```
 
 ### Fields
@@ -223,7 +223,7 @@ const planet = client.planet
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.planet.list()
+const results = await client.Planet().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -231,7 +231,7 @@ const results = await client.planet.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.planet.load({ id: 'planet_id' })
+const result = await client.Planet().load({ id: 'planet_id' })
 ```
 
 ### Common Methods
@@ -265,7 +265,7 @@ Return a copy of the entity options.
 ## TransformationEntity
 
 ```ts
-const transformation = client.transformation
+const transformation = client.Transformation()
 ```
 
 ### Fields
@@ -285,7 +285,7 @@ const transformation = client.transformation
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.transformation.list()
+const results = await client.Transformation().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -293,7 +293,7 @@ const results = await client.transformation.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.transformation.load({ id: 'transformation_id' })
+const result = await client.Transformation().load({ id: 'transformation_id' })
 ```
 
 ### Common Methods

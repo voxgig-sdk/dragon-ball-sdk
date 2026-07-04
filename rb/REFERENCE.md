@@ -94,7 +94,7 @@ same parameters as `direct()`. Raises on error.
 ## CharacterEntity
 
 ```ruby
-character = client.character
+character = client.Character
 ```
 
 ### Fields
@@ -121,7 +121,7 @@ character = client.character
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.character.list(nil)
+results = client.Character.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -129,7 +129,7 @@ results = client.character.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.character.load({ "id" => "character_id" })
+result = client.Character.load({ "id" => "character_id" })
 ```
 
 ### Common Methods
@@ -165,7 +165,7 @@ Return the entity name.
 ## PlanetEntity
 
 ```ruby
-planet = client.planet
+planet = client.Planet
 ```
 
 ### Fields
@@ -186,7 +186,7 @@ planet = client.planet
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.planet.list(nil)
+results = client.Planet.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -194,7 +194,7 @@ results = client.planet.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.planet.load({ "id" => "planet_id" })
+result = client.Planet.load({ "id" => "planet_id" })
 ```
 
 ### Common Methods
@@ -230,7 +230,7 @@ Return the entity name.
 ## TransformationEntity
 
 ```ruby
-transformation = client.transformation
+transformation = client.Transformation
 ```
 
 ### Fields
@@ -250,7 +250,7 @@ transformation = client.transformation
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.transformation.list(nil)
+results = client.Transformation.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -258,7 +258,7 @@ results = client.transformation.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.transformation.load({ "id" => "transformation_id" })
+result = client.Transformation.load({ "id" => "transformation_id" })
 ```
 
 ### Common Methods

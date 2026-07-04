@@ -28,16 +28,14 @@ require_relative "DragonBall_sdk"
 client = DragonBallSDK.new
 ```
 
-### 2. List characters
+### 2. List character records
 
 ```ruby
 begin
-  result = client.character.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Character records — iterate directly.
+  characters = client.Character.list
+  characters.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.character.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Character record (raises on error).
+  character = client.Character.load({ "id" => "example_id" })
+  puts character
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = DragonBallSDK.test
+client = DragonBallSDK.test({
+  "entity" => { "character" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.character.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+character = client.Character.load({ "id" => "test01" })
+puts character
 ```
 
 ### Use a custom fetch function
@@ -276,7 +279,7 @@ API path: `/transformations`
 
 ### Character
 
-Create an instance: `const character = client.character`
+Create an instance: `character = client.Character`
 
 #### Operations
 
@@ -304,20 +307,22 @@ Create an instance: `const character = client.character`
 
 #### Example: Load
 
-```ts
-const character = await client.character.load({ id: 'character_id' })
+```ruby
+# load returns the bare Character record (raises on error).
+character = client.Character.load({ "id" => "character_id" })
 ```
 
 #### Example: List
 
-```ts
-const characters = await client.character.list()
+```ruby
+# list returns an Array of Character records (raises on error).
+characters = client.Character.list
 ```
 
 
 ### Planet
 
-Create an instance: `const planet = client.planet`
+Create an instance: `planet = client.Planet`
 
 #### Operations
 
@@ -339,20 +344,22 @@ Create an instance: `const planet = client.planet`
 
 #### Example: Load
 
-```ts
-const planet = await client.planet.load({ id: 'planet_id' })
+```ruby
+# load returns the bare Planet record (raises on error).
+planet = client.Planet.load({ "id" => "planet_id" })
 ```
 
 #### Example: List
 
-```ts
-const planets = await client.planet.list()
+```ruby
+# list returns an Array of Planet records (raises on error).
+planets = client.Planet.list
 ```
 
 
 ### Transformation
 
-Create an instance: `const transformation = client.transformation`
+Create an instance: `transformation = client.Transformation`
 
 #### Operations
 
@@ -373,14 +380,16 @@ Create an instance: `const transformation = client.transformation`
 
 #### Example: Load
 
-```ts
-const transformation = await client.transformation.load({ id: 'transformation_id' })
+```ruby
+# load returns the bare Transformation record (raises on error).
+transformation = client.Transformation.load({ "id" => "transformation_id" })
 ```
 
 #### Example: List
 
-```ts
-const transformations = await client.transformation.list()
+```ruby
+# list returns an Array of Transformation records (raises on error).
+transformations = client.Transformation.list
 ```
 
 
@@ -455,7 +464,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-character = client.character
+character = client.Character
 character.load({ "id" => "example_id" })
 
 # character.data_get now returns the loaded character data
