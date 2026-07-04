@@ -50,16 +50,14 @@ class TestPlanetEntity:
         planet_ref01_ent = client.Planet(None)
         planet_ref01_match = {}
 
-        planet_ref01_list_result, err = planet_ref01_ent.list(planet_ref01_match, None)
-        assert err is None
+        planet_ref01_list_result = planet_ref01_ent.list(planet_ref01_match, None)
         assert isinstance(planet_ref01_list_result, list)
 
         # LOAD
         planet_ref01_match_dt0 = {
             "id": planet_ref01_data["id"],
         }
-        planet_ref01_data_dt0_loaded, err = planet_ref01_ent.load(planet_ref01_match_dt0, None)
-        assert err is None
+        planet_ref01_data_dt0_loaded = planet_ref01_ent.load(planet_ref01_match_dt0, None)
         planet_ref01_data_dt0_load_result = helpers.to_map(planet_ref01_data_dt0_loaded)
         assert planet_ref01_data_dt0_load_result is not None
         assert planet_ref01_data_dt0_load_result["id"] == planet_ref01_data["id"]
@@ -102,7 +100,6 @@ def _planet_basic_setup(extra):
         "DRAGONBALL_TEST_PLANET_ENTID": idmap,
         "DRAGONBALL_TEST_LIVE": "FALSE",
         "DRAGONBALL_TEST_EXPLAIN": "FALSE",
-        "DRAGONBALL_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +110,6 @@ def _planet_basic_setup(extra):
     if env.get("DRAGONBALL_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("DRAGONBALL_APIKEY"),
             },
             extra or {},
         ])

@@ -9,12 +9,9 @@ The Lua SDK for the DragonBall API — an entity-oriented client using Lua conve
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-dragon-ball
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/dragon-ball-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("dragon-ball_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("DRAGON-BALL_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List characters
 
 ```lua
-local result, err = client:Character():list()
+local result, err = client:character():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -53,7 +48,7 @@ end
 ### 3. Load a character
 
 ```lua
-local result, err = client:Character():load({ id = "example_id" })
+local result, err = client:character():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:DragonBall():load({ id = "test01" })
+local result, err = client:character():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -134,8 +129,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-DRAGON-BALL_TEST_LIVE=TRUE
-DRAGON-BALL_APIKEY=<your-key>
+DRAGON_BALL_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -277,7 +270,7 @@ API path: `/transformations`
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -306,19 +299,19 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load({ id: 'character_id' })
+const character = await client.character.load({ id: 'character_id' })
 ```
 
 #### Example: List
 
 ```ts
-const characters = await client.Character().list()
+const characters = await client.character.list()
 ```
 
 
 ### Planet
 
-Create an instance: `const planet = client.Planet()`
+Create an instance: `const planet = client.planet`
 
 #### Operations
 
@@ -341,19 +334,19 @@ Create an instance: `const planet = client.Planet()`
 #### Example: Load
 
 ```ts
-const planet = await client.Planet().load({ id: 'planet_id' })
+const planet = await client.planet.load({ id: 'planet_id' })
 ```
 
 #### Example: List
 
 ```ts
-const planets = await client.Planet().list()
+const planets = await client.planet.list()
 ```
 
 
 ### Transformation
 
-Create an instance: `const transformation = client.Transformation()`
+Create an instance: `const transformation = client.transformation`
 
 #### Operations
 
@@ -375,13 +368,13 @@ Create an instance: `const transformation = client.Transformation()`
 #### Example: Load
 
 ```ts
-const transformation = await client.Transformation().load({ id: 'transformation_id' })
+const transformation = await client.transformation.load({ id: 'transformation_id' })
 ```
 
 #### Example: List
 
 ```ts
-const transformations = await client.Transformation().list()
+const transformations = await client.transformation.list()
 ```
 
 
@@ -456,11 +449,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local character = client:character()
+character:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- character:data_get() now returns the loaded character data
+-- character:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

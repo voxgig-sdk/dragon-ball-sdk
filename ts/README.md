@@ -9,9 +9,12 @@ The TypeScript SDK for the DragonBall API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/dragon-ball
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/dragon-ball-sdk/releases](https://github.com/voxgig-sdk/dragon-ball-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { DragonBallSDK } from 'dragon-ball'
+import { DragonBallSDK } from '@voxgig-sdk/dragon-ball'
 
-const client = new DragonBallSDK({
-  apikey: process.env.DRAGON-BALL_APIKEY,
-})
+const client = new DragonBallSDK()
 ```
 
 ### 2. List characters
 
 ```ts
-const result = await client.Character().list()
+const result = await client.character.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a character
 
 ```ts
-const result = await client.Character().load({ id: 'example_id' })
+const result = await client.character.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = DragonBallSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.character.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new DragonBallSDK({ apikey: '...' })
+const client = new DragonBallSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.character
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new DragonBallSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new DragonBallSDK({
 Create a `.env.local` file at the project root:
 
 ```
-DRAGON-BALL_TEST_LIVE=TRUE
-DRAGON-BALL_APIKEY=<your-key>
+DRAGON_BALL_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new DragonBallSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new DragonBallSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -320,7 +317,7 @@ API path: `/transformations`
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -349,19 +346,19 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load({ id: 'character_id' })
+const character = await client.character.load({ id: 'character_id' })
 ```
 
 #### Example: List
 
 ```ts
-const characters = await client.Character().list()
+const characters = await client.character.list()
 ```
 
 
 ### Planet
 
-Create an instance: `const planet = client.Planet()`
+Create an instance: `const planet = client.planet`
 
 #### Operations
 
@@ -384,19 +381,19 @@ Create an instance: `const planet = client.Planet()`
 #### Example: Load
 
 ```ts
-const planet = await client.Planet().load({ id: 'planet_id' })
+const planet = await client.planet.load({ id: 'planet_id' })
 ```
 
 #### Example: List
 
 ```ts
-const planets = await client.Planet().list()
+const planets = await client.planet.list()
 ```
 
 
 ### Transformation
 
-Create an instance: `const transformation = client.Transformation()`
+Create an instance: `const transformation = client.transformation`
 
 #### Operations
 
@@ -418,13 +415,13 @@ Create an instance: `const transformation = client.Transformation()`
 #### Example: Load
 
 ```ts
-const transformation = await client.Transformation().load({ id: 'transformation_id' })
+const transformation = await client.transformation.load({ id: 'transformation_id' })
 ```
 
 #### Example: List
 
 ```ts
-const transformations = await client.Transformation().list()
+const transformations = await client.transformation.list()
 ```
 
 
@@ -485,7 +482,7 @@ dragon-ball/
 Import the SDK from the package root:
 
 ```ts
-import { DragonBallSDK } from 'dragon-ball'
+import { DragonBallSDK } from '@voxgig-sdk/dragon-ball'
 ```
 
 ### Entity state
@@ -495,11 +492,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const character = client.character
+await character.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// character.data() now returns the loaded character data
+// character.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

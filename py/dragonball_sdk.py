@@ -144,16 +144,23 @@ class DragonBallSDK:
 
         _, err = utility.prepare_auth(ctx)
         if err is not None:
-            return None, err
+            raise err
 
-        return utility.make_fetch_def(ctx)
+        fetchdef, err = utility.make_fetch_def(ctx)
+        if err is not None:
+            raise err
+
+        return fetchdef
 
     def direct(self, fetchargs=None):
         utility = self._utility
 
-        fetchdef, err = self.prepare(fetchargs)
-        if err is not None:
-            return {"ok": False, "err": err}, None
+        try:
+            fetchdef = self.prepare(fetchargs)
+        except Exception as err:
+            # direct() is the raw-HTTP escape hatch: it never raises, it
+            # returns a result object callers branch on via result["ok"].
+            return {"ok": False, "err": err}
 
         if fetchargs is None:
             fetchargs = {}
@@ -170,13 +177,13 @@ class DragonBallSDK:
         fetched, fetch_err = utility.fetcher(ctx, url, fetchdef)
 
         if fetch_err is not None:
-            return {"ok": False, "err": fetch_err}, None
+            return {"ok": False, "err": fetch_err}
 
         if fetched is None:
             return {
                 "ok": False,
                 "err": ctx.make_error("direct_no_response", "response: undefined"),
-            }, None
+            }
 
         if isinstance(fetched, dict):
             status = helpers.to_int(vs.getprop(fetched, "status"))
@@ -205,25 +212,58 @@ class DragonBallSDK:
                 "status": status,
                 "headers": headers,
                 "data": json_data,
-            }, None
+            }
 
         return {
             "ok": False,
             "err": ctx.make_error("direct_invalid", "invalid response type"),
-        }, None
+        }
 
+
+    @property
+    def character(self):
+        """Idiomatic facade: client.character.list() / client.character.load({"id": ...})."""
+        from entity.character_entity import CharacterEntity
+        cached = getattr(self, "_character", None)
+        if cached is None:
+            cached = CharacterEntity(self, None)
+            self._character = cached
+        return cached
 
     def Character(self, data=None):
+        # Deprecated: use client.character instead.
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
+    @property
+    def planet(self):
+        """Idiomatic facade: client.planet.list() / client.planet.load({"id": ...})."""
+        from entity.planet_entity import PlanetEntity
+        cached = getattr(self, "_planet", None)
+        if cached is None:
+            cached = PlanetEntity(self, None)
+            self._planet = cached
+        return cached
+
     def Planet(self, data=None):
+        # Deprecated: use client.planet instead.
         from entity.planet_entity import PlanetEntity
         return PlanetEntity(self, data)
 
 
+    @property
+    def transformation(self):
+        """Idiomatic facade: client.transformation.list() / client.transformation.load({"id": ...})."""
+        from entity.transformation_entity import TransformationEntity
+        cached = getattr(self, "_transformation", None)
+        if cached is None:
+            cached = TransformationEntity(self, None)
+            self._transformation = cached
+        return cached
+
     def Transformation(self, data=None):
+        # Deprecated: use client.transformation instead.
         from entity.transformation_entity import TransformationEntity
         return TransformationEntity(self, data)
 

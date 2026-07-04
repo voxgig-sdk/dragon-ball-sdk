@@ -4,6 +4,8 @@ import { CharacterEntity } from './entity/CharacterEntity'
 import { PlanetEntity } from './entity/PlanetEntity'
 import { TransformationEntity } from './entity/TransformationEntity'
 
+export type * from './DragonBallTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -204,18 +206,42 @@ class DragonBallSDK {
 
 
 
+  _character?: CharacterEntity
+
+  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
+  get character(): CharacterEntity {
+    return (this._character ??= new CharacterEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.character` instead. */
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)
   }
 
 
+  _planet?: PlanetEntity
+
+  // Idiomatic facade: `client.planet.list()` / `client.planet.load({ id })`.
+  get planet(): PlanetEntity {
+    return (this._planet ??= new PlanetEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.planet` instead. */
   Planet(data?: any) {
     const self = this
     return new PlanetEntity(self,data)
   }
 
 
+  _transformation?: TransformationEntity
+
+  // Idiomatic facade: `client.transformation.list()` / `client.transformation.load({ id })`.
+  get transformation(): TransformationEntity {
+    return (this._transformation ??= new TransformationEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.transformation` instead. */
   Transformation(data?: any) {
     const self = this
     return new TransformationEntity(self,data)

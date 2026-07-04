@@ -117,14 +117,12 @@ function character_direct_setup(mockres)
   local env = runner.env_override({
     ["DRAGONBALL_TEST_CHARACTER_ENTID"] = {},
     ["DRAGONBALL_TEST_LIVE"] = "FALSE",
-    ["DRAGONBALL_APIKEY"] = "NONE",
   })
 
   local live = env["DRAGONBALL_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["DRAGONBALL_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

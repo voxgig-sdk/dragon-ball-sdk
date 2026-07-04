@@ -102,7 +102,6 @@ function character_basic_setup(extra)
     ["DRAGONBALL_TEST_CHARACTER_ENTID"] = idmap,
     ["DRAGONBALL_TEST_LIVE"] = "FALSE",
     ["DRAGONBALL_TEST_EXPLAIN"] = "FALSE",
-    ["DRAGONBALL_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -114,7 +113,6 @@ function character_basic_setup(extra)
   if env["DRAGONBALL_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["DRAGONBALL_APIKEY"],
       },
       extra or {},
     })

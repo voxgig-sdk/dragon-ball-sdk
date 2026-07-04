@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch TransformationLoadMatch
+---@param ctrl? table
+---@return Transformation
+---@return string? err
 function TransformationEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch TransformationListMatch
+---@param ctrl? table
+---@return Transformation[]
+---@return string? err
 function TransformationEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

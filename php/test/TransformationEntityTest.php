@@ -50,16 +50,14 @@ class TransformationEntityTest extends TestCase
         $transformation_ref01_ent = $client->Transformation(null);
         $transformation_ref01_match = [];
 
-        [$transformation_ref01_list_result, $err] = $transformation_ref01_ent->list($transformation_ref01_match, null);
-        $this->assertNull($err);
+        $transformation_ref01_list_result = $transformation_ref01_ent->list($transformation_ref01_match, null);
         $this->assertIsArray($transformation_ref01_list_result);
 
         // LOAD
         $transformation_ref01_match_dt0 = [
             "id" => $transformation_ref01_data["id"],
         ];
-        [$transformation_ref01_data_dt0_loaded, $err] = $transformation_ref01_ent->load($transformation_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $transformation_ref01_data_dt0_loaded = $transformation_ref01_ent->load($transformation_ref01_match_dt0, null);
         $transformation_ref01_data_dt0_load_result = Helpers::to_map($transformation_ref01_data_dt0_loaded);
         $this->assertNotNull($transformation_ref01_data_dt0_load_result);
         $this->assertEquals($transformation_ref01_data_dt0_load_result["id"], $transformation_ref01_data["id"]);
@@ -96,7 +94,6 @@ function transformation_basic_setup($extra)
         "DRAGONBALL_TEST_TRANSFORMATION_ENTID" => $idmap,
         "DRAGONBALL_TEST_LIVE" => "FALSE",
         "DRAGONBALL_TEST_EXPLAIN" => "FALSE",
-        "DRAGONBALL_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +105,6 @@ function transformation_basic_setup($extra)
     if ($env["DRAGONBALL_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DRAGONBALL_APIKEY"],
             ],
             $extra ?? [],
         ]);

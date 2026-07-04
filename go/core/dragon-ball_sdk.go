@@ -245,16 +245,25 @@ func (sdk *DragonBallSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DragonBallSDK) Character(data map[string]any) DragonBallEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }
 
 
+// Planet returns a Planet entity bound to this client.
+// Idiomatic usage: client.Planet(nil).List(nil, nil) or
+// client.Planet(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DragonBallSDK) Planet(data map[string]any) DragonBallEntity {
 	return NewPlanetEntityFunc(sdk, data)
 }
 
 
+// Transformation returns a Transformation entity bound to this client.
+// Idiomatic usage: client.Transformation(nil).List(nil, nil) or
+// client.Transformation(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DragonBallSDK) Transformation(data map[string]any) DragonBallEntity {
 	return NewTransformationEntityFunc(sdk, data)
 }

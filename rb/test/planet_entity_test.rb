@@ -43,16 +43,14 @@ class PlanetEntityTest < Minitest::Test
     planet_ref01_ent = client.Planet(nil)
     planet_ref01_match = {}
 
-    planet_ref01_list_result, err = planet_ref01_ent.list(planet_ref01_match, nil)
-    assert_nil err
+    planet_ref01_list_result = planet_ref01_ent.list(planet_ref01_match, nil)
     assert planet_ref01_list_result.is_a?(Array)
 
     # LOAD
     planet_ref01_match_dt0 = {
       "id" => planet_ref01_data["id"],
     }
-    planet_ref01_data_dt0_loaded, err = planet_ref01_ent.load(planet_ref01_match_dt0, nil)
-    assert_nil err
+    planet_ref01_data_dt0_loaded = planet_ref01_ent.load(planet_ref01_match_dt0, nil)
     planet_ref01_data_dt0_load_result = Helpers.to_map(planet_ref01_data_dt0_loaded)
     assert !planet_ref01_data_dt0_load_result.nil?
     assert_equal planet_ref01_data_dt0_load_result["id"], planet_ref01_data["id"]
@@ -93,7 +91,6 @@ def planet_basic_setup(extra)
     "DRAGONBALL_TEST_PLANET_ENTID" => idmap,
     "DRAGONBALL_TEST_LIVE" => "FALSE",
     "DRAGONBALL_TEST_EXPLAIN" => "FALSE",
-    "DRAGONBALL_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +102,6 @@ def planet_basic_setup(extra)
   if env["DRAGONBALL_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["DRAGONBALL_APIKEY"],
       },
       extra || {},
     ])
