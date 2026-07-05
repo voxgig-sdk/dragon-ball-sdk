@@ -8,7 +8,7 @@ Complete API reference for the DragonBall PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/dragon-ball_sdk.php';
+require_once __DIR__ . '/dragonball_sdk.php';
 
 $client = new DragonBallSDK($options);
 ```
@@ -53,11 +53,11 @@ Create a new `PlanetEntity` instance. Pass `null` for no initial data.
 
 Create a new `TransformationEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): DragonBallUtility`
 
 Return a copy of the SDK utility object.
 
@@ -100,27 +100,27 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | ``$STRING`` | No |  |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `max_ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin_planet` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `transformation` | ``$ARRAY`` | No |  |
+| `affiliation` | `string` | No |  |
+| `deleted_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `gender` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `ki` | `string` | No |  |
+| `max_ki` | `string` | No |  |
+| `name` | `string` | No |  |
+| `origin_planet` | `array` | No |  |
+| `race` | `string` | No |  |
+| `transformation` | `array` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Character()->list([]);
+$results = $client->Character()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -133,19 +133,19 @@ $result = $client->Character()->load(["id" => "character_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -154,7 +154,7 @@ Set the entity match criteria.
 Create a new `CharacterEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -171,21 +171,21 @@ $planet = $client->Planet();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `is_destroyed` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `is_destroyed` | `bool` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Planet()->list([]);
+$results = $client->Planet()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -198,19 +198,19 @@ $result = $client->Planet()->load(["id" => "planet_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -219,7 +219,7 @@ Set the entity match criteria.
 Create a new `PlanetEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 
@@ -236,20 +236,20 @@ $transformation = $client->Transformation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `ki` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Transformation()->list([]);
+$results = $client->Transformation()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -262,19 +262,19 @@ $result = $client->Transformation()->load(["id" => "transformation_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -283,7 +283,7 @@ Set the entity match criteria.
 Create a new `TransformationEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

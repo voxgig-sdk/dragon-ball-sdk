@@ -8,7 +8,7 @@ Complete API reference for the DragonBall Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'dragon-ball_sdk'
+require_relative 'DragonBall_sdk'
 
 client = DragonBallSDK.new(options)
 ```
@@ -101,27 +101,27 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | ``$STRING`` | No |  |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `max_ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin_planet` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `transformation` | ``$ARRAY`` | No |  |
+| `affiliation` | `String` | No |  |
+| `deleted_at` | `String` | No |  |
+| `description` | `String` | No |  |
+| `gender` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `image` | `String` | No |  |
+| `ki` | `String` | No |  |
+| `max_ki` | `String` | No |  |
+| `name` | `String` | No |  |
+| `origin_planet` | `Hash` | No |  |
+| `race` | `String` | No |  |
+| `transformation` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Character.list(nil)
+results = client.Character.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -172,21 +172,21 @@ planet = client.Planet
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `is_destroyed` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `String` | No |  |
+| `description` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `image` | `String` | No |  |
+| `is_destroyed` | `Boolean` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Planet.list(nil)
+results = client.Planet.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -237,20 +237,20 @@ transformation = client.Transformation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `String` | No |  |
+| `id` | `Integer` | No |  |
+| `image` | `String` | No |  |
+| `ki` | `String` | No |  |
+| `name` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Transformation.list(nil)
+results = client.Transformation.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

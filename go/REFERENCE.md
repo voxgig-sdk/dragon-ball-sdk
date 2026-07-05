@@ -105,18 +105,18 @@ character := client.Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | ``$STRING`` | No |  |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `max_ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin_planet` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `transformation` | ``$ARRAY`` | No |  |
+| `affiliation` | `string` | No |  |
+| `deleted_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `gender` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `ki` | `string` | No |  |
+| `max_ki` | `string` | No |  |
+| `name` | `string` | No |  |
+| `origin_planet` | `map[string]any` | No |  |
+| `race` | `string` | No |  |
+| `transformation` | `[]any` | No |  |
 
 ### Operations
 
@@ -170,12 +170,12 @@ planet := client.Planet(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `is_destroyed` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `is_destroyed` | `bool` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -229,11 +229,11 @@ transformation := client.Transformation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `string` | No |  |
+| `id` | `int` | No |  |
+| `image` | `string` | No |  |
+| `ki` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 

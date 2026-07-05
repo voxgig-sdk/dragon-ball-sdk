@@ -70,7 +70,7 @@ CharacterLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Character#list (any subset of Character fields).
+# Request payload for Character#list.
 #
 # @!attribute [rw] affiliation
 #   @return [String, nil]
@@ -161,7 +161,7 @@ PlanetLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Planet#list (any subset of Planet fields).
+# Request payload for Planet#list.
 #
 # @!attribute [rw] deleted_at
 #   @return [String, nil]
@@ -224,7 +224,7 @@ TransformationLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Transformation#list (any subset of Transformation fields).
+# Request payload for Transformation#list.
 #
 # @!attribute [rw] deleted_at
 #   @return [String, nil]

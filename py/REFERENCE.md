@@ -8,7 +8,7 @@ Complete API reference for the DragonBall Python SDK.
 ### Constructor
 
 ```python
-from dragon-ball_sdk import DragonBallSDK
+from dragonball_sdk import DragonBallSDK
 
 client = DragonBallSDK(options)
 ```
@@ -95,27 +95,27 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | ``$STRING`` | No |  |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `max_ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin_planet` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `transformation` | ``$ARRAY`` | No |  |
+| `affiliation` | `str` | No |  |
+| `deleted_at` | `str` | No |  |
+| `description` | `str` | No |  |
+| `gender` | `str` | No |  |
+| `id` | `int` | No |  |
+| `image` | `str` | No |  |
+| `ki` | `str` | No |  |
+| `max_ki` | `str` | No |  |
+| `name` | `str` | No |  |
+| `origin_planet` | `dict` | No |  |
+| `race` | `str` | No |  |
+| `transformation` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Character().list({})
+results = client.Character().list()
 for character in results:
     print(character)
 ```
@@ -167,21 +167,21 @@ planet = client.Planet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `is_destroyed` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `str` | No |  |
+| `description` | `str` | No |  |
+| `id` | `int` | No |  |
+| `image` | `str` | No |  |
+| `is_destroyed` | `bool` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Planet().list({})
+results = client.Planet().list()
 for planet in results:
     print(planet)
 ```
@@ -233,20 +233,20 @@ transformation = client.Transformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `str` | No |  |
+| `id` | `int` | No |  |
+| `image` | `str` | No |  |
+| `ki` | `str` | No |  |
+| `name` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Transformation().list({})
+results = client.Transformation().list()
 for transformation in results:
     print(transformation)
 ```

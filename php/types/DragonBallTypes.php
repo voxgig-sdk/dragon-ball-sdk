@@ -35,7 +35,7 @@ class CharacterLoadMatch
     public int $id;
 }
 
-/** Match filter for Character#list (any subset of Character fields). */
+/** Request payload for Character#list. */
 class CharacterListMatch
 {
     public ?string $affiliation = null;
@@ -69,7 +69,7 @@ class PlanetLoadMatch
     public int $id;
 }
 
-/** Match filter for Planet#list (any subset of Planet fields). */
+/** Request payload for Planet#list. */
 class PlanetListMatch
 {
     public ?string $deleted_at = null;
@@ -96,7 +96,7 @@ class TransformationLoadMatch
     public int $id;
 }
 
-/** Match filter for Transformation#list (any subset of Transformation fields). */
+/** Request payload for Transformation#list. */
 class TransformationListMatch
 {
     public ?string $deleted_at = null;

@@ -24,7 +24,20 @@ export interface CharacterLoadMatch {
   id: number
 }
 
-export type CharacterListMatch = Partial<Character>
+export interface CharacterListMatch {
+  affiliation?: string
+  deleted_at?: string
+  description?: string
+  gender?: string
+  id?: number
+  image?: string
+  ki?: string
+  max_ki?: string
+  name?: string
+  origin_planet?: Record<string, any>
+  race?: string
+  transformation?: any[]
+}
 
 export interface Planet {
   deleted_at?: string
@@ -39,7 +52,14 @@ export interface PlanetLoadMatch {
   id: number
 }
 
-export type PlanetListMatch = Partial<Planet>
+export interface PlanetListMatch {
+  deleted_at?: string
+  description?: string
+  id?: number
+  image?: string
+  is_destroyed?: boolean
+  name?: string
+}
 
 export interface Transformation {
   deleted_at?: string
@@ -53,5 +73,11 @@ export interface TransformationLoadMatch {
   id: number
 }
 
-export type TransformationListMatch = Partial<Transformation>
+export interface TransformationListMatch {
+  deleted_at?: string
+  id?: number
+  image?: string
+  ki?: string
+  name?: string
+}
 

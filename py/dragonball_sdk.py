@@ -221,19 +221,19 @@ class DragonBallSDK:
 
 
     def Character(self, data=None) -> "CharacterEntity":
-        """Entity factory: client.Character().list({}) / client.Character().load({"id": ...})."""
+        """Entity factory: client.Character().list() / client.Character().load({"id": ...})."""
         from entity.character_entity import CharacterEntity
         return CharacterEntity(self, data)
 
 
     def Planet(self, data=None) -> "PlanetEntity":
-        """Entity factory: client.Planet().list({}) / client.Planet().load({"id": ...})."""
+        """Entity factory: client.Planet().list() / client.Planet().load({"id": ...})."""
         from entity.planet_entity import PlanetEntity
         return PlanetEntity(self, data)
 
 
     def Transformation(self, data=None) -> "TransformationEntity":
-        """Entity factory: client.Transformation().list({}) / client.Transformation().load({"id": ...})."""
+        """Entity factory: client.Transformation().list() / client.Transformation().load({"id": ...})."""
         from entity.transformation_entity import TransformationEntity
         return TransformationEntity(self, data)
 

@@ -24,6 +24,18 @@
 ---@field id number
 
 ---@class CharacterListMatch
+---@field affiliation? string
+---@field deleted_at? string
+---@field description? string
+---@field gender? string
+---@field id? number
+---@field image? string
+---@field ki? string
+---@field max_ki? string
+---@field name? string
+---@field origin_planet? table
+---@field race? string
+---@field transformation? table
 
 ---@class Planet
 ---@field deleted_at? string
@@ -37,6 +49,12 @@
 ---@field id number
 
 ---@class PlanetListMatch
+---@field deleted_at? string
+---@field description? string
+---@field id? number
+---@field image? string
+---@field is_destroyed? boolean
+---@field name? string
 
 ---@class Transformation
 ---@field deleted_at? string
@@ -49,6 +67,11 @@
 ---@field id number
 
 ---@class TransformationListMatch
+---@field deleted_at? string
+---@field id? number
+---@field image? string
+---@field ki? string
+---@field name? string
 
 local M = {}
 

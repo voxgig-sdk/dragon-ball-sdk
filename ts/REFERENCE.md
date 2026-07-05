@@ -140,18 +140,18 @@ const character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | ``$STRING`` | No |  |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `gender` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `max_ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `origin_planet` | ``$OBJECT`` | No |  |
-| `race` | ``$STRING`` | No |  |
-| `transformation` | ``$ARRAY`` | No |  |
+| `affiliation` | `string` | No |  |
+| `deleted_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `gender` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `ki` | `string` | No |  |
+| `max_ki` | `string` | No |  |
+| `name` | `string` | No |  |
+| `origin_planet` | `Record<string, any>` | No |  |
+| `race` | `string` | No |  |
+| `transformation` | `any[]` | No |  |
 
 ### Operations
 
@@ -168,7 +168,7 @@ const results = await client.Character().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Character().load({ id: 'character_id' })
+const result = await client.Character().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -209,12 +209,12 @@ const planet = client.Planet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `description` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `is_destroyed` | ``$BOOLEAN`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `string` | No |  |
+| `description` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `is_destroyed` | `boolean` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -231,7 +231,7 @@ const results = await client.Planet().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Planet().load({ id: 'planet_id' })
+const result = await client.Planet().load({ id: 1 })
 ```
 
 ### Common Methods
@@ -272,11 +272,11 @@ const transformation = client.Transformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | ``$STRING`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image` | ``$STRING`` | No |  |
-| `ki` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
+| `deleted_at` | `string` | No |  |
+| `id` | `number` | No |  |
+| `image` | `string` | No |  |
+| `ki` | `string` | No |  |
+| `name` | `string` | No |  |
 
 ### Operations
 
@@ -293,7 +293,7 @@ const results = await client.Transformation().list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Transformation().load({ id: 'transformation_id' })
+const result = await client.Transformation().load({ id: 1 })
 ```
 
 ### Common Methods

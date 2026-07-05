@@ -29,8 +29,7 @@ type CharacterLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// CharacterListMatch mirrors the character fields as an all-optional match
-// filter (Go analog of Partial<Character>).
+// CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
 	Affiliation *string `json:"affiliation,omitempty"`
 	DeletedAt *string `json:"deleted_at,omitempty"`
@@ -61,8 +60,7 @@ type PlanetLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// PlanetListMatch mirrors the planet fields as an all-optional match
-// filter (Go analog of Partial<Planet>).
+// PlanetListMatch is the typed request payload for Planet.ListTyped.
 type PlanetListMatch struct {
 	DeletedAt *string `json:"deleted_at,omitempty"`
 	Description *string `json:"description,omitempty"`
@@ -86,8 +84,7 @@ type TransformationLoadMatch struct {
 	Id int `json:"id"`
 }
 
-// TransformationListMatch mirrors the transformation fields as an all-optional match
-// filter (Go analog of Partial<Transformation>).
+// TransformationListMatch is the typed request payload for Transformation.ListTyped.
 type TransformationListMatch struct {
 	DeletedAt *string `json:"deleted_at,omitempty"`
 	Id *int `json:"id,omitempty"`
