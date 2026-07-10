@@ -50,7 +50,7 @@ try {
 ```php
 try {
     // load() returns the bare Character record (throws on error).
-    $character = $client->Character()->load(["id" => "example_id"]);
+    $character = $client->Character()->load(["id" => 1]);
     print_r($character);
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -347,7 +347,7 @@ Create an instance: `$character = $client->Character();`
 
 ```php
 // load() returns the bare Character record (throws on error).
-$character = $client->Character()->load(["id" => "character_id"]);
+$character = $client->Character()->load(["id" => 1]);
 ```
 
 #### Example: List
@@ -384,7 +384,7 @@ Create an instance: `$planet = $client->Planet();`
 
 ```php
 // load() returns the bare Planet record (throws on error).
-$planet = $client->Planet()->load(["id" => "planet_id"]);
+$planet = $client->Planet()->load(["id" => 1]);
 ```
 
 #### Example: List
@@ -420,7 +420,7 @@ Create an instance: `$transformation = $client->Transformation();`
 
 ```php
 // load() returns the bare Transformation record (throws on error).
-$transformation = $client->Transformation()->load(["id" => "transformation_id"]);
+$transformation = $client->Transformation()->load(["id" => 1]);
 ```
 
 #### Example: List

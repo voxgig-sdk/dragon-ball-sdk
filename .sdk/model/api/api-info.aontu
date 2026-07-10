@@ -15,9 +15,9 @@ main: {
           url: "https://dragonball-api.com/api"
         }
       ]
+      summary: "The Dragon Ball API provides comprehensive information about characters, transformations, power stats, planets, and locations from the Dragon Ball universe."
       title: "Dragon Ball API"
       version: "1.0.0"
+      website: "https://dragonball-api.com"
     }
   }
-}
-

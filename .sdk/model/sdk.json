@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -742,14 +739,17 @@
           "url": "https://web.dragonball-api.com/documentation"
         },
         "description": "The Dragon Ball API provides comprehensive information about characters, transformations, power stats, planets, and locations from the Dragon Ball universe. It allows users to retrieve data through various endpoints for easy integration into applications or services.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://dragonball-api.com/api"
           }
         ],
+        "summary": "The Dragon Ball API provides comprehensive information about characters, transformations, power stats, planets, and locations from the Dragon Ball universe.",
         "title": "Dragon Ball API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://dragonball-api.com"
       },
       "option": {},
       "target": {
@@ -802,6 +802,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -852,6 +855,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

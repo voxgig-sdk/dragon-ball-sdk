@@ -125,7 +125,7 @@ for character in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Character().load({"id": "character_id"})
+result = client.Character().load({"id": 1})
 ```
 
 ### Common Methods
@@ -191,7 +191,7 @@ for planet in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Planet().load({"id": "planet_id"})
+result = client.Planet().load({"id": 1})
 ```
 
 ### Common Methods
@@ -256,7 +256,7 @@ for transformation in results:
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.Transformation().load({"id": "transformation_id"})
+result = client.Transformation().load({"id": 1})
 ```
 
 ### Common Methods

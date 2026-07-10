@@ -99,6 +99,7 @@ same parameters as `Direct()`.
 
 ```go
 character := client.Character(nil)
+fmt.Println(character.GetName()) // "character"
 ```
 
 ### Fields
@@ -126,6 +127,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Character(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -133,7 +138,11 @@ results, err := client.Character(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Character(nil).Load(map[string]any{"id": "character_id"}, nil)
+result, err := client.Character(nil).Load(map[string]any{"id": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -164,6 +173,7 @@ Return the entity name.
 
 ```go
 planet := client.Planet(nil)
+fmt.Println(planet.GetName()) // "planet"
 ```
 
 ### Fields
@@ -185,6 +195,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Planet(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -192,7 +206,11 @@ results, err := client.Planet(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Planet(nil).Load(map[string]any{"id": "planet_id"}, nil)
+result, err := client.Planet(nil).Load(map[string]any{"id": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
@@ -223,6 +241,7 @@ Return the entity name.
 
 ```go
 transformation := client.Transformation(nil)
+fmt.Println(transformation.GetName()) // "transformation"
 ```
 
 ### Fields
@@ -243,6 +262,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.Transformation(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 #### `Load(reqmatch, ctrl map[string]any) (any, error)`
@@ -250,7 +273,11 @@ results, err := client.Transformation(nil).List(nil, nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.Transformation(nil).Load(map[string]any{"id": "transformation_id"}, nil)
+result, err := client.Transformation(nil).Load(map[string]any{"id": 1}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods
