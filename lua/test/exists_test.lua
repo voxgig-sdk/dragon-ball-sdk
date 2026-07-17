@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- DragonBall SDK exists test
 
 local sdk = require("dragon-ball_sdk")
 
