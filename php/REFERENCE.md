@@ -101,17 +101,17 @@ $character = $client->Character();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `affiliation` | `string` | No |  |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `int` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |
-| `max_ki` | `string` | No |  |
+| `maxKi` | `string` | No |  |
 | `name` | `string` | No |  |
-| `origin_planet` | `array` | No |  |
+| `originPlanet` | `array` | No |  |
 | `race` | `string` | No |  |
-| `transformation` | `array` | No |  |
+| `transformations` | `array` | No |  |
 
 ### Operations
 
@@ -171,11 +171,11 @@ $planet = $client->Planet();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `int` | No |  |
 | `image` | `string` | No |  |
-| `is_destroyed` | `bool` | No |  |
+| `isDestroyed` | `bool` | No |  |
 | `name` | `string` | No |  |
 
 ### Operations
@@ -236,7 +236,7 @@ $transformation = $client->Transformation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `id` | `int` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |

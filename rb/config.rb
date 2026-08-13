@@ -36,7 +36,7 @@ module DragonBallConfig
             },
             {
               "active" => true,
-              "name" => "deleted_at",
+              "name" => "deletedAt",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 1,
@@ -78,7 +78,7 @@ module DragonBallConfig
             },
             {
               "active" => true,
-              "name" => "max_ki",
+              "name" => "maxKi",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 7,
@@ -92,7 +92,7 @@ module DragonBallConfig
             },
             {
               "active" => true,
-              "name" => "origin_planet",
+              "name" => "originPlanet",
               "req" => false,
               "type" => "`$OBJECT`",
               "index$" => 9,
@@ -106,7 +106,7 @@ module DragonBallConfig
             },
             {
               "active" => true,
-              "name" => "transformation",
+              "name" => "transformations",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 11,
@@ -166,6 +166,7 @@ module DragonBallConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters",
                   "parts" => [
@@ -208,6 +209,7 @@ module DragonBallConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters/{id}",
                   "parts" => [
@@ -237,7 +239,7 @@ module DragonBallConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "deleted_at",
+              "name" => "deletedAt",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 0,
@@ -265,7 +267,7 @@ module DragonBallConfig
             },
             {
               "active" => true,
-              "name" => "is_destroyed",
+              "name" => "isDestroyed",
               "req" => false,
               "type" => "`$BOOLEAN`",
               "index$" => 4,
@@ -316,6 +318,7 @@ module DragonBallConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/planets",
                   "parts" => [
@@ -356,6 +359,7 @@ module DragonBallConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/planets/{id}",
                   "parts" => [
@@ -385,7 +389,7 @@ module DragonBallConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "deleted_at",
+              "name" => "deletedAt",
               "req" => false,
               "type" => "`$STRING`",
               "index$" => 0,
@@ -449,6 +453,7 @@ module DragonBallConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/transformations",
                   "parts" => [
@@ -488,6 +493,7 @@ module DragonBallConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/transformations/{id}",
                   "parts" => [

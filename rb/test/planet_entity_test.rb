@@ -62,7 +62,7 @@ class PlanetEntityTest < Minitest::Test
     # The basic flow consumes synthetic IDs from the fixture. In live mode
     # without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup[:synthetic_only]
-      skip "live entity test uses synthetic IDs from fixture — set DRAGONBALL_TEST_PLANET_ENTID JSON to run live"
+      skip "live entity test uses synthetic IDs from fixture — set DRAGON_BALL_TEST_PLANET_ENTID JSON to run live"
       return
     end
     client = setup[:client]
@@ -87,7 +87,7 @@ class PlanetEntityTest < Minitest::Test
       "id" => planet_ref01_data["id"],
     }
     planet_ref01_data_dt0_loaded = planet_ref01_ent.load(planet_ref01_match_dt0, nil)
-    planet_ref01_data_dt0_load_result = Helpers.to_map(planet_ref01_data_dt0_loaded)
+    planet_ref01_data_dt0_load_result = Helpers.to_map(planet_ref01_data_dt0_loaded.respond_to?(:data_get) ? planet_ref01_data_dt0_loaded.data_get : planet_ref01_data_dt0_loaded)
     assert !planet_ref01_data_dt0_load_result.nil?
     assert_equal planet_ref01_data_dt0_load_result["id"], planet_ref01_data["id"]
 
@@ -120,22 +120,22 @@ def planet_basic_setup(extra)
   # Detect ENTID env override before envOverride consumes it. When live
   # mode is on without a real override, the basic test runs against synthetic
   # IDs from the fixture and 4xx's. Surface this so the test can skip.
-  entid_env_raw = ENV["DRAGONBALL_TEST_PLANET_ENTID"]
+  entid_env_raw = ENV["DRAGON_BALL_TEST_PLANET_ENTID"]
   idmap_overridden = !entid_env_raw.nil? && entid_env_raw.strip.start_with?("{")
 
   env = Runner.env_override({
-    "DRAGONBALL_TEST_PLANET_ENTID" => idmap,
-    "DRAGONBALL_TEST_LIVE" => "FALSE",
-    "DRAGONBALL_TEST_EXPLAIN" => "FALSE",
+    "DRAGON_BALL_TEST_PLANET_ENTID" => idmap,
+    "DRAGON_BALL_TEST_LIVE" => "FALSE",
+    "DRAGON_BALL_TEST_EXPLAIN" => "FALSE",
   })
 
   idmap_resolved = Helpers.to_map(
-    env["DRAGONBALL_TEST_PLANET_ENTID"])
+    env["DRAGON_BALL_TEST_PLANET_ENTID"])
   if idmap_resolved.nil?
     idmap_resolved = Helpers.to_map(idmap)
   end
 
-  if env["DRAGONBALL_TEST_LIVE"] == "TRUE"
+  if env["DRAGON_BALL_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
       },
@@ -144,13 +144,13 @@ def planet_basic_setup(extra)
     client = DragonBallSDK.new(Helpers.to_map(merged_opts))
   end
 
-  live = env["DRAGONBALL_TEST_LIVE"] == "TRUE"
+  live = env["DRAGON_BALL_TEST_LIVE"] == "TRUE"
   {
     client: client,
     data: entity_data,
     idmap: idmap_resolved,
     env: env,
-    explain: env["DRAGONBALL_TEST_EXPLAIN"] == "TRUE",
+    explain: env["DRAGON_BALL_TEST_EXPLAIN"] == "TRUE",
     live: live,
     synthetic_only: live && !idmap_overridden,
     now: (Time.now.to_f * 1000).to_i,

@@ -16,17 +16,17 @@ declare(strict_types=1);
 class Character
 {
     public ?string $affiliation = null;
-    public ?string $deleted_at = null;
+    public ?string $deletedAt = null;
     public ?string $description = null;
     public ?string $gender = null;
     public ?int $id = null;
     public ?string $image = null;
     public ?string $ki = null;
-    public ?string $max_ki = null;
+    public ?string $maxKi = null;
     public ?string $name = null;
-    public ?array $origin_planet = null;
+    public ?array $originPlanet = null;
     public ?string $race = null;
-    public ?array $transformation = null;
+    public ?array $transformations = null;
 }
 
 /** Request payload for Character#load. */
@@ -39,27 +39,27 @@ class CharacterLoadMatch
 class CharacterListMatch
 {
     public ?string $affiliation = null;
-    public ?string $deleted_at = null;
+    public ?string $deletedAt = null;
     public ?string $description = null;
     public ?string $gender = null;
     public ?int $id = null;
     public ?string $image = null;
     public ?string $ki = null;
-    public ?string $max_ki = null;
+    public ?string $maxKi = null;
     public ?string $name = null;
-    public ?array $origin_planet = null;
+    public ?array $originPlanet = null;
     public ?string $race = null;
-    public ?array $transformation = null;
+    public ?array $transformations = null;
 }
 
 /** Planet entity data model. */
 class Planet
 {
-    public ?string $deleted_at = null;
+    public ?string $deletedAt = null;
     public ?string $description = null;
     public ?int $id = null;
     public ?string $image = null;
-    public ?bool $is_destroyed = null;
+    public ?bool $isDestroyed = null;
     public ?string $name = null;
 }
 
@@ -72,18 +72,18 @@ class PlanetLoadMatch
 /** Request payload for Planet#list. */
 class PlanetListMatch
 {
-    public ?string $deleted_at = null;
+    public ?string $deletedAt = null;
     public ?string $description = null;
     public ?int $id = null;
     public ?string $image = null;
-    public ?bool $is_destroyed = null;
+    public ?bool $isDestroyed = null;
     public ?string $name = null;
 }
 
 /** Transformation entity data model. */
 class Transformation
 {
-    public ?string $deleted_at = null;
+    public ?string $deletedAt = null;
     public ?int $id = null;
     public ?string $image = null;
     public ?string $ki = null;
@@ -99,7 +99,7 @@ class TransformationLoadMatch
 /** Request payload for Transformation#list. */
 class TransformationListMatch
 {
-    public ?string $deleted_at = null;
+    public ?string $deletedAt = null;
     public ?int $id = null;
     public ?string $image = null;
     public ?string $ki = null;

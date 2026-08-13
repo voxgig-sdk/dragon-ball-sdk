@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Character record (raises on error).
+  # load returns the ENTITY — call data_get for the Character record (raises on error).
   character = client.Character.load({ "id" => 1 })
   puts character
 rescue => err
@@ -63,7 +63,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  characters = client.Character.list()
+  planets = client.Planet.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -131,12 +131,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
 client = DragonBallSDK.test({
-  "entity" => { "character" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "planet" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
-character = client.Character.list()
-puts character
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+planet = client.Planet.list()
+puts planet
 ```
 
 ### Use a custom fetch function
@@ -255,17 +256,17 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `affiliation` |  |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
-| `max_ki` |  |
+| `maxKi` |  |
 | `name` |  |
-| `origin_planet` |  |
+| `originPlanet` |  |
 | `race` |  |
-| `transformation` |  |
+| `transformations` |  |
 
 Operations: List, Load.
 
@@ -275,11 +276,11 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
-| `is_destroyed` |  |
+| `isDestroyed` |  |
 | `name` |  |
 
 Operations: List, Load.
@@ -290,7 +291,7 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
@@ -321,22 +322,22 @@ Create an instance: `character = client.Character`
 | Field | Type | Description |
 | --- | --- | --- |
 | `affiliation` | `String` |  |
-| `deleted_at` | `String` |  |
+| `deletedAt` | `String` |  |
 | `description` | `String` |  |
 | `gender` | `String` |  |
 | `id` | `Integer` |  |
 | `image` | `String` |  |
 | `ki` | `String` |  |
-| `max_ki` | `String` |  |
+| `maxKi` | `String` |  |
 | `name` | `String` |  |
-| `origin_planet` | `Hash` |  |
+| `originPlanet` | `Hash` |  |
 | `race` | `String` |  |
-| `transformation` | `Array` |  |
+| `transformations` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Character record (raises on error).
+# load returns the ENTITY — call data_get for the Character record (raises on error).
 character = client.Character.load({ "id" => 1 })
 ```
 
@@ -363,17 +364,17 @@ Create an instance: `planet = client.Planet`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `String` |  |
+| `deletedAt` | `String` |  |
 | `description` | `String` |  |
 | `id` | `Integer` |  |
 | `image` | `String` |  |
-| `is_destroyed` | `Boolean` |  |
+| `isDestroyed` | `Boolean` |  |
 | `name` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Planet record (raises on error).
+# load returns the ENTITY — call data_get for the Planet record (raises on error).
 planet = client.Planet.load({ "id" => 1 })
 ```
 
@@ -400,7 +401,7 @@ Create an instance: `transformation = client.Transformation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `String` |  |
+| `deletedAt` | `String` |  |
 | `id` | `Integer` |  |
 | `image` | `String` |  |
 | `ki` | `String` |  |
@@ -409,7 +410,7 @@ Create an instance: `transformation = client.Transformation`
 #### Example: Load
 
 ```ruby
-# load returns the bare Transformation record (raises on error).
+# load returns the ENTITY — call data_get for the Transformation record (raises on error).
 transformation = client.Transformation.load({ "id" => 1 })
 ```
 
@@ -497,11 +498,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-character = client.Character
-character.list()
+planet = client.Planet
+planet.list()
 
-# character.data_get now returns the character data from the last list
-# character.match_get returns the last match criteria
+# planet.data_get now returns the planet data from the last list
+# planet.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

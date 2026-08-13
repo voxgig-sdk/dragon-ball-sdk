@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ DragonBallUtility.registrar = ->(u) {
   u.prepare_params = DragonBallUtilities::PrepareParams
   u.prepare_path = DragonBallUtilities::PreparePath
   u.prepare_query = DragonBallUtilities::PrepareQuery
+  u.graphql_body = DragonBallUtilities::GraphqlBody
+  u.graphql_errors = DragonBallUtilities::GraphqlErrors
   u.result_basic = DragonBallUtilities::ResultBasic
   u.result_body = DragonBallUtilities::ResultBody
   u.result_headers = DragonBallUtilities::ResultHeaders

@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'DragonBall',
   }
 
 
@@ -69,7 +69,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "deleted_at",
+          "name": "deletedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 1
@@ -111,7 +111,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "max_ki",
+          "name": "maxKi",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
@@ -125,7 +125,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "origin_planet",
+          "name": "originPlanet",
           "req": false,
           "type": "`$OBJECT`",
           "index$": 9
@@ -139,7 +139,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "transformation",
+          "name": "transformations",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 11
@@ -199,6 +199,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/characters",
               "parts": [
@@ -241,6 +242,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/characters/{id}",
               "parts": [
@@ -270,7 +272,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "deleted_at",
+          "name": "deletedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -298,7 +300,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "is_destroyed",
+          "name": "isDestroyed",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 4
@@ -349,6 +351,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/planets",
               "parts": [
@@ -389,6 +392,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/planets/{id}",
               "parts": [
@@ -418,7 +422,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "deleted_at",
+          "name": "deletedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 0
@@ -482,6 +486,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/transformations",
               "parts": [
@@ -521,6 +526,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/transformations/{id}",
               "parts": [

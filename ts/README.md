@@ -35,7 +35,9 @@ const client = new DragonBallSDK()
 
 ### 2. List character records
 
-`list()` resolves to an array of Character objects — iterate it directly:
+`list()` resolves to an array of Character ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const characters = await client.Character().list()
@@ -65,8 +67,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const characters = await client.Character().list()
-  console.log(characters)
+  const planets = await client.Planet().list()
+  console.log(planets)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -132,9 +134,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = DragonBallSDK.test()
 
-const character = await client.Character().list()
-// character is a bare entity populated with mock response data
-console.log(character)
+const planet = await client.Planet().list()
+// planet is the entity, populated with mock response data
+// — call planet.data() for the record itself
+console.log(planet)
 ```
 
 You can also use the instance method:
@@ -149,7 +152,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Character()
+const entity = client.Planet()
 
 // First call runs the operation and stores its result
 await entity.list()
@@ -302,17 +305,17 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `affiliation` |  |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
-| `max_ki` |  |
+| `maxKi` |  |
 | `name` |  |
-| `origin_planet` |  |
+| `originPlanet` |  |
 | `race` |  |
-| `transformation` |  |
+| `transformations` |  |
 
 Operations: list, load.
 
@@ -322,11 +325,11 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
-| `is_destroyed` |  |
+| `isDestroyed` |  |
 | `name` |  |
 
 Operations: list, load.
@@ -337,7 +340,7 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
@@ -368,17 +371,17 @@ Create an instance: `const character = client.Character()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `affiliation` | `string` |  |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
-| `max_ki` | `string` |  |
+| `maxKi` | `string` |  |
 | `name` | `string` |  |
-| `origin_planet` | `Record<string, any>` |  |
+| `originPlanet` | `Record<string, any>` |  |
 | `race` | `string` |  |
-| `transformation` | `any[]` |  |
+| `transformations` | `any[]` |  |
 
 #### Example: Load
 
@@ -408,11 +411,11 @@ Create an instance: `const planet = client.Planet()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |
-| `is_destroyed` | `boolean` |  |
+| `isDestroyed` | `boolean` |  |
 | `name` | `string` |  |
 
 #### Example: Load
@@ -443,7 +446,7 @@ Create an instance: `const transformation = client.Transformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
@@ -531,11 +534,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const character = client.Character()
-await character.list()
+const planet = client.Planet()
+await planet.list()
 
-// character.data() now returns the character data from the last `list`
-// character.match() returns the last match criteria
+// planet.data() now returns the planet data from the last `list`
+// planet.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

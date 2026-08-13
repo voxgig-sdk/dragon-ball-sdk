@@ -26,8 +26,8 @@ import {
 describe('TransformationEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when DRAGONBALL_TEST_LIVE=TRUE.
-  afterEach(liveDelay('DRAGONBALL_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when DRAGON_BALL_TEST_LIVE=TRUE.
+  afterEach(liveDelay('DRAGON_BALL_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = DragonBallSDK.test()
@@ -63,13 +63,13 @@ describe('TransformationEntity', async () => {
     const transformation_ref01_ent = client.Transformation()
     const transformation_ref01_match: any = {}
 
-    const transformation_ref01_list = await transformation_ref01_ent.list(transformation_ref01_match)
+    const transformation_ref01_list = (await transformation_ref01_ent.list(transformation_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const transformation_ref01_match_dt0: any = {}
     transformation_ref01_match_dt0.id = transformation_ref01_data.id
-    const transformation_ref01_data_dt0 = await transformation_ref01_ent.load(transformation_ref01_match_dt0)
+    const transformation_ref01_data_dt0 = (await transformation_ref01_ent.load(transformation_ref01_match_dt0)).data()
     assert(transformation_ref01_data_dt0.id === transformation_ref01_data.id)
 
 

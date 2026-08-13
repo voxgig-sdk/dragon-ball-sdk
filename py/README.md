@@ -52,7 +52,7 @@ except Exception as err:
 
 ### 3. Load a character
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -69,8 +69,8 @@ Entity operations raise on failure, so wrap them in `try` / `except`:
 
 ```python
 try:
-    characters = client.Character().list()
-    print(characters)
+    planets = client.Planet().list()
+    print(planets)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -136,9 +136,10 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DragonBallSDK.test()
 
-# Entity ops return the bare record and raise on error.
-character = client.Character().list()
-# character contains the mock response record
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
+planet = client.Planet().list()
+# planet contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -235,7 +236,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -258,17 +259,17 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `affiliation` |  |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
-| `max_ki` |  |
+| `maxKi` |  |
 | `name` |  |
-| `origin_planet` |  |
+| `originPlanet` |  |
 | `race` |  |
-| `transformation` |  |
+| `transformations` |  |
 
 Operations: List, Load.
 
@@ -278,11 +279,11 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
-| `is_destroyed` |  |
+| `isDestroyed` |  |
 | `name` |  |
 
 Operations: List, Load.
@@ -293,7 +294,7 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
@@ -324,17 +325,17 @@ Create an instance: `character = client.Character()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `affiliation` | `str` |  |
-| `deleted_at` | `str` |  |
+| `deletedAt` | `str` |  |
 | `description` | `str` |  |
 | `gender` | `str` |  |
 | `id` | `int` |  |
 | `image` | `str` |  |
 | `ki` | `str` |  |
-| `max_ki` | `str` |  |
+| `maxKi` | `str` |  |
 | `name` | `str` |  |
-| `origin_planet` | `dict` |  |
+| `originPlanet` | `dict` |  |
 | `race` | `str` |  |
-| `transformation` | `list` |  |
+| `transformations` | `list` |  |
 
 #### Example: Load
 
@@ -364,11 +365,11 @@ Create an instance: `planet = client.Planet()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `str` |  |
+| `deletedAt` | `str` |  |
 | `description` | `str` |  |
 | `id` | `int` |  |
 | `image` | `str` |  |
-| `is_destroyed` | `bool` |  |
+| `isDestroyed` | `bool` |  |
 | `name` | `str` |  |
 
 #### Example: Load
@@ -399,7 +400,7 @@ Create an instance: `transformation = client.Transformation()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `str` |  |
+| `deletedAt` | `str` |  |
 | `id` | `int` |  |
 | `image` | `str` |  |
 | `ki` | `str` |  |
@@ -493,11 +494,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-character = client.Character()
-character.list()
+planet = client.Planet()
+planet.list()
 
-# character.data_get() now returns the character data from the last list
-# character.match_get() returns the last match criteria
+# planet.data_get() now returns the planet data from the last list
+# planet.match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

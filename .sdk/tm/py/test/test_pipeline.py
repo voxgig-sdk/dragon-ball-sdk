@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import DragonBallSDK
-from core.error import DragonBallError
-from core.result import DragonBallResult
-from core.response import DragonBallResponse
-from core.spec import DragonBallSpec
-from feature.base_feature import DragonBallBaseFeature
+from projectname_sdk.core.error import DragonBallError
+from projectname_sdk.core.result import DragonBallResult
+from projectname_sdk.core.response import DragonBallResponse
+from projectname_sdk.core.spec import DragonBallSpec
+from projectname_sdk.feature.base_feature import DragonBallBaseFeature
 
 
 def _client():

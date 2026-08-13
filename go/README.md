@@ -75,12 +75,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-characters, err := client.Character(nil).List(nil, nil)
+planets, err := client.Planet(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = characters
+_ = planets
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -144,13 +144,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-character, err := client.Character(nil).List(
+planet, err := client.Planet(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(character) // the returned mock data
+fmt.Println(planet) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -272,17 +272,17 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"affiliation"` |  |
-| `"deleted_at"` |  |
+| `"deletedAt"` |  |
 | `"description"` |  |
 | `"gender"` |  |
 | `"id"` |  |
 | `"image"` |  |
 | `"ki"` |  |
-| `"max_ki"` |  |
+| `"maxKi"` |  |
 | `"name"` |  |
-| `"origin_planet"` |  |
+| `"originPlanet"` |  |
 | `"race"` |  |
-| `"transformation"` |  |
+| `"transformations"` |  |
 
 Operations: List, Load.
 
@@ -292,11 +292,11 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `"deleted_at"` |  |
+| `"deletedAt"` |  |
 | `"description"` |  |
 | `"id"` |  |
 | `"image"` |  |
-| `"is_destroyed"` |  |
+| `"isDestroyed"` |  |
 | `"name"` |  |
 
 Operations: List, Load.
@@ -307,7 +307,7 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `"deleted_at"` |  |
+| `"deletedAt"` |  |
 | `"id"` |  |
 | `"image"` |  |
 | `"ki"` |  |
@@ -338,17 +338,17 @@ Create an instance: `character := client.Character(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `affiliation` | `string` |  |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
-| `max_ki` | `string` |  |
+| `maxKi` | `string` |  |
 | `name` | `string` |  |
-| `origin_planet` | `map[string]any` |  |
+| `originPlanet` | `map[string]any` |  |
 | `race` | `string` |  |
-| `transformation` | `[]any` |  |
+| `transformations` | `[]any` |  |
 
 #### Example: Load
 
@@ -386,11 +386,11 @@ Create an instance: `planet := client.Planet(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
-| `is_destroyed` | `bool` |  |
+| `isDestroyed` | `bool` |  |
 | `name` | `string` |  |
 
 #### Example: Load
@@ -429,7 +429,7 @@ Create an instance: `transformation := client.Transformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
@@ -529,11 +529,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-character := client.Character(nil)
-character.List(nil, nil)
+planet := client.Planet(nil)
+planet.List(nil, nil)
 
-// character.Data() now returns the character data from the last list
-// character.Match() returns the last match criteria
+// planet.Data() now returns the planet data from the last list
+// planet.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

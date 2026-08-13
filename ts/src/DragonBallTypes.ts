@@ -7,17 +7,17 @@
 
 export interface Character {
   affiliation?: string
-  deleted_at?: string
+  deletedAt?: string
   description?: string
   gender?: string
   id?: number
   image?: string
   ki?: string
-  max_ki?: string
+  maxKi?: string
   name?: string
-  origin_planet?: Record<string, any>
+  originPlanet?: Record<string, any>
   race?: string
-  transformation?: any[]
+  transformations?: any[]
 }
 
 export interface CharacterLoadMatch {
@@ -26,25 +26,25 @@ export interface CharacterLoadMatch {
 
 export interface CharacterListMatch {
   affiliation?: string
-  deleted_at?: string
+  deletedAt?: string
   description?: string
   gender?: string
   id?: number
   image?: string
   ki?: string
-  max_ki?: string
+  maxKi?: string
   name?: string
-  origin_planet?: Record<string, any>
+  originPlanet?: Record<string, any>
   race?: string
-  transformation?: any[]
+  transformations?: any[]
 }
 
 export interface Planet {
-  deleted_at?: string
+  deletedAt?: string
   description?: string
   id?: number
   image?: string
-  is_destroyed?: boolean
+  isDestroyed?: boolean
   name?: string
 }
 
@@ -53,16 +53,16 @@ export interface PlanetLoadMatch {
 }
 
 export interface PlanetListMatch {
-  deleted_at?: string
+  deletedAt?: string
   description?: string
   id?: number
   image?: string
-  is_destroyed?: boolean
+  isDestroyed?: boolean
   name?: string
 }
 
 export interface Transformation {
-  deleted_at?: string
+  deletedAt?: string
   id?: number
   image?: string
   ki?: string
@@ -74,7 +74,7 @@ export interface TransformationLoadMatch {
 }
 
 export interface TransformationListMatch {
-  deleted_at?: string
+  deletedAt?: string
   id?: number
   image?: string
   ki?: string

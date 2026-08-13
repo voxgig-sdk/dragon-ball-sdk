@@ -107,17 +107,17 @@ fmt.Println(character.GetName()) // "character"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `affiliation` | `string` | No |  |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `int` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |
-| `max_ki` | `string` | No |  |
+| `maxKi` | `string` | No |  |
 | `name` | `string` | No |  |
-| `origin_planet` | `map[string]any` | No |  |
+| `originPlanet` | `map[string]any` | No |  |
 | `race` | `string` | No |  |
-| `transformation` | `[]any` | No |  |
+| `transformations` | `[]any` | No |  |
 
 ### Operations
 
@@ -180,11 +180,11 @@ fmt.Println(planet.GetName()) // "planet"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `int` | No |  |
 | `image` | `string` | No |  |
-| `is_destroyed` | `bool` | No |  |
+| `isDestroyed` | `bool` | No |  |
 | `name` | `string` | No |  |
 
 ### Operations
@@ -248,7 +248,7 @@ fmt.Println(transformation.GetName()) // "transformation"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `id` | `int` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |

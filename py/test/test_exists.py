@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# DragonBall SDK exists test
 
 import pytest
 from dragonball_sdk import DragonBallSDK

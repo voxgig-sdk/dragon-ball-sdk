@@ -96,17 +96,17 @@ character = client.Character()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `affiliation` | `str` | No |  |
-| `deleted_at` | `str` | No |  |
+| `deletedAt` | `str` | No |  |
 | `description` | `str` | No |  |
 | `gender` | `str` | No |  |
 | `id` | `int` | No |  |
 | `image` | `str` | No |  |
 | `ki` | `str` | No |  |
-| `max_ki` | `str` | No |  |
+| `maxKi` | `str` | No |  |
 | `name` | `str` | No |  |
-| `origin_planet` | `dict` | No |  |
+| `originPlanet` | `dict` | No |  |
 | `race` | `str` | No |  |
-| `transformation` | `list` | No |  |
+| `transformations` | `list` | No |  |
 
 ### Operations
 
@@ -167,11 +167,11 @@ planet = client.Planet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `str` | No |  |
+| `deletedAt` | `str` | No |  |
 | `description` | `str` | No |  |
 | `id` | `int` | No |  |
 | `image` | `str` | No |  |
-| `is_destroyed` | `bool` | No |  |
+| `isDestroyed` | `bool` | No |  |
 | `name` | `str` | No |  |
 
 ### Operations
@@ -233,7 +233,7 @@ transformation = client.Transformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `str` | No |  |
+| `deletedAt` | `str` | No |  |
 | `id` | `int` | No |  |
 | `image` | `str` | No |  |
 | `ki` | `str` | No |  |

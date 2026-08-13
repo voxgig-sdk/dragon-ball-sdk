@@ -115,11 +115,11 @@ function planet_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["DRAGONBALL_TEST_PLANET_ENTID"] = {},
-    ["DRAGONBALL_TEST_LIVE"] = "FALSE",
+    ["DRAGON_BALL_TEST_PLANET_ENTID"] = {},
+    ["DRAGON_BALL_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["DRAGONBALL_TEST_LIVE"] == "TRUE"
+  local live = env["DRAGON_BALL_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

@@ -26,8 +26,8 @@ import {
 describe('PlanetEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when DRAGONBALL_TEST_LIVE=TRUE.
-  afterEach(liveDelay('DRAGONBALL_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when DRAGON_BALL_TEST_LIVE=TRUE.
+  afterEach(liveDelay('DRAGON_BALL_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = DragonBallSDK.test()
@@ -63,13 +63,13 @@ describe('PlanetEntity', async () => {
     const planet_ref01_ent = client.Planet()
     const planet_ref01_match: any = {}
 
-    const planet_ref01_list = await planet_ref01_ent.list(planet_ref01_match)
+    const planet_ref01_list = (await planet_ref01_ent.list(planet_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const planet_ref01_match_dt0: any = {}
     planet_ref01_match_dt0.id = planet_ref01_data.id
-    const planet_ref01_data_dt0 = await planet_ref01_ent.load(planet_ref01_match_dt0)
+    const planet_ref01_data_dt0 = (await planet_ref01_ent.load(planet_ref01_match_dt0)).data()
     assert(planet_ref01_data_dt0.id === planet_ref01_data.id)
 
 

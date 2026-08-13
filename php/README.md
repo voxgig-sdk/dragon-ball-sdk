@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Character record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Character record (throws on error).
     $character = $client->Character()->load(["id" => 1]);
     print_r($character);
 } catch (\Throwable $err) {
@@ -65,7 +65,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $characters = $client->Character()->list();
+    $planets = $client->Planet()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -137,12 +137,13 @@ data via the `entity` option so offline calls resolve without a live server:
 
 ```php
 $client = DragonBallSDK::test([
-    "entity" => ["character" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["planet" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
-$character = $client->Character()->list();
-print_r($character);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$planet = $client->Planet()->list();
+print_r($planet);
 ```
 
 ### Use a custom fetch function
@@ -242,7 +243,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -265,17 +266,17 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `affiliation` |  |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
-| `max_ki` |  |
+| `maxKi` |  |
 | `name` |  |
-| `origin_planet` |  |
+| `originPlanet` |  |
 | `race` |  |
-| `transformation` |  |
+| `transformations` |  |
 
 Operations: List, Load.
 
@@ -285,11 +286,11 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
-| `is_destroyed` |  |
+| `isDestroyed` |  |
 | `name` |  |
 
 Operations: List, Load.
@@ -300,7 +301,7 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
@@ -331,22 +332,22 @@ Create an instance: `$character = $client->Character();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `affiliation` | `string` |  |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
-| `max_ki` | `string` |  |
+| `maxKi` | `string` |  |
 | `name` | `string` |  |
-| `origin_planet` | `array` |  |
+| `originPlanet` | `array` |  |
 | `race` | `string` |  |
-| `transformation` | `array` |  |
+| `transformations` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Character record (throws on error).
+// load() returns the ENTITY — call data_get() for the Character record (throws on error).
 $character = $client->Character()->load(["id" => 1]);
 ```
 
@@ -373,17 +374,17 @@ Create an instance: `$planet = $client->Planet();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
-| `is_destroyed` | `bool` |  |
+| `isDestroyed` | `bool` |  |
 | `name` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Planet record (throws on error).
+// load() returns the ENTITY — call data_get() for the Planet record (throws on error).
 $planet = $client->Planet()->load(["id" => 1]);
 ```
 
@@ -410,7 +411,7 @@ Create an instance: `$transformation = $client->Transformation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `id` | `int` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
@@ -419,7 +420,7 @@ Create an instance: `$transformation = $client->Transformation();`
 #### Example: Load
 
 ```php
-// load() returns the bare Transformation record (throws on error).
+// load() returns the ENTITY — call data_get() for the Transformation record (throws on error).
 $transformation = $client->Transformation()->load(["id" => 1]);
 ```
 
@@ -507,11 +508,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$character = $client->Character();
-$character->list();
+$planet = $client->Planet();
+$planet->list();
 
-// $character->data_get() now returns the character data from the last list
-// $character->match_get() returns the last match criteria
+// $planet->data_get() now returns the planet data from the last list
+// $planet->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

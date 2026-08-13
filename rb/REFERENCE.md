@@ -102,17 +102,17 @@ character = client.Character
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `affiliation` | `String` | No |  |
-| `deleted_at` | `String` | No |  |
+| `deletedAt` | `String` | No |  |
 | `description` | `String` | No |  |
 | `gender` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `image` | `String` | No |  |
 | `ki` | `String` | No |  |
-| `max_ki` | `String` | No |  |
+| `maxKi` | `String` | No |  |
 | `name` | `String` | No |  |
-| `origin_planet` | `Hash` | No |  |
+| `originPlanet` | `Hash` | No |  |
 | `race` | `String` | No |  |
-| `transformation` | `Array` | No |  |
+| `transformations` | `Array` | No |  |
 
 ### Operations
 
@@ -172,11 +172,11 @@ planet = client.Planet
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `String` | No |  |
+| `deletedAt` | `String` | No |  |
 | `description` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `image` | `String` | No |  |
-| `is_destroyed` | `Boolean` | No |  |
+| `isDestroyed` | `Boolean` | No |  |
 | `name` | `String` | No |  |
 
 ### Operations
@@ -237,7 +237,7 @@ transformation = client.Transformation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `String` | No |  |
+| `deletedAt` | `String` | No |  |
 | `id` | `Integer` | No |  |
 | `image` | `String` | No |  |
 | `ki` | `String` | No |  |

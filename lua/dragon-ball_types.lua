@@ -8,56 +8,56 @@
 
 ---@class Character
 ---@field affiliation? string
----@field deleted_at? string
+---@field deletedAt? string
 ---@field description? string
 ---@field gender? string
 ---@field id? number
 ---@field image? string
 ---@field ki? string
----@field max_ki? string
+---@field maxKi? string
 ---@field name? string
----@field origin_planet? table
+---@field originPlanet? table
 ---@field race? string
----@field transformation? table
+---@field transformations? table
 
 ---@class CharacterLoadMatch
 ---@field id number
 
 ---@class CharacterListMatch
 ---@field affiliation? string
----@field deleted_at? string
+---@field deletedAt? string
 ---@field description? string
 ---@field gender? string
 ---@field id? number
 ---@field image? string
 ---@field ki? string
----@field max_ki? string
+---@field maxKi? string
 ---@field name? string
----@field origin_planet? table
+---@field originPlanet? table
 ---@field race? string
----@field transformation? table
+---@field transformations? table
 
 ---@class Planet
----@field deleted_at? string
+---@field deletedAt? string
 ---@field description? string
 ---@field id? number
 ---@field image? string
----@field is_destroyed? boolean
+---@field isDestroyed? boolean
 ---@field name? string
 
 ---@class PlanetLoadMatch
 ---@field id number
 
 ---@class PlanetListMatch
----@field deleted_at? string
+---@field deletedAt? string
 ---@field description? string
 ---@field id? number
 ---@field image? string
----@field is_destroyed? boolean
+---@field isDestroyed? boolean
 ---@field name? string
 
 ---@class Transformation
----@field deleted_at? string
+---@field deletedAt? string
 ---@field id? number
 ---@field image? string
 ---@field ki? string
@@ -67,7 +67,7 @@
 ---@field id number
 
 ---@class TransformationListMatch
----@field deleted_at? string
+---@field deletedAt? string
 ---@field id? number
 ---@field image? string
 ---@field ki? string

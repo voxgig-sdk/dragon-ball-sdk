@@ -11,7 +11,7 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "deleted_at"
+      name: "deletedAt"
       req: false
       type: "`$STRING`"
     }
@@ -41,7 +41,7 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "max_ki"
+      name: "maxKi"
       req: false
       type: "`$STRING`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "origin_planet"
+      name: "originPlanet"
       req: false
       type: "`$OBJECT`"
     }
@@ -61,7 +61,7 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "transformation"
+      name: "transformations"
       req: false
       type: "`$ARRAY`"
     }

@@ -37,7 +37,7 @@ class TransformationEntity extends DragonBallEntityBase<Transformation> {
 
 
 
-  async load(this: any, reqmatch?: TransformationLoadMatch, ctrl?: Control): Promise<Transformation> {
+  async load(this: any, reqmatch?: TransformationLoadMatch, ctrl?: Control): Promise<TransformationEntity> {
 
     const utility = this._utility
 
@@ -128,7 +128,15 @@ class TransformationEntity extends DragonBallEntityBase<Transformation> {
         }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      // An operation resolves to the ENTITY, not the raw data — the record
+      // has just been absorbed into this instance and is reached through
+      // data(). `done` still runs: it completes the pipeline and raises on
+      // failure, and when throwing is disabled it hands back the error
+      // payload, which passes through unchanged. See AGENTS.md "Entity
+      // operations return ENTITIES".
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
 
@@ -150,7 +158,7 @@ class TransformationEntity extends DragonBallEntityBase<Transformation> {
 
 
 
-  async list(this: any, reqmatch?: TransformationListMatch, ctrl?: Control): Promise<Transformation[]> {
+  async list(this: any, reqmatch?: TransformationListMatch, ctrl?: Control): Promise<TransformationEntity[]> {
 
     const utility = this._utility
 

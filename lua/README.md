@@ -62,7 +62,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local characters, err = client:Character():list()
+local planets, err = client:Planet():list()
 if err then error(err) end
 ```
 
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Character():list()
+local result, err = client:Planet():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -244,17 +244,17 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `affiliation` |  |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `gender` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
-| `max_ki` |  |
+| `maxKi` |  |
 | `name` |  |
-| `origin_planet` |  |
+| `originPlanet` |  |
 | `race` |  |
-| `transformation` |  |
+| `transformations` |  |
 
 Operations: List, Load.
 
@@ -264,11 +264,11 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `description` |  |
 | `id` |  |
 | `image` |  |
-| `is_destroyed` |  |
+| `isDestroyed` |  |
 | `name` |  |
 
 Operations: List, Load.
@@ -279,7 +279,7 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deleted_at` |  |
+| `deletedAt` |  |
 | `id` |  |
 | `image` |  |
 | `ki` |  |
@@ -310,17 +310,17 @@ Create an instance: `local character = client:Character(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `affiliation` | `string` |  |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `gender` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
-| `max_ki` | `string` |  |
+| `maxKi` | `string` |  |
 | `name` | `string` |  |
-| `origin_planet` | `table` |  |
+| `originPlanet` | `table` |  |
 | `race` | `string` |  |
-| `transformation` | `table` |  |
+| `transformations` | `table` |  |
 
 #### Example: Load
 
@@ -350,11 +350,11 @@ Create an instance: `local planet = client:Planet(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `description` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |
-| `is_destroyed` | `boolean` |  |
+| `isDestroyed` | `boolean` |  |
 | `name` | `string` |  |
 
 #### Example: Load
@@ -385,7 +385,7 @@ Create an instance: `local transformation = client:Transformation(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deleted_at` | `string` |  |
+| `deletedAt` | `string` |  |
 | `id` | `number` |  |
 | `image` | `string` |  |
 | `ki` | `string` |  |
@@ -480,11 +480,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local character = client:Character()
-character:list()
+local planet = client:Planet()
+planet:list()
 
--- character:data_get() now returns the character data from the last list
--- character:match_get() returns the last match criteria
+-- planet:data_get() now returns the planet data from the last list
+-- planet:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

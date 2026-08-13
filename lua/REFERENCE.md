@@ -99,17 +99,17 @@ local character = client:Character(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `affiliation` | `string` | No |  |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |
-| `max_ki` | `string` | No |  |
+| `maxKi` | `string` | No |  |
 | `name` | `string` | No |  |
-| `origin_planet` | `table` | No |  |
+| `originPlanet` | `table` | No |  |
 | `race` | `string` | No |  |
-| `transformation` | `table` | No |  |
+| `transformations` | `table` | No |  |
 
 ### Operations
 
@@ -169,11 +169,11 @@ local planet = client:Planet(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |
-| `is_destroyed` | `boolean` | No |  |
+| `isDestroyed` | `boolean` | No |  |
 | `name` | `string` | No |  |
 
 ### Operations
@@ -234,7 +234,7 @@ local transformation = client:Transformation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |

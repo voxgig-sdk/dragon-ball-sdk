@@ -35,7 +35,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "deleted_at",
+            ["name"] = "deletedAt",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 1,
@@ -77,7 +77,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "max_ki",
+            ["name"] = "maxKi",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 7,
@@ -91,7 +91,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "origin_planet",
+            ["name"] = "originPlanet",
             ["req"] = false,
             ["type"] = "`$OBJECT`",
             ["index$"] = 9,
@@ -105,7 +105,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "transformation",
+            ["name"] = "transformations",
             ["req"] = false,
             ["type"] = "`$ARRAY`",
             ["index$"] = 11,
@@ -165,6 +165,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
                 ["parts"] = {
@@ -207,6 +208,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters/{id}",
                 ["parts"] = {
@@ -236,7 +238,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "deleted_at",
+            ["name"] = "deletedAt",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -264,7 +266,7 @@ local function make_config()
           },
           {
             ["active"] = true,
-            ["name"] = "is_destroyed",
+            ["name"] = "isDestroyed",
             ["req"] = false,
             ["type"] = "`$BOOLEAN`",
             ["index$"] = 4,
@@ -315,6 +317,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/planets",
                 ["parts"] = {
@@ -355,6 +358,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/planets/{id}",
                 ["parts"] = {
@@ -384,7 +388,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "deleted_at",
+            ["name"] = "deletedAt",
             ["req"] = false,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -448,6 +452,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/transformations",
                 ["parts"] = {
@@ -487,6 +492,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/transformations/{id}",
                 ["parts"] = {

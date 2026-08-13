@@ -121,11 +121,11 @@ function transformation_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "DRAGONBALL_TEST_TRANSFORMATION_ENTID" => [],
-        "DRAGONBALL_TEST_LIVE" => "FALSE",
+        "DRAGON_BALL_TEST_TRANSFORMATION_ENTID" => [],
+        "DRAGON_BALL_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["DRAGONBALL_TEST_LIVE"] === "TRUE";
+    $live = $env["DRAGON_BALL_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

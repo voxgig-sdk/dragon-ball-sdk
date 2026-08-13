@@ -141,17 +141,17 @@ const character = client.Character()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `affiliation` | `string` | No |  |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `gender` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |
-| `max_ki` | `string` | No |  |
+| `maxKi` | `string` | No |  |
 | `name` | `string` | No |  |
-| `origin_planet` | `Record<string, any>` | No |  |
+| `originPlanet` | `Record<string, any>` | No |  |
 | `race` | `string` | No |  |
-| `transformation` | `any[]` | No |  |
+| `transformations` | `any[]` | No |  |
 
 ### Operations
 
@@ -209,11 +209,11 @@ const planet = client.Planet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `description` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |
-| `is_destroyed` | `boolean` | No |  |
+| `isDestroyed` | `boolean` | No |  |
 | `name` | `string` | No |  |
 
 ### Operations
@@ -272,7 +272,7 @@ const transformation = client.Transformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deleted_at` | `string` | No |  |
+| `deletedAt` | `string` | No |  |
 | `id` | `number` | No |  |
 | `image` | `string` | No |  |
 | `ki` | `string` | No |  |

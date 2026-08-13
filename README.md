@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = DragonBallSDK.test()
-const characters = await client.Character().list()
-// characters is an array of bare Character records populated with mock data
-console.log(characters)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = DragonBallSDK.test({
+  entity: {
+    planet: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const planets = await client.Planet().list()
+// planets is an array of Planet entities, populated with mock data
+// — call planets[0].data() for the record itself
+console.log(planets)
 ```
 
 ### Python
 
 ```python
 client = DragonBallSDK.test()
-characters = client.Character().list()
-print(characters)
+planets = client.Planet().list()
+print(planets)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(characters)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = DragonBallSDK::test([
-    "entity" => ["character" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["planet" => ["test01" => ["id" => "test01"]]],
 ]);
-$characters = $client->Character()->list();
+$planets = $client->Planet()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Character(nil).List(
+result, err := client.Planet(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Character(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = DragonBallSDK.test({
-  "entity" => { "character" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "planet" => { "test01" => { "id" => "test01" } } },
 })
-characters = client.Character.list()
+planets = client.Planet.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Character():list()
+local results, err = client:Planet():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { DragonBallSDK } from '@voxgig-sdk/dragon-ball'
 
 const client = new DragonBallSDK()
 
-// List all characters (returns Character[])
+// List all characters (returns CharacterEntity[] — .data() for the record)
 const characters = await client.Character().list()
 for (const character of characters) {
   console.log(character)
@@ -193,7 +202,7 @@ $client = new DragonBallSDK();
 $characters = $client->Character()->list();
 print_r($characters);
 
-// Load a specific character (returns the bare record; throws on error)
+// Load a specific character (returns the ENTITY; call data_get() for the record; throws on error)
 $character = $client->Character()->load(["id" => 1]);
 print_r($character);
 ```
@@ -224,7 +233,7 @@ client = DragonBallSDK.new
 characters = client.Character.list
 puts characters
 
-# Load a specific character (returns the bare record; raises on error)
+# Load a specific character (returns the ENTITY; call data_get for the record)
 character = client.Character.load({ "id" => 1 })
 puts character
 ```
@@ -361,6 +370,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://web.dragonball-api.com/documentation](https://web.dragonball-api.com/documentation)
 

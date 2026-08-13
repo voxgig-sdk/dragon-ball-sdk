@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import DragonBallControl
-from core.error import DragonBallError
-from core.result import DragonBallResult
-from core.spec import DragonBallSpec
+from dragonball_sdk.config import make_config
+from dragonball_sdk.features import _make_feature
+from dragonball_sdk.core.control import DragonBallControl
+from dragonball_sdk.core.error import DragonBallError
+from dragonball_sdk.core.result import DragonBallResult
+from dragonball_sdk.core.spec import DragonBallSpec
 
 
 # True when this SDK was generated with the named feature.

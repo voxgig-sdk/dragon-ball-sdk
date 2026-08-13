@@ -2,21 +2,21 @@
   "existing": {
     "transformation": {
       "TRANSFORMATION00": {
-        "deleted_at": "s32",
+        "deletedAt": "s32",
         "id": "TRANSFORMATION00",
         "image": "s34",
         "ki": "s35",
         "name": "s36"
       },
       "TRANSFORMATION01": {
-        "deleted_at": "s64",
+        "deletedAt": "s64",
         "id": "TRANSFORMATION01",
         "image": "s66",
         "ki": "s67",
         "name": "s68"
       },
       "TRANSFORMATION02": {
-        "deleted_at": "s96",
+        "deletedAt": "s96",
         "id": "TRANSFORMATION02",
         "image": "s98",
         "ki": "s99",
@@ -27,7 +27,7 @@
   "new": {
     "transformation": {
       "transformation_ref01": {
-        "deleted_at": "sc8",
+        "deletedAt": "sc8",
         "image": "sca",
         "ki": "scb",
         "name": "scc"

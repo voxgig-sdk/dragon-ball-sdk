@@ -13,7 +13,7 @@
 # @!attribute [rw] affiliation
 #   @return [String, nil]
 #
-# @!attribute [rw] deleted_at
+# @!attribute [rw] deletedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -31,33 +31,33 @@
 # @!attribute [rw] ki
 #   @return [String, nil]
 #
-# @!attribute [rw] max_ki
+# @!attribute [rw] maxKi
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] origin_planet
+# @!attribute [rw] originPlanet
 #   @return [Hash, nil]
 #
 # @!attribute [rw] race
 #   @return [String, nil]
 #
-# @!attribute [rw] transformation
+# @!attribute [rw] transformations
 #   @return [Array, nil]
 Character = Struct.new(
   :affiliation,
-  :deleted_at,
+  :deletedAt,
   :description,
   :gender,
   :id,
   :image,
   :ki,
-  :max_ki,
+  :maxKi,
   :name,
-  :origin_planet,
+  :originPlanet,
   :race,
-  :transformation,
+  :transformations,
   keyword_init: true
 )
 
@@ -75,7 +75,7 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] affiliation
 #   @return [String, nil]
 #
-# @!attribute [rw] deleted_at
+# @!attribute [rw] deletedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -93,39 +93,39 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] ki
 #   @return [String, nil]
 #
-# @!attribute [rw] max_ki
+# @!attribute [rw] maxKi
 #   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] origin_planet
+# @!attribute [rw] originPlanet
 #   @return [Hash, nil]
 #
 # @!attribute [rw] race
 #   @return [String, nil]
 #
-# @!attribute [rw] transformation
+# @!attribute [rw] transformations
 #   @return [Array, nil]
 CharacterListMatch = Struct.new(
   :affiliation,
-  :deleted_at,
+  :deletedAt,
   :description,
   :gender,
   :id,
   :image,
   :ki,
-  :max_ki,
+  :maxKi,
   :name,
-  :origin_planet,
+  :originPlanet,
   :race,
-  :transformation,
+  :transformations,
   keyword_init: true
 )
 
 # Planet entity data model.
 #
-# @!attribute [rw] deleted_at
+# @!attribute [rw] deletedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -137,17 +137,17 @@ CharacterListMatch = Struct.new(
 # @!attribute [rw] image
 #   @return [String, nil]
 #
-# @!attribute [rw] is_destroyed
+# @!attribute [rw] isDestroyed
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 Planet = Struct.new(
-  :deleted_at,
+  :deletedAt,
   :description,
   :id,
   :image,
-  :is_destroyed,
+  :isDestroyed,
   :name,
   keyword_init: true
 )
@@ -163,7 +163,7 @@ PlanetLoadMatch = Struct.new(
 
 # Request payload for Planet#list.
 #
-# @!attribute [rw] deleted_at
+# @!attribute [rw] deletedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] description
@@ -175,24 +175,24 @@ PlanetLoadMatch = Struct.new(
 # @!attribute [rw] image
 #   @return [String, nil]
 #
-# @!attribute [rw] is_destroyed
+# @!attribute [rw] isDestroyed
 #   @return [Boolean, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 PlanetListMatch = Struct.new(
-  :deleted_at,
+  :deletedAt,
   :description,
   :id,
   :image,
-  :is_destroyed,
+  :isDestroyed,
   :name,
   keyword_init: true
 )
 
 # Transformation entity data model.
 #
-# @!attribute [rw] deleted_at
+# @!attribute [rw] deletedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -207,7 +207,7 @@ PlanetListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 Transformation = Struct.new(
-  :deleted_at,
+  :deletedAt,
   :id,
   :image,
   :ki,
@@ -226,7 +226,7 @@ TransformationLoadMatch = Struct.new(
 
 # Request payload for Transformation#list.
 #
-# @!attribute [rw] deleted_at
+# @!attribute [rw] deletedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] id
@@ -241,7 +241,7 @@ TransformationLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 TransformationListMatch = Struct.new(
-  :deleted_at,
+  :deletedAt,
   :id,
   :image,
   :ki,

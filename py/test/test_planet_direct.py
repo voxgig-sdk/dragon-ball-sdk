@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from dragonball_sdk.utility.voxgig_struct import voxgig_struct as vs
 from dragonball_sdk import DragonBallSDK
-from core import helpers
+from dragonball_sdk.core import helpers
 from test import runner
 
 
@@ -105,11 +105,11 @@ def _planet_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "DRAGONBALL_TEST_PLANET_ENTID": {},
-        "DRAGONBALL_TEST_LIVE": "FALSE",
+        "DRAGON_BALL_TEST_PLANET_ENTID": {},
+        "DRAGON_BALL_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("DRAGONBALL_TEST_LIVE") == "TRUE"
+    live = env.get("DRAGON_BALL_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

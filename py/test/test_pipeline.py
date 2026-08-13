@@ -16,11 +16,11 @@
 import pytest
 
 from dragonball_sdk import DragonBallSDK
-from core.error import DragonBallError
-from core.result import DragonBallResult
-from core.response import DragonBallResponse
-from core.spec import DragonBallSpec
-from feature.base_feature import DragonBallBaseFeature
+from dragonball_sdk.core.error import DragonBallError
+from dragonball_sdk.core.result import DragonBallResult
+from dragonball_sdk.core.response import DragonBallResponse
+from dragonball_sdk.core.spec import DragonBallSpec
+from dragonball_sdk.feature.base_feature import DragonBallBaseFeature
 
 
 def _client():

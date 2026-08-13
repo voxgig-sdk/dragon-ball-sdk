@@ -6,7 +6,7 @@ main: kit: entity: transformation: {
 
   fields: [
     {
-      name: "deleted_at"
+      name: "deletedAt"
       req: false
       type: "`$STRING`"
     }

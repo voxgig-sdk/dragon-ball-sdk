@@ -35,7 +35,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "deleted_at",
+						"name": "deletedAt",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 1,
@@ -77,7 +77,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "max_ki",
+						"name": "maxKi",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 7,
@@ -91,7 +91,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "origin_planet",
+						"name": "originPlanet",
 						"req": false,
 						"type": "`$OBJECT`",
 						"index$": 9,
@@ -105,7 +105,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "transformation",
+						"name": "transformations",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 11,
@@ -165,6 +165,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/characters",
 								"parts": []any{
@@ -186,7 +187,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -207,6 +207,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/characters/{id}",
 								"parts": []any{
@@ -225,7 +226,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -236,7 +236,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "deleted_at",
+						"name": "deletedAt",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
@@ -264,7 +264,7 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"active": true,
-						"name": "is_destroyed",
+						"name": "isDestroyed",
 						"req": false,
 						"type": "`$BOOLEAN`",
 						"index$": 4,
@@ -315,6 +315,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/planets",
 								"parts": []any{
@@ -334,7 +335,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -355,6 +355,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/planets/{id}",
 								"parts": []any{
@@ -373,7 +374,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{
@@ -384,7 +384,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "deleted_at",
+						"name": "deletedAt",
 						"req": false,
 						"type": "`$STRING`",
 						"index$": 0,
@@ -448,6 +448,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/transformations",
 								"parts": []any{
@@ -466,7 +467,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 					"load": map[string]any{
 						"input": "data",
@@ -487,6 +487,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/transformations/{id}",
 								"parts": []any{
@@ -505,7 +506,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "load",
 					},
 				},
 				"relations": map[string]any{

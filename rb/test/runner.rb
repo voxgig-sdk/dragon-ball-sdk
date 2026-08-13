@@ -23,8 +23,8 @@ module DragonBallTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("DRAGONBALL_TEST_LIVE")
-    override = getenv("DRAGONBALL_TEST_OVERRIDE")
+    live = getenv("DRAGON_BALL_TEST_LIVE")
+    override = getenv("DRAGON_BALL_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module DragonBallTestRunner
       end
     end
 
-    explain = getenv("DRAGONBALL_TEST_EXPLAIN")
-    m["DRAGONBALL_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("DRAGON_BALL_TEST_EXPLAIN")
+    m["DRAGON_BALL_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end
