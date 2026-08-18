@@ -40,7 +40,7 @@ class DragonBallSDK
         $utility = new DragonBallUtility();
         $this->_utility = $utility;
 
-        $config = DragonBallConfig::make_config();
+        $config = DragonBallConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

@@ -28,7 +28,7 @@ class DragonBallSDK
     utility = DragonBallUtility.new
     @_utility = utility
 
-    config = DragonBallConfig.make_config
+    config = DragonBallConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
