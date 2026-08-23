@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "DragonBall",
+			"slug": "dragon-ball",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -35,50 +38,62 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "affiliation",
+						"short": "Character's affiliation or allegiance",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "deletedAt",
+						"short": "Deletion timestamp if character is deleted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "gender",
+						"short": "Gender of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the character",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to character image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ki",
+						"short": "Current ki (power level) of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "maxKi",
+						"short": "Maximum ki the character can achieve",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originPlanet",
+						"short": "Planet where the character originated",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "race",
+						"short": "Race or species of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "transformations",
+						"short": "List of transformations available to the character",
 						"type": "`$ARRAY`",
 					},
 				},
@@ -191,26 +206,32 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "deletedAt",
+						"short": "Deletion timestamp if planet is deleted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "description",
+						"short": "Detailed description of the planet",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the planet",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to planet image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "isDestroyed",
+						"short": "Whether the planet has been destroyed",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the planet",
 						"type": "`$STRING`",
 					},
 				},
@@ -309,22 +330,27 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "deletedAt",
+						"short": "Deletion timestamp if transformation is deleted",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the transformation",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "image",
+						"short": "URL to transformation image",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "ki",
+						"short": "Ki level in this transformation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the transformation",
 						"type": "`$STRING`",
 					},
 				},

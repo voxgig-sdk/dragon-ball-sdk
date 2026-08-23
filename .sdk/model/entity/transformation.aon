@@ -1,69 +1,39 @@
-# Entity: character
+# Entity: transformation
 
-main: kit: entity: character: {
+main: kit: entity: transformation: {
 
   alias: field: {}
 
   fields: [
     {
-      name: "affiliation"
-      req: false
-      type: "`$STRING`"
-    }
-    {
       name: "deletedAt"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "description"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "gender"
-      req: false
+      short: "Deletion timestamp if transformation is deleted"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the transformation"
       type: "`$INTEGER`"
     }
     {
       name: "image"
       req: false
+      short: "URL to transformation image"
       type: "`$STRING`"
     }
     {
       name: "ki"
       req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "maxKi"
-      req: false
+      short: "Ki level in this transformation"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the transformation"
       type: "`$STRING`"
-    }
-    {
-      name: "originPlanet"
-      req: false
-      type: "`$OBJECT`"
-    }
-    {
-      name: "race"
-      req: false
-      type: "`$STRING`"
-    }
-    {
-      name: "transformations"
-      req: false
-      type: "`$ARRAY`"
     }
   ]
 
@@ -72,7 +42,7 @@ main: kit: entity: character: {
     name: "id"
   }
 
-  name: "character"
+  name: "transformation"
   op: {
     list: {
       name: "list"
@@ -80,13 +50,6 @@ main: kit: entity: character: {
         {
           args: {
             query: [
-              {
-                kind: "query"
-                name: "affiliation"
-                orig: "affiliation"
-                reqd: false
-                type: "`$STRING`"
-              }
               {
                 example: 10
                 kind: "query"
@@ -96,13 +59,6 @@ main: kit: entity: character: {
                 type: "`$INTEGER`"
               }
               {
-                kind: "query"
-                name: "name"
-                orig: "name"
-                reqd: false
-                type: "`$STRING`"
-              }
-              {
                 example: 1
                 kind: "query"
                 name: "page"
@@ -110,27 +66,17 @@ main: kit: entity: character: {
                 reqd: false
                 type: "`$INTEGER`"
               }
-              {
-                kind: "query"
-                name: "race"
-                orig: "race"
-                reqd: false
-                type: "`$STRING`"
-              }
             ]
           }
           method: "GET"
-          orig: "/characters"
+          orig: "/transformations"
           parts: [
-            "characters"
+            "transformations"
           ]
           select: {
             exist: [
-              "affiliation"
               "limit"
-              "name"
               "page"
-              "race"
             ]
           }
           transform: {
@@ -156,9 +102,9 @@ main: kit: entity: character: {
             ]
           }
           method: "GET"
-          orig: "/characters/{id}"
+          orig: "/transformations/{id}"
           parts: [
-            "characters"
+            "transformations"
             "{id}"
           ]
           select: {

@@ -1,39 +1,81 @@
-# Entity: planet
+# Entity: character
 
-main: kit: entity: planet: {
+main: kit: entity: character: {
 
   alias: field: {}
 
   fields: [
     {
+      name: "affiliation"
+      req: false
+      short: "Character's affiliation or allegiance"
+      type: "`$STRING`"
+    }
+    {
       name: "deletedAt"
       req: false
+      short: "Deletion timestamp if character is deleted"
       type: "`$STRING`"
     }
     {
       name: "description"
       req: false
+      short: "Detailed description of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "gender"
+      req: false
+      short: "Gender of the character"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the character"
       type: "`$INTEGER`"
     }
     {
       name: "image"
       req: false
+      short: "URL to character image"
       type: "`$STRING`"
     }
     {
-      name: "isDestroyed"
+      name: "ki"
       req: false
-      type: "`$BOOLEAN`"
+      short: "Current ki (power level) of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "maxKi"
+      req: false
+      short: "Maximum ki the character can achieve"
+      type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the character"
       type: "`$STRING`"
+    }
+    {
+      name: "originPlanet"
+      req: false
+      short: "Planet where the character originated"
+      type: "`$OBJECT`"
+    }
+    {
+      name: "race"
+      req: false
+      short: "Race or species of the character"
+      type: "`$STRING`"
+    }
+    {
+      name: "transformations"
+      req: false
+      short: "List of transformations available to the character"
+      type: "`$ARRAY`"
     }
   ]
 
@@ -42,7 +84,7 @@ main: kit: entity: planet: {
     name: "id"
   }
 
-  name: "planet"
+  name: "character"
   op: {
     list: {
       name: "list"
@@ -50,6 +92,13 @@ main: kit: entity: planet: {
         {
           args: {
             query: [
+              {
+                kind: "query"
+                name: "affiliation"
+                orig: "affiliation"
+                reqd: false
+                type: "`$STRING`"
+              }
               {
                 example: 10
                 kind: "query"
@@ -73,18 +122,27 @@ main: kit: entity: planet: {
                 reqd: false
                 type: "`$INTEGER`"
               }
+              {
+                kind: "query"
+                name: "race"
+                orig: "race"
+                reqd: false
+                type: "`$STRING`"
+              }
             ]
           }
           method: "GET"
-          orig: "/planets"
+          orig: "/characters"
           parts: [
-            "planets"
+            "characters"
           ]
           select: {
             exist: [
+              "affiliation"
               "limit"
               "name"
               "page"
+              "race"
             ]
           }
           transform: {
@@ -110,9 +168,9 @@ main: kit: entity: planet: {
             ]
           }
           method: "GET"
-          orig: "/planets/{id}"
+          orig: "/characters/{id}"
           parts: [
-            "planets"
+            "characters"
             "{id}"
           ]
           select: {

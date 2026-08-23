@@ -265,18 +265,18 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `affiliation` |  |
-| `deletedAt` |  |
-| `description` |  |
-| `gender` |  |
-| `id` |  |
-| `image` |  |
-| `ki` |  |
-| `maxKi` |  |
-| `name` |  |
-| `originPlanet` |  |
-| `race` |  |
-| `transformations` |  |
+| `affiliation` | Character's affiliation or allegiance |
+| `deletedAt` | Deletion timestamp if character is deleted |
+| `description` | Detailed description of the character |
+| `gender` | Gender of the character |
+| `id` | Unique identifier for the character |
+| `image` | URL to character image |
+| `ki` | Current ki (power level) of the character |
+| `maxKi` | Maximum ki the character can achieve |
+| `name` | Name of the character |
+| `originPlanet` | Planet where the character originated |
+| `race` | Race or species of the character |
+| `transformations` | List of transformations available to the character |
 
 Operations: List, Load.
 
@@ -286,12 +286,12 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deletedAt` |  |
-| `description` |  |
-| `id` |  |
-| `image` |  |
-| `isDestroyed` |  |
-| `name` |  |
+| `deletedAt` | Deletion timestamp if planet is deleted |
+| `description` | Detailed description of the planet |
+| `id` | Unique identifier for the planet |
+| `image` | URL to planet image |
+| `isDestroyed` | Whether the planet has been destroyed |
+| `name` | Name of the planet |
 
 Operations: List, Load.
 
@@ -301,11 +301,11 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deletedAt` |  |
-| `id` |  |
-| `image` |  |
-| `ki` |  |
-| `name` |  |
+| `deletedAt` | Deletion timestamp if transformation is deleted |
+| `id` | Unique identifier for the transformation |
+| `image` | URL to transformation image |
+| `ki` | Ki level in this transformation |
+| `name` | Name of the transformation |
 
 Operations: List, Load.
 
@@ -331,18 +331,18 @@ Create an instance: `$character = $client->Character();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `affiliation` | `string` |  |
-| `deletedAt` | `string` |  |
-| `description` | `string` |  |
-| `gender` | `string` |  |
-| `id` | `int` |  |
-| `image` | `string` |  |
-| `ki` | `string` |  |
-| `maxKi` | `string` |  |
-| `name` | `string` |  |
-| `originPlanet` | `array` |  |
-| `race` | `string` |  |
-| `transformations` | `array` |  |
+| `affiliation` | `string` | Character's affiliation or allegiance |
+| `deletedAt` | `string` | Deletion timestamp if character is deleted |
+| `description` | `string` | Detailed description of the character |
+| `gender` | `string` | Gender of the character |
+| `id` | `int` | Unique identifier for the character |
+| `image` | `string` | URL to character image |
+| `ki` | `string` | Current ki (power level) of the character |
+| `maxKi` | `string` | Maximum ki the character can achieve |
+| `name` | `string` | Name of the character |
+| `originPlanet` | `array` | Planet where the character originated |
+| `race` | `string` | Race or species of the character |
+| `transformations` | `array` | List of transformations available to the character |
 
 #### Example: Load
 
@@ -374,12 +374,12 @@ Create an instance: `$planet = $client->Planet();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deletedAt` | `string` |  |
-| `description` | `string` |  |
-| `id` | `int` |  |
-| `image` | `string` |  |
-| `isDestroyed` | `bool` |  |
-| `name` | `string` |  |
+| `deletedAt` | `string` | Deletion timestamp if planet is deleted |
+| `description` | `string` | Detailed description of the planet |
+| `id` | `int` | Unique identifier for the planet |
+| `image` | `string` | URL to planet image |
+| `isDestroyed` | `bool` | Whether the planet has been destroyed |
+| `name` | `string` | Name of the planet |
 
 #### Example: Load
 
@@ -411,11 +411,11 @@ Create an instance: `$transformation = $client->Transformation();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deletedAt` | `string` |  |
-| `id` | `int` |  |
-| `image` | `string` |  |
-| `ki` | `string` |  |
-| `name` | `string` |  |
+| `deletedAt` | `string` | Deletion timestamp if transformation is deleted |
+| `id` | `int` | Unique identifier for the transformation |
+| `image` | `string` | URL to transformation image |
+| `ki` | `string` | Ki level in this transformation |
+| `name` | `string` | Name of the transformation |
 
 #### Example: Load
 

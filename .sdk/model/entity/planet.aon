@@ -1,6 +1,6 @@
-# Entity: transformation
+# Entity: planet
 
-main: kit: entity: transformation: {
+main: kit: entity: planet: {
 
   alias: field: {}
 
@@ -8,26 +8,37 @@ main: kit: entity: transformation: {
     {
       name: "deletedAt"
       req: false
+      short: "Deletion timestamp if planet is deleted"
+      type: "`$STRING`"
+    }
+    {
+      name: "description"
+      req: false
+      short: "Detailed description of the planet"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: false
+      short: "Unique identifier for the planet"
       type: "`$INTEGER`"
     }
     {
       name: "image"
       req: false
+      short: "URL to planet image"
       type: "`$STRING`"
     }
     {
-      name: "ki"
+      name: "isDestroyed"
       req: false
-      type: "`$STRING`"
+      short: "Whether the planet has been destroyed"
+      type: "`$BOOLEAN`"
     }
     {
       name: "name"
       req: false
+      short: "Name of the planet"
       type: "`$STRING`"
     }
   ]
@@ -37,7 +48,7 @@ main: kit: entity: transformation: {
     name: "id"
   }
 
-  name: "transformation"
+  name: "planet"
   op: {
     list: {
       name: "list"
@@ -54,6 +65,13 @@ main: kit: entity: transformation: {
                 type: "`$INTEGER`"
               }
               {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
                 example: 1
                 kind: "query"
                 name: "page"
@@ -64,13 +82,14 @@ main: kit: entity: transformation: {
             ]
           }
           method: "GET"
-          orig: "/transformations"
+          orig: "/planets"
           parts: [
-            "transformations"
+            "planets"
           ]
           select: {
             exist: [
               "limit"
+              "name"
               "page"
             ]
           }
@@ -97,9 +116,9 @@ main: kit: entity: transformation: {
             ]
           }
           method: "GET"
-          orig: "/transformations/{id}"
+          orig: "/planets/{id}"
           parts: [
-            "transformations"
+            "planets"
             "{id}"
           ]
           select: {

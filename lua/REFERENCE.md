@@ -98,18 +98,18 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | `string` | No |  |
-| `deletedAt` | `string` | No |  |
-| `description` | `string` | No |  |
-| `gender` | `string` | No |  |
-| `id` | `number` | No |  |
-| `image` | `string` | No |  |
-| `ki` | `string` | No |  |
-| `maxKi` | `string` | No |  |
-| `name` | `string` | No |  |
-| `originPlanet` | `table` | No |  |
-| `race` | `string` | No |  |
-| `transformations` | `table` | No |  |
+| `affiliation` | `string` | No | Character's affiliation or allegiance |
+| `deletedAt` | `string` | No | Deletion timestamp if character is deleted |
+| `description` | `string` | No | Detailed description of the character |
+| `gender` | `string` | No | Gender of the character |
+| `id` | `number` | No | Unique identifier for the character |
+| `image` | `string` | No | URL to character image |
+| `ki` | `string` | No | Current ki (power level) of the character |
+| `maxKi` | `string` | No | Maximum ki the character can achieve |
+| `name` | `string` | No | Name of the character |
+| `originPlanet` | `table` | No | Planet where the character originated |
+| `race` | `string` | No | Race or species of the character |
+| `transformations` | `table` | No | List of transformations available to the character |
 
 ### Operations
 
@@ -169,12 +169,12 @@ local planet = client:Planet(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `number` | No |  |
-| `image` | `string` | No |  |
-| `isDestroyed` | `boolean` | No |  |
-| `name` | `string` | No |  |
+| `deletedAt` | `string` | No | Deletion timestamp if planet is deleted |
+| `description` | `string` | No | Detailed description of the planet |
+| `id` | `number` | No | Unique identifier for the planet |
+| `image` | `string` | No | URL to planet image |
+| `isDestroyed` | `boolean` | No | Whether the planet has been destroyed |
+| `name` | `string` | No | Name of the planet |
 
 ### Operations
 
@@ -234,11 +234,11 @@ local transformation = client:Transformation(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `string` | No |  |
-| `id` | `number` | No |  |
-| `image` | `string` | No |  |
-| `ki` | `string` | No |  |
-| `name` | `string` | No |  |
+| `deletedAt` | `string` | No | Deletion timestamp if transformation is deleted |
+| `id` | `number` | No | Unique identifier for the transformation |
+| `image` | `string` | No | URL to transformation image |
+| `ki` | `string` | No | Ki level in this transformation |
+| `name` | `string` | No | Name of the transformation |
 
 ### Operations
 

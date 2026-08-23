@@ -101,18 +101,18 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | `String` | No |  |
-| `deletedAt` | `String` | No |  |
-| `description` | `String` | No |  |
-| `gender` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `image` | `String` | No |  |
-| `ki` | `String` | No |  |
-| `maxKi` | `String` | No |  |
-| `name` | `String` | No |  |
-| `originPlanet` | `Hash` | No |  |
-| `race` | `String` | No |  |
-| `transformations` | `Array` | No |  |
+| `affiliation` | `String` | No | Character's affiliation or allegiance |
+| `deletedAt` | `String` | No | Deletion timestamp if character is deleted |
+| `description` | `String` | No | Detailed description of the character |
+| `gender` | `String` | No | Gender of the character |
+| `id` | `Integer` | No | Unique identifier for the character |
+| `image` | `String` | No | URL to character image |
+| `ki` | `String` | No | Current ki (power level) of the character |
+| `maxKi` | `String` | No | Maximum ki the character can achieve |
+| `name` | `String` | No | Name of the character |
+| `originPlanet` | `Hash` | No | Planet where the character originated |
+| `race` | `String` | No | Race or species of the character |
+| `transformations` | `Array` | No | List of transformations available to the character |
 
 ### Operations
 
@@ -172,12 +172,12 @@ planet = client.Planet
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `String` | No |  |
-| `description` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `image` | `String` | No |  |
-| `isDestroyed` | `Boolean` | No |  |
-| `name` | `String` | No |  |
+| `deletedAt` | `String` | No | Deletion timestamp if planet is deleted |
+| `description` | `String` | No | Detailed description of the planet |
+| `id` | `Integer` | No | Unique identifier for the planet |
+| `image` | `String` | No | URL to planet image |
+| `isDestroyed` | `Boolean` | No | Whether the planet has been destroyed |
+| `name` | `String` | No | Name of the planet |
 
 ### Operations
 
@@ -237,11 +237,11 @@ transformation = client.Transformation
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `String` | No |  |
-| `id` | `Integer` | No |  |
-| `image` | `String` | No |  |
-| `ki` | `String` | No |  |
-| `name` | `String` | No |  |
+| `deletedAt` | `String` | No | Deletion timestamp if transformation is deleted |
+| `id` | `Integer` | No | Unique identifier for the transformation |
+| `image` | `String` | No | URL to transformation image |
+| `ki` | `String` | No | Ki level in this transformation |
+| `name` | `String` | No | Name of the transformation |
 
 ### Operations
 

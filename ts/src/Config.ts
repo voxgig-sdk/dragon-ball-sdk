@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'DragonBall',
+        slug: "dragon-ball",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -62,50 +73,62 @@ class Config {
       "fields": [
         {
           "name": "affiliation",
+          "short": "Character's affiliation or allegiance",
           "type": "`$STRING`"
         },
         {
           "name": "deletedAt",
+          "short": "Deletion timestamp if character is deleted",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Detailed description of the character",
           "type": "`$STRING`"
         },
         {
           "name": "gender",
+          "short": "Gender of the character",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the character",
           "type": "`$INTEGER`"
         },
         {
           "name": "image",
+          "short": "URL to character image",
           "type": "`$STRING`"
         },
         {
           "name": "ki",
+          "short": "Current ki (power level) of the character",
           "type": "`$STRING`"
         },
         {
           "name": "maxKi",
+          "short": "Maximum ki the character can achieve",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the character",
           "type": "`$STRING`"
         },
         {
           "name": "originPlanet",
+          "short": "Planet where the character originated",
           "type": "`$OBJECT`"
         },
         {
           "name": "race",
+          "short": "Race or species of the character",
           "type": "`$STRING`"
         },
         {
           "name": "transformations",
+          "short": "List of transformations available to the character",
           "type": "`$ARRAY`"
         }
       ],
@@ -218,26 +241,32 @@ class Config {
       "fields": [
         {
           "name": "deletedAt",
+          "short": "Deletion timestamp if planet is deleted",
           "type": "`$STRING`"
         },
         {
           "name": "description",
+          "short": "Detailed description of the planet",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the planet",
           "type": "`$INTEGER`"
         },
         {
           "name": "image",
+          "short": "URL to planet image",
           "type": "`$STRING`"
         },
         {
           "name": "isDestroyed",
+          "short": "Whether the planet has been destroyed",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "name",
+          "short": "Name of the planet",
           "type": "`$STRING`"
         }
       ],
@@ -336,22 +365,27 @@ class Config {
       "fields": [
         {
           "name": "deletedAt",
+          "short": "Deletion timestamp if transformation is deleted",
           "type": "`$STRING`"
         },
         {
           "name": "id",
+          "short": "Unique identifier for the transformation",
           "type": "`$INTEGER`"
         },
         {
           "name": "image",
+          "short": "URL to transformation image",
           "type": "`$STRING`"
         },
         {
           "name": "ki",
+          "short": "Ki level in this transformation",
           "type": "`$STRING`"
         },
         {
           "name": "name",
+          "short": "Name of the transformation",
           "type": "`$STRING`"
         }
       ],

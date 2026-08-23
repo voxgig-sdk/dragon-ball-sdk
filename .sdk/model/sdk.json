@@ -36,72 +36,84 @@
               "active": true,
               "name": "affiliation",
               "req": false,
+              "short": "Character's affiliation or allegiance",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "deletedAt",
               "req": false,
+              "short": "Deletion timestamp if character is deleted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gender",
               "req": false,
+              "short": "Gender of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the character",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "image",
               "req": false,
+              "short": "URL to character image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ki",
               "req": false,
+              "short": "Current ki (power level) of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "maxKi",
               "req": false,
+              "short": "Maximum ki the character can achieve",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "originPlanet",
               "req": false,
+              "short": "Planet where the character originated",
               "type": "`$OBJECT`"
             },
             {
               "active": true,
               "name": "race",
               "req": false,
+              "short": "Race or species of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "transformations",
               "req": false,
+              "short": "List of transformations available to the character",
               "type": "`$ARRAY`"
             }
           ],
@@ -237,36 +249,42 @@
               "active": true,
               "name": "deletedAt",
               "req": false,
+              "short": "Deletion timestamp if planet is deleted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "description",
               "req": false,
+              "short": "Detailed description of the planet",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the planet",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "image",
               "req": false,
+              "short": "URL to planet image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "isDestroyed",
               "req": false,
+              "short": "Whether the planet has been destroyed",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the planet",
               "type": "`$STRING`"
             }
           ],
@@ -384,30 +402,35 @@
               "active": true,
               "name": "deletedAt",
               "req": false,
+              "short": "Deletion timestamp if transformation is deleted",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the transformation",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "image",
               "req": false,
+              "short": "URL to transformation image",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "ki",
               "req": false,
+              "short": "Ki level in this transformation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the transformation",
               "type": "`$STRING`"
             }
           ],

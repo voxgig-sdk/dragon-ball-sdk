@@ -100,18 +100,18 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | `string` | No |  |
-| `deletedAt` | `string` | No |  |
-| `description` | `string` | No |  |
-| `gender` | `string` | No |  |
-| `id` | `int` | No |  |
-| `image` | `string` | No |  |
-| `ki` | `string` | No |  |
-| `maxKi` | `string` | No |  |
-| `name` | `string` | No |  |
-| `originPlanet` | `array` | No |  |
-| `race` | `string` | No |  |
-| `transformations` | `array` | No |  |
+| `affiliation` | `string` | No | Character's affiliation or allegiance |
+| `deletedAt` | `string` | No | Deletion timestamp if character is deleted |
+| `description` | `string` | No | Detailed description of the character |
+| `gender` | `string` | No | Gender of the character |
+| `id` | `int` | No | Unique identifier for the character |
+| `image` | `string` | No | URL to character image |
+| `ki` | `string` | No | Current ki (power level) of the character |
+| `maxKi` | `string` | No | Maximum ki the character can achieve |
+| `name` | `string` | No | Name of the character |
+| `originPlanet` | `array` | No | Planet where the character originated |
+| `race` | `string` | No | Race or species of the character |
+| `transformations` | `array` | No | List of transformations available to the character |
 
 ### Operations
 
@@ -171,12 +171,12 @@ $planet = $client->Planet();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `string` | No |  |
-| `description` | `string` | No |  |
-| `id` | `int` | No |  |
-| `image` | `string` | No |  |
-| `isDestroyed` | `bool` | No |  |
-| `name` | `string` | No |  |
+| `deletedAt` | `string` | No | Deletion timestamp if planet is deleted |
+| `description` | `string` | No | Detailed description of the planet |
+| `id` | `int` | No | Unique identifier for the planet |
+| `image` | `string` | No | URL to planet image |
+| `isDestroyed` | `bool` | No | Whether the planet has been destroyed |
+| `name` | `string` | No | Name of the planet |
 
 ### Operations
 
@@ -236,11 +236,11 @@ $transformation = $client->Transformation();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `string` | No |  |
-| `id` | `int` | No |  |
-| `image` | `string` | No |  |
-| `ki` | `string` | No |  |
-| `name` | `string` | No |  |
+| `deletedAt` | `string` | No | Deletion timestamp if transformation is deleted |
+| `id` | `int` | No | Unique identifier for the transformation |
+| `image` | `string` | No | URL to transformation image |
+| `ki` | `string` | No | Ki level in this transformation |
+| `name` | `string` | No | Name of the transformation |
 
 ### Operations
 

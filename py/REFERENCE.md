@@ -95,18 +95,18 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `affiliation` | `str` | No |  |
-| `deletedAt` | `str` | No |  |
-| `description` | `str` | No |  |
-| `gender` | `str` | No |  |
-| `id` | `int` | No |  |
-| `image` | `str` | No |  |
-| `ki` | `str` | No |  |
-| `maxKi` | `str` | No |  |
-| `name` | `str` | No |  |
-| `originPlanet` | `dict` | No |  |
-| `race` | `str` | No |  |
-| `transformations` | `list` | No |  |
+| `affiliation` | `str` | No | Character's affiliation or allegiance |
+| `deletedAt` | `str` | No | Deletion timestamp if character is deleted |
+| `description` | `str` | No | Detailed description of the character |
+| `gender` | `str` | No | Gender of the character |
+| `id` | `int` | No | Unique identifier for the character |
+| `image` | `str` | No | URL to character image |
+| `ki` | `str` | No | Current ki (power level) of the character |
+| `maxKi` | `str` | No | Maximum ki the character can achieve |
+| `name` | `str` | No | Name of the character |
+| `originPlanet` | `dict` | No | Planet where the character originated |
+| `race` | `str` | No | Race or species of the character |
+| `transformations` | `list` | No | List of transformations available to the character |
 
 ### Operations
 
@@ -167,12 +167,12 @@ planet = client.Planet()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `str` | No |  |
-| `description` | `str` | No |  |
-| `id` | `int` | No |  |
-| `image` | `str` | No |  |
-| `isDestroyed` | `bool` | No |  |
-| `name` | `str` | No |  |
+| `deletedAt` | `str` | No | Deletion timestamp if planet is deleted |
+| `description` | `str` | No | Detailed description of the planet |
+| `id` | `int` | No | Unique identifier for the planet |
+| `image` | `str` | No | URL to planet image |
+| `isDestroyed` | `bool` | No | Whether the planet has been destroyed |
+| `name` | `str` | No | Name of the planet |
 
 ### Operations
 
@@ -233,11 +233,11 @@ transformation = client.Transformation()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `deletedAt` | `str` | No |  |
-| `id` | `int` | No |  |
-| `image` | `str` | No |  |
-| `ki` | `str` | No |  |
-| `name` | `str` | No |  |
+| `deletedAt` | `str` | No | Deletion timestamp if transformation is deleted |
+| `id` | `int` | No | Unique identifier for the transformation |
+| `image` | `str` | No | URL to transformation image |
+| `ki` | `str` | No | Ki level in this transformation |
+| `name` | `str` | No | Name of the transformation |
 
 ### Operations
 

@@ -255,18 +255,18 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `affiliation` |  |
-| `deletedAt` |  |
-| `description` |  |
-| `gender` |  |
-| `id` |  |
-| `image` |  |
-| `ki` |  |
-| `maxKi` |  |
-| `name` |  |
-| `originPlanet` |  |
-| `race` |  |
-| `transformations` |  |
+| `affiliation` | Character's affiliation or allegiance |
+| `deletedAt` | Deletion timestamp if character is deleted |
+| `description` | Detailed description of the character |
+| `gender` | Gender of the character |
+| `id` | Unique identifier for the character |
+| `image` | URL to character image |
+| `ki` | Current ki (power level) of the character |
+| `maxKi` | Maximum ki the character can achieve |
+| `name` | Name of the character |
+| `originPlanet` | Planet where the character originated |
+| `race` | Race or species of the character |
+| `transformations` | List of transformations available to the character |
 
 Operations: List, Load.
 
@@ -276,12 +276,12 @@ API path: `/characters`
 
 | Field | Description |
 | --- | --- |
-| `deletedAt` |  |
-| `description` |  |
-| `id` |  |
-| `image` |  |
-| `isDestroyed` |  |
-| `name` |  |
+| `deletedAt` | Deletion timestamp if planet is deleted |
+| `description` | Detailed description of the planet |
+| `id` | Unique identifier for the planet |
+| `image` | URL to planet image |
+| `isDestroyed` | Whether the planet has been destroyed |
+| `name` | Name of the planet |
 
 Operations: List, Load.
 
@@ -291,11 +291,11 @@ API path: `/planets`
 
 | Field | Description |
 | --- | --- |
-| `deletedAt` |  |
-| `id` |  |
-| `image` |  |
-| `ki` |  |
-| `name` |  |
+| `deletedAt` | Deletion timestamp if transformation is deleted |
+| `id` | Unique identifier for the transformation |
+| `image` | URL to transformation image |
+| `ki` | Ki level in this transformation |
+| `name` | Name of the transformation |
 
 Operations: List, Load.
 
@@ -321,18 +321,18 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `affiliation` | `String` |  |
-| `deletedAt` | `String` |  |
-| `description` | `String` |  |
-| `gender` | `String` |  |
-| `id` | `Integer` |  |
-| `image` | `String` |  |
-| `ki` | `String` |  |
-| `maxKi` | `String` |  |
-| `name` | `String` |  |
-| `originPlanet` | `Hash` |  |
-| `race` | `String` |  |
-| `transformations` | `Array` |  |
+| `affiliation` | `String` | Character's affiliation or allegiance |
+| `deletedAt` | `String` | Deletion timestamp if character is deleted |
+| `description` | `String` | Detailed description of the character |
+| `gender` | `String` | Gender of the character |
+| `id` | `Integer` | Unique identifier for the character |
+| `image` | `String` | URL to character image |
+| `ki` | `String` | Current ki (power level) of the character |
+| `maxKi` | `String` | Maximum ki the character can achieve |
+| `name` | `String` | Name of the character |
+| `originPlanet` | `Hash` | Planet where the character originated |
+| `race` | `String` | Race or species of the character |
+| `transformations` | `Array` | List of transformations available to the character |
 
 #### Example: Load
 
@@ -364,12 +364,12 @@ Create an instance: `planet = client.Planet`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deletedAt` | `String` |  |
-| `description` | `String` |  |
-| `id` | `Integer` |  |
-| `image` | `String` |  |
-| `isDestroyed` | `Boolean` |  |
-| `name` | `String` |  |
+| `deletedAt` | `String` | Deletion timestamp if planet is deleted |
+| `description` | `String` | Detailed description of the planet |
+| `id` | `Integer` | Unique identifier for the planet |
+| `image` | `String` | URL to planet image |
+| `isDestroyed` | `Boolean` | Whether the planet has been destroyed |
+| `name` | `String` | Name of the planet |
 
 #### Example: Load
 
@@ -401,11 +401,11 @@ Create an instance: `transformation = client.Transformation`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `deletedAt` | `String` |  |
-| `id` | `Integer` |  |
-| `image` | `String` |  |
-| `ki` | `String` |  |
-| `name` | `String` |  |
+| `deletedAt` | `String` | Deletion timestamp if transformation is deleted |
+| `id` | `Integer` | Unique identifier for the transformation |
+| `image` | `String` | URL to transformation image |
+| `ki` | `String` | Ki level in this transformation |
+| `name` | `String` | Name of the transformation |
 
 #### Example: Load
 
