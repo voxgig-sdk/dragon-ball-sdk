@@ -37,17 +37,10 @@ class CharacterLoadMatch(TypedDict):
 
 class CharacterListMatch(TypedDict, total=False):
     affiliation: str
-    deletedAt: str
-    description: str
-    gender: str
-    id: int
-    image: str
-    ki: str
-    maxKi: str
+    limit: int
     name: str
-    originPlanet: dict
+    page: int
     race: str
-    transformations: list
 
 
 class Planet(TypedDict, total=False):
@@ -64,12 +57,9 @@ class PlanetLoadMatch(TypedDict):
 
 
 class PlanetListMatch(TypedDict, total=False):
-    deletedAt: str
-    description: str
-    id: int
-    image: str
-    isDestroyed: bool
+    limit: int
     name: str
+    page: int
 
 
 class Transformation(TypedDict, total=False):
@@ -85,8 +75,5 @@ class TransformationLoadMatch(TypedDict):
 
 
 class TransformationListMatch(TypedDict, total=False):
-    deletedAt: str
-    id: int
-    image: str
-    ki: str
-    name: str
+    limit: int
+    page: int

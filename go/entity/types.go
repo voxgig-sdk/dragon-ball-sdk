@@ -36,17 +36,10 @@ type CharacterLoadMatch struct {
 // CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
 	Affiliation *string `json:"affiliation,omitempty"`
-	DeletedAt *string `json:"deletedAt,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Gender *string `json:"gender,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Ki *string `json:"ki,omitempty"`
-	MaxKi *string `json:"maxKi,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 	Name *string `json:"name,omitempty"`
-	OriginPlanet *map[string]any `json:"originPlanet,omitempty"`
+	Page *int `json:"page,omitempty"`
 	Race *string `json:"race,omitempty"`
-	Transformations *[]any `json:"transformations,omitempty"`
 }
 
 // Planet is the typed data model for the planet entity.
@@ -66,12 +59,9 @@ type PlanetLoadMatch struct {
 
 // PlanetListMatch is the typed request payload for Planet.ListTyped.
 type PlanetListMatch struct {
-	DeletedAt *string `json:"deletedAt,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	IsDestroyed *bool `json:"isDestroyed,omitempty"`
+	Limit *int `json:"limit,omitempty"`
 	Name *string `json:"name,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // Transformation is the typed data model for the transformation entity.
@@ -90,11 +80,8 @@ type TransformationLoadMatch struct {
 
 // TransformationListMatch is the typed request payload for Transformation.ListTyped.
 type TransformationListMatch struct {
-	DeletedAt *string `json:"deletedAt,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Ki *string `json:"ki,omitempty"`
-	Name *string `json:"name,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Page *int `json:"page,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

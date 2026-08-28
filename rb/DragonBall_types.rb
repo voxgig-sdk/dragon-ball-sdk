@@ -75,51 +75,23 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] affiliation
 #   @return [String, nil]
 #
-# @!attribute [rw] deletedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] gender
-#   @return [String, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] limit
 #   @return [Integer, nil]
-#
-# @!attribute [rw] image
-#   @return [String, nil]
-#
-# @!attribute [rw] ki
-#   @return [String, nil]
-#
-# @!attribute [rw] maxKi
-#   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] originPlanet
-#   @return [Hash, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
 # @!attribute [rw] race
 #   @return [String, nil]
-#
-# @!attribute [rw] transformations
-#   @return [Array, nil]
 CharacterListMatch = Struct.new(
   :affiliation,
-  :deletedAt,
-  :description,
-  :gender,
-  :id,
-  :image,
-  :ki,
-  :maxKi,
+  :limit,
   :name,
-  :originPlanet,
+  :page,
   :race,
-  :transformations,
   keyword_init: true
 )
 
@@ -163,30 +135,18 @@ PlanetLoadMatch = Struct.new(
 
 # Request payload for Planet#list.
 #
-# @!attribute [rw] deletedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] description
-#   @return [String, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] limit
 #   @return [Integer, nil]
-#
-# @!attribute [rw] image
-#   @return [String, nil]
-#
-# @!attribute [rw] isDestroyed
-#   @return [Boolean, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
+#
+# @!attribute [rw] page
+#   @return [Integer, nil]
 PlanetListMatch = Struct.new(
-  :deletedAt,
-  :description,
-  :id,
-  :image,
-  :isDestroyed,
+  :limit,
   :name,
+  :page,
   keyword_init: true
 )
 
@@ -226,26 +186,14 @@ TransformationLoadMatch = Struct.new(
 
 # Request payload for Transformation#list.
 #
-# @!attribute [rw] deletedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] id
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
-# @!attribute [rw] image
-#   @return [String, nil]
-#
-# @!attribute [rw] ki
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 TransformationListMatch = Struct.new(
-  :deletedAt,
-  :id,
-  :image,
-  :ki,
-  :name,
+  :limit,
+  :page,
   keyword_init: true
 )
 

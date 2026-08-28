@@ -26,17 +26,10 @@ export interface CharacterLoadMatch {
 
 export interface CharacterListMatch {
   affiliation?: string
-  deletedAt?: string
-  description?: string
-  gender?: string
-  id?: number
-  image?: string
-  ki?: string
-  maxKi?: string
+  limit?: number
   name?: string
-  originPlanet?: Record<string, any>
+  page?: number
   race?: string
-  transformations?: any[]
 }
 
 export interface Planet {
@@ -53,12 +46,9 @@ export interface PlanetLoadMatch {
 }
 
 export interface PlanetListMatch {
-  deletedAt?: string
-  description?: string
-  id?: number
-  image?: string
-  isDestroyed?: boolean
+  limit?: number
   name?: string
+  page?: number
 }
 
 export interface Transformation {
@@ -74,10 +64,7 @@ export interface TransformationLoadMatch {
 }
 
 export interface TransformationListMatch {
-  deletedAt?: string
-  id?: number
-  image?: string
-  ki?: string
-  name?: string
+  limit?: number
+  page?: number
 }
 

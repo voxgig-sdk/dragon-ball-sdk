@@ -39,17 +39,10 @@ class CharacterLoadMatch
 class CharacterListMatch
 {
     public ?string $affiliation = null;
-    public ?string $deletedAt = null;
-    public ?string $description = null;
-    public ?string $gender = null;
-    public ?int $id = null;
-    public ?string $image = null;
-    public ?string $ki = null;
-    public ?string $maxKi = null;
+    public ?int $limit = null;
     public ?string $name = null;
-    public ?array $originPlanet = null;
+    public ?int $page = null;
     public ?string $race = null;
-    public ?array $transformations = null;
 }
 
 /** Planet entity data model. */
@@ -72,12 +65,9 @@ class PlanetLoadMatch
 /** Request payload for Planet#list. */
 class PlanetListMatch
 {
-    public ?string $deletedAt = null;
-    public ?string $description = null;
-    public ?int $id = null;
-    public ?string $image = null;
-    public ?bool $isDestroyed = null;
+    public ?int $limit = null;
     public ?string $name = null;
+    public ?int $page = null;
 }
 
 /** Transformation entity data model. */
@@ -99,10 +89,7 @@ class TransformationLoadMatch
 /** Request payload for Transformation#list. */
 class TransformationListMatch
 {
-    public ?string $deletedAt = null;
-    public ?int $id = null;
-    public ?string $image = null;
-    public ?string $ki = null;
-    public ?string $name = null;
+    public ?int $limit = null;
+    public ?int $page = null;
 }
 
