@@ -1,6 +1,14 @@
 # DragonBall SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -60,6 +68,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date-time",
             "name": "deletedAt",
             "short": "Deletion timestamp if character is deleted",
             "type": "`$STRING`",
@@ -80,6 +89,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "image",
             "short": "URL to character image",
             "type": "`$STRING`",
@@ -115,6 +125,10 @@ def make_config():
             "type": "`$ARRAY`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "character",
         "op": {
           "list": {
@@ -161,8 +175,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/characters",
-                "parts": [
-                  "characters",
+                "segments": [
+                  {
+                    "lit": "characters",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -177,6 +193,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "characters",
+                ],
               },
             ],
           },
@@ -199,9 +218,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/characters/{id}",
-                "parts": [
-                  "characters",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "characters",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -212,6 +235,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "characters",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -223,6 +250,7 @@ def make_config():
       "planet": {
         "fields": [
           {
+            "format": "date-time",
             "name": "deletedAt",
             "short": "Deletion timestamp if planet is deleted",
             "type": "`$STRING`",
@@ -238,6 +266,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "image",
             "short": "URL to planet image",
             "type": "`$STRING`",
@@ -253,6 +282,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "planet",
         "op": {
           "list": {
@@ -287,8 +320,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/planets",
-                "parts": [
-                  "planets",
+                "segments": [
+                  {
+                    "lit": "planets",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -301,6 +336,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "planets",
+                ],
               },
             ],
           },
@@ -323,9 +361,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/planets/{id}",
-                "parts": [
-                  "planets",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "planets",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -336,6 +378,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "planets",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -347,6 +393,7 @@ def make_config():
       "transformation": {
         "fields": [
           {
+            "format": "date-time",
             "name": "deletedAt",
             "short": "Deletion timestamp if transformation is deleted",
             "type": "`$STRING`",
@@ -357,6 +404,7 @@ def make_config():
             "type": "`$INTEGER`",
           },
           {
+            "format": "uri",
             "name": "image",
             "short": "URL to transformation image",
             "type": "`$STRING`",
@@ -372,6 +420,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "transformation",
         "op": {
           "list": {
@@ -400,8 +452,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/transformations",
-                "parts": [
-                  "transformations",
+                "segments": [
+                  {
+                    "lit": "transformations",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -413,6 +467,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "transformations",
+                ],
               },
             ],
           },
@@ -435,9 +492,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/transformations/{id}",
-                "parts": [
-                  "transformations",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "transformations",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -448,6 +509,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [
+                  "transformations",
+                  "{id}",
+                ],
               },
             ],
           },

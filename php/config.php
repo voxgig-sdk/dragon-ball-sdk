@@ -65,6 +65,7 @@ class DragonBallConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'deletedAt',
               'short' => 'Deletion timestamp if character is deleted',
               'type' => '`$STRING`',
@@ -85,6 +86,7 @@ class DragonBallConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'image',
               'short' => 'URL to character image',
               'type' => '`$STRING`',
@@ -119,6 +121,10 @@ class DragonBallConfig
               'short' => 'List of transformations available to the character',
               'type' => '`$ARRAY`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'character',
           'op' => [
@@ -166,8 +172,10 @@ class DragonBallConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/characters',
-                  'parts' => [
-                    'characters',
+                  'segments' => [
+                    [
+                      'lit' => 'characters',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -181,6 +189,9 @@ class DragonBallConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'characters',
                   ],
                 ],
               ],
@@ -204,9 +215,13 @@ class DragonBallConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/characters/{id}',
-                  'parts' => [
-                    'characters',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'characters',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -216,6 +231,10 @@ class DragonBallConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'characters',
+                    '{id}',
                   ],
                 ],
               ],
@@ -228,6 +247,7 @@ class DragonBallConfig
         'planet' => [
           'fields' => [
             [
+              'format' => 'date-time',
               'name' => 'deletedAt',
               'short' => 'Deletion timestamp if planet is deleted',
               'type' => '`$STRING`',
@@ -243,6 +263,7 @@ class DragonBallConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'image',
               'short' => 'URL to planet image',
               'type' => '`$STRING`',
@@ -257,6 +278,10 @@ class DragonBallConfig
               'short' => 'Name of the planet',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'planet',
           'op' => [
@@ -292,8 +317,10 @@ class DragonBallConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/planets',
-                  'parts' => [
-                    'planets',
+                  'segments' => [
+                    [
+                      'lit' => 'planets',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -305,6 +332,9 @@ class DragonBallConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'planets',
                   ],
                 ],
               ],
@@ -328,9 +358,13 @@ class DragonBallConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/planets/{id}',
-                  'parts' => [
-                    'planets',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'planets',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -340,6 +374,10 @@ class DragonBallConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'planets',
+                    '{id}',
                   ],
                 ],
               ],
@@ -352,6 +390,7 @@ class DragonBallConfig
         'transformation' => [
           'fields' => [
             [
+              'format' => 'date-time',
               'name' => 'deletedAt',
               'short' => 'Deletion timestamp if transformation is deleted',
               'type' => '`$STRING`',
@@ -362,6 +401,7 @@ class DragonBallConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'image',
               'short' => 'URL to transformation image',
               'type' => '`$STRING`',
@@ -376,6 +416,10 @@ class DragonBallConfig
               'short' => 'Name of the transformation',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'transformation',
           'op' => [
@@ -405,8 +449,10 @@ class DragonBallConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/transformations',
-                  'parts' => [
-                    'transformations',
+                  'segments' => [
+                    [
+                      'lit' => 'transformations',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -417,6 +463,9 @@ class DragonBallConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'transformations',
                   ],
                 ],
               ],
@@ -440,9 +489,13 @@ class DragonBallConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/transformations/{id}',
-                  'parts' => [
-                    'transformations',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'transformations',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -452,6 +505,10 @@ class DragonBallConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'transformations',
+                    '{id}',
                   ],
                 ],
               ],

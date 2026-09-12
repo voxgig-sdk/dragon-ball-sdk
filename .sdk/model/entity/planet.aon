@@ -6,6 +6,7 @@ main: kit: entity: planet: {
 
   fields: [
     {
+      format: "date-time"
       name: "deletedAt"
       req: false
       short: "Deletion timestamp if planet is deleted"
@@ -24,6 +25,7 @@ main: kit: entity: planet: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "image"
       req: false
       short: "URL to planet image"
@@ -83,8 +85,10 @@ main: kit: entity: planet: {
           }
           method: "GET"
           orig: "/planets"
-          parts: [
-            "planets"
+          segments: [
+            {
+              lit: "planets"
+            }
           ]
           select: {
             exist: [
@@ -117,9 +121,13 @@ main: kit: entity: planet: {
           }
           method: "GET"
           orig: "/planets/{id}"
-          parts: [
-            "planets"
-            "{id}"
+          segments: [
+            {
+              lit: "planets"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

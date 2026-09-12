@@ -51,6 +51,7 @@ module DragonBallConfig
               "type" => "`$STRING`",
             },
             {
+              "format" => "date-time",
               "name" => "deletedAt",
               "short" => "Deletion timestamp if character is deleted",
               "type" => "`$STRING`",
@@ -71,6 +72,7 @@ module DragonBallConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "uri",
               "name" => "image",
               "short" => "URL to character image",
               "type" => "`$STRING`",
@@ -106,6 +108,10 @@ module DragonBallConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "character",
           "op" => {
             "list" => {
@@ -152,8 +158,10 @@ module DragonBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters",
-                  "parts" => [
-                    "characters",
+                  "segments" => [
+                    {
+                      "lit" => "characters",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -168,6 +176,9 @@ module DragonBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "characters",
+                  ],
                 },
               ],
             },
@@ -190,9 +201,13 @@ module DragonBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/characters/{id}",
-                  "parts" => [
-                    "characters",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "characters",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -203,6 +218,10 @@ module DragonBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "characters",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -214,6 +233,7 @@ module DragonBallConfig
         "planet" => {
           "fields" => [
             {
+              "format" => "date-time",
               "name" => "deletedAt",
               "short" => "Deletion timestamp if planet is deleted",
               "type" => "`$STRING`",
@@ -229,6 +249,7 @@ module DragonBallConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "uri",
               "name" => "image",
               "short" => "URL to planet image",
               "type" => "`$STRING`",
@@ -244,6 +265,10 @@ module DragonBallConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "planet",
           "op" => {
             "list" => {
@@ -278,8 +303,10 @@ module DragonBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/planets",
-                  "parts" => [
-                    "planets",
+                  "segments" => [
+                    {
+                      "lit" => "planets",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -292,6 +319,9 @@ module DragonBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "planets",
+                  ],
                 },
               ],
             },
@@ -314,9 +344,13 @@ module DragonBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/planets/{id}",
-                  "parts" => [
-                    "planets",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "planets",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -327,6 +361,10 @@ module DragonBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "planets",
+                    "{id}",
+                  ],
                 },
               ],
             },
@@ -338,6 +376,7 @@ module DragonBallConfig
         "transformation" => {
           "fields" => [
             {
+              "format" => "date-time",
               "name" => "deletedAt",
               "short" => "Deletion timestamp if transformation is deleted",
               "type" => "`$STRING`",
@@ -348,6 +387,7 @@ module DragonBallConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "uri",
               "name" => "image",
               "short" => "URL to transformation image",
               "type" => "`$STRING`",
@@ -363,6 +403,10 @@ module DragonBallConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "transformation",
           "op" => {
             "list" => {
@@ -391,8 +435,10 @@ module DragonBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/transformations",
-                  "parts" => [
-                    "transformations",
+                  "segments" => [
+                    {
+                      "lit" => "transformations",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -404,6 +450,9 @@ module DragonBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "transformations",
+                  ],
                 },
               ],
             },
@@ -426,9 +475,13 @@ module DragonBallConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/transformations/{id}",
-                  "parts" => [
-                    "transformations",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "transformations",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -439,6 +492,10 @@ module DragonBallConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "transformations",
+                    "{id}",
+                  ],
                 },
               ],
             },

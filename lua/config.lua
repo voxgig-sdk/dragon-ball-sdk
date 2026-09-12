@@ -39,6 +39,7 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "deletedAt",
             ["short"] = "Deletion timestamp if character is deleted",
             ["type"] = "`$STRING`",
@@ -59,6 +60,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "image",
             ["short"] = "URL to character image",
             ["type"] = "`$STRING`",
@@ -93,6 +95,10 @@ local function make_config()
             ["short"] = "List of transformations available to the character",
             ["type"] = "`$ARRAY`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "character",
         ["op"] = {
@@ -140,8 +146,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters",
-                ["parts"] = {
-                  "characters",
+                ["segments"] = {
+                  {
+                    ["lit"] = "characters",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -155,6 +163,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "characters",
                 },
               },
             },
@@ -178,9 +189,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/characters/{id}",
-                ["parts"] = {
-                  "characters",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "characters",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -190,6 +205,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "characters",
+                  "{id}",
                 },
               },
             },
@@ -202,6 +221,7 @@ local function make_config()
       ["planet"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "deletedAt",
             ["short"] = "Deletion timestamp if planet is deleted",
             ["type"] = "`$STRING`",
@@ -217,6 +237,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "image",
             ["short"] = "URL to planet image",
             ["type"] = "`$STRING`",
@@ -231,6 +252,10 @@ local function make_config()
             ["short"] = "Name of the planet",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "planet",
         ["op"] = {
@@ -266,8 +291,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/planets",
-                ["parts"] = {
-                  "planets",
+                ["segments"] = {
+                  {
+                    ["lit"] = "planets",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -279,6 +306,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "planets",
                 },
               },
             },
@@ -302,9 +332,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/planets/{id}",
-                ["parts"] = {
-                  "planets",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "planets",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -314,6 +348,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "planets",
+                  "{id}",
                 },
               },
             },
@@ -326,6 +364,7 @@ local function make_config()
       ["transformation"] = {
         ["fields"] = {
           {
+            ["format"] = "date-time",
             ["name"] = "deletedAt",
             ["short"] = "Deletion timestamp if transformation is deleted",
             ["type"] = "`$STRING`",
@@ -336,6 +375,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "image",
             ["short"] = "URL to transformation image",
             ["type"] = "`$STRING`",
@@ -350,6 +390,10 @@ local function make_config()
             ["short"] = "Name of the transformation",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "transformation",
         ["op"] = {
@@ -379,8 +423,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/transformations",
-                ["parts"] = {
-                  "transformations",
+                ["segments"] = {
+                  {
+                    ["lit"] = "transformations",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -391,6 +437,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "transformations",
                 },
               },
             },
@@ -414,9 +463,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/transformations/{id}",
-                ["parts"] = {
-                  "transformations",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "transformations",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -426,6 +479,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "transformations",
+                  "{id}",
                 },
               },
             },

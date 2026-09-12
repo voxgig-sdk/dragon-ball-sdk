@@ -43,6 +43,7 @@ func MakeConfig() map[string]any {
 						"type": "`$STRING`",
 					},
 					map[string]any{
+						"format": "date-time",
 						"name": "deletedAt",
 						"short": "Deletion timestamp if character is deleted",
 						"type": "`$STRING`",
@@ -63,6 +64,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "image",
 						"short": "URL to character image",
 						"type": "`$STRING`",
@@ -97,6 +99,10 @@ func MakeConfig() map[string]any {
 						"short": "List of transformations available to the character",
 						"type": "`$ARRAY`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "character",
 				"op": map[string]any{
@@ -144,8 +150,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters",
-								"parts": []any{
-									"characters",
+								"segments": []any{
+									map[string]any{
+										"lit": "characters",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -159,6 +167,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"characters",
 								},
 							},
 						},
@@ -182,9 +193,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters/{id}",
-								"parts": []any{
-									"characters",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "characters",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -194,6 +209,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"characters",
+									"{id}",
 								},
 							},
 						},
@@ -206,6 +225,7 @@ func MakeConfig() map[string]any {
 			"planet": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date-time",
 						"name": "deletedAt",
 						"short": "Deletion timestamp if planet is deleted",
 						"type": "`$STRING`",
@@ -221,6 +241,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "image",
 						"short": "URL to planet image",
 						"type": "`$STRING`",
@@ -235,6 +256,10 @@ func MakeConfig() map[string]any {
 						"short": "Name of the planet",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "planet",
 				"op": map[string]any{
@@ -270,8 +295,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/planets",
-								"parts": []any{
-									"planets",
+								"segments": []any{
+									map[string]any{
+										"lit": "planets",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -283,6 +310,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"planets",
 								},
 							},
 						},
@@ -306,9 +336,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/planets/{id}",
-								"parts": []any{
-									"planets",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "planets",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -318,6 +352,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"planets",
+									"{id}",
 								},
 							},
 						},
@@ -330,6 +368,7 @@ func MakeConfig() map[string]any {
 			"transformation": map[string]any{
 				"fields": []any{
 					map[string]any{
+						"format": "date-time",
 						"name": "deletedAt",
 						"short": "Deletion timestamp if transformation is deleted",
 						"type": "`$STRING`",
@@ -340,6 +379,7 @@ func MakeConfig() map[string]any {
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
+						"format": "uri",
 						"name": "image",
 						"short": "URL to transformation image",
 						"type": "`$STRING`",
@@ -354,6 +394,10 @@ func MakeConfig() map[string]any {
 						"short": "Name of the transformation",
 						"type": "`$STRING`",
 					},
+				},
+				"id": map[string]any{
+					"field": "id",
+					"name": "id",
 				},
 				"name": "transformation",
 				"op": map[string]any{
@@ -383,8 +427,10 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/transformations",
-								"parts": []any{
-									"transformations",
+								"segments": []any{
+									map[string]any{
+										"lit": "transformations",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -395,6 +441,9 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"transformations",
 								},
 							},
 						},
@@ -418,9 +467,13 @@ func MakeConfig() map[string]any {
 								"kind": "http",
 								"method": "GET",
 								"orig": "/transformations/{id}",
-								"parts": []any{
-									"transformations",
-									"{id}",
+								"segments": []any{
+									map[string]any{
+										"lit": "transformations",
+									},
+									map[string]any{
+										"var": "id",
+									},
 								},
 								"select": map[string]any{
 									"exist": []any{
@@ -430,6 +483,10 @@ func MakeConfig() map[string]any {
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
+								},
+								"parts": []any{
+									"transformations",
+									"{id}",
 								},
 							},
 						},
@@ -441,6 +498,17 @@ func MakeConfig() map[string]any {
 			},
 		},
 	}
+}
+
+// The plugin definitions the model selected per feature, as []any so a
+// feature package can consume them without core naming its types. Empty
+// when no active feature declares active plugin groups for this target.
+var featurePlugins = map[string][]any{
+}
+
+// FeaturePlugins is the definitions list for one feature's chain.
+func FeaturePlugins(name string) []any {
+	return featurePlugins[name]
 }
 
 var (

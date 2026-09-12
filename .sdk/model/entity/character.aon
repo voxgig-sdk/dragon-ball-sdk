@@ -12,6 +12,7 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "deletedAt"
       req: false
       short: "Deletion timestamp if character is deleted"
@@ -36,6 +37,7 @@ main: kit: entity: character: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "image"
       req: false
       short: "URL to character image"
@@ -133,8 +135,10 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/characters"
-          parts: [
-            "characters"
+          segments: [
+            {
+              lit: "characters"
+            }
           ]
           select: {
             exist: [
@@ -169,9 +173,13 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/characters/{id}"
-          parts: [
-            "characters"
-            "{id}"
+          segments: [
+            {
+              lit: "characters"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [
