@@ -105,7 +105,7 @@ local results, err = client:Planet():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
+| TypeScript | `@voxgig-sdk/dragon-ball-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
 | Python | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
 | PHP | `voxgig-sdk/dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/dragon-ball-sdk/go` | `go get github.com/voxgig-sdk/dragon-ball-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Planet():list()
 ### TypeScript
 
 ```ts
-import { DragonBallSDK } from '@voxgig-sdk/dragon-ball'
+import { DragonBallSDK } from '@voxgig-sdk/dragon-ball-sdk'
 
 const client = new DragonBallSDK()
 

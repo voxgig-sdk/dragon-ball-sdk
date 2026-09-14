@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { DragonBallSDK } from '@voxgig-sdk/dragon-ball'
+import { DragonBallSDK } from '@voxgig-sdk/dragon-ball-sdk'
 
 const client = new DragonBallSDK()
 ```
@@ -547,7 +547,7 @@ dragon-ball/
 Import the SDK from the package root:
 
 ```ts
-import { DragonBallSDK } from '@voxgig-sdk/dragon-ball'
+import { DragonBallSDK } from '@voxgig-sdk/dragon-ball-sdk'
 ```
 
 ### Entity state
