@@ -37,5 +37,306 @@
         "name": "sf5"
       }
     }
+  },
+  "requests": {
+    "GET /planets": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getPlanets",
+        "parameters": [
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of results per page",
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "default": 10,
+              "maximum": 100,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Filter planets by name",
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "items": {
+                      "items": {
+                        "properties": {
+                          "deletedAt": {
+                            "description": "Deletion timestamp if planet is deleted",
+                            "format": "date-time",
+                            "nullable": true,
+                            "type": "string"
+                          },
+                          "description": {
+                            "description": "Detailed description of the planet",
+                            "type": "string"
+                          },
+                          "id": {
+                            "description": "Unique identifier for the planet",
+                            "type": "integer"
+                          },
+                          "image": {
+                            "description": "URL to planet image",
+                            "format": "uri",
+                            "type": "string"
+                          },
+                          "isDestroyed": {
+                            "description": "Whether the planet has been destroyed",
+                            "type": "boolean"
+                          },
+                          "name": {
+                            "description": "Name of the planet",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    },
+                    "links": {
+                      "properties": {
+                        "first": {
+                          "description": "Link to first page",
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "last": {
+                          "description": "Link to last page",
+                          "format": "uri",
+                          "type": "string"
+                        },
+                        "next": {
+                          "description": "Link to next page",
+                          "format": "uri",
+                          "nullable": true,
+                          "type": "string"
+                        },
+                        "previous": {
+                          "description": "Link to previous page",
+                          "format": "uri",
+                          "nullable": true,
+                          "type": "string"
+                        }
+                      },
+                      "type": "object"
+                    },
+                    "meta": {
+                      "properties": {
+                        "currentPage": {
+                          "description": "Current page number",
+                          "type": "integer"
+                        },
+                        "itemCount": {
+                          "description": "Number of items in current response",
+                          "type": "integer"
+                        },
+                        "itemsPerPage": {
+                          "description": "Number of items per page",
+                          "type": "integer"
+                        },
+                        "totalItems": {
+                          "description": "Total number of items available",
+                          "type": "integer"
+                        },
+                        "totalPages": {
+                          "description": "Total number of pages",
+                          "type": "integer"
+                        }
+                      },
+                      "type": "object"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with list of planets"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /planets/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getPlanetById",
+        "parameters": [
+          {
+            "description": "Unique identifier of the planet",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "deletedAt": {
+                      "description": "Deletion timestamp if planet is deleted",
+                      "format": "date-time",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "description": {
+                      "description": "Detailed description of the planet",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the planet",
+                      "type": "integer"
+                    },
+                    "image": {
+                      "description": "URL to planet image",
+                      "format": "uri",
+                      "type": "string"
+                    },
+                    "isDestroyed": {
+                      "description": "Whether the planet has been destroyed",
+                      "type": "boolean"
+                    },
+                    "name": {
+                      "description": "Name of the planet",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response with planet details"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Planet not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error type",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "statusCode": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

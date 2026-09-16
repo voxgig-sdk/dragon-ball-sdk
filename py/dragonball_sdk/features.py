@@ -1,12 +1,18 @@
 # DragonBall SDK feature factory
 
 from dragonball_sdk.feature.base_feature import DragonBallBaseFeature
+from dragonball_sdk.feature.ratelimit_feature import DragonBallRatelimitFeature
+from dragonball_sdk.feature.retry_feature import DragonBallRetryFeature
 from dragonball_sdk.feature.test_feature import DragonBallTestFeature
+from dragonball_sdk.feature.timeout_feature import DragonBallTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: DragonBallBaseFeature(),
+    "ratelimit": lambda: DragonBallRatelimitFeature(),
+    "retry": lambda: DragonBallRetryFeature(),
     "test": lambda: DragonBallTestFeature(),
+    "timeout": lambda: DragonBallTimeoutFeature(),
 }
 
 

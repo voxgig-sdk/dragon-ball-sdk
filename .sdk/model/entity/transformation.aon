@@ -70,6 +70,12 @@ main: kit: entity: transformation: {
               }
             ]
           }
+          contract: {
+            id: "GET /transformations"
+            json: "{\"operationId\":\"getTransformations\",\"parameters\":[{\"description\":\"Page number for pagination\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Number of results per page\",\"in\":\"query\",\"name\":\"limit\",\"required\":false,\"schema\":{\"default\":10,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"items\":{\"items\":{\"properties\":{\"deletedAt\":{\"description\":\"Deletion timestamp if transformation is deleted\",\"format\":\"date-time\",\"nullable\":true,\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the transformation\",\"type\":\"integer\"},\"image\":{\"description\":\"URL to transformation image\",\"format\":\"uri\",\"type\":\"string\"},\"ki\":{\"description\":\"Ki level in this transformation\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the transformation\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"links\":{\"properties\":{\"first\":{\"description\":\"Link to first page\",\"format\":\"uri\",\"type\":\"string\"},\"last\":{\"description\":\"Link to last page\",\"format\":\"uri\",\"type\":\"string\"},\"next\":{\"description\":\"Link to next page\",\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"previous\":{\"description\":\"Link to previous page\",\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"}},\"type\":\"object\"},\"meta\":{\"properties\":{\"currentPage\":{\"description\":\"Current page number\",\"type\":\"integer\"},\"itemCount\":{\"description\":\"Number of items in current response\",\"type\":\"integer\"},\"itemsPerPage\":{\"description\":\"Number of items per page\",\"type\":\"integer\"},\"totalItems\":{\"description\":\"Total number of items available\",\"type\":\"integer\"},\"totalPages\":{\"description\":\"Total number of pages\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with list of transformations\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"},\"statusCode\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad request - invalid parameters\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"},\"statusCode\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/transformations"
           segments: [
@@ -104,6 +110,12 @@ main: kit: entity: transformation: {
                 type: "`$INTEGER`"
               }
             ]
+          }
+          contract: {
+            id: "GET /transformations/{id}"
+            json: "{\"operationId\":\"getTransformationById\",\"parameters\":[{\"description\":\"Unique identifier of the transformation\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"deletedAt\":{\"description\":\"Deletion timestamp if transformation is deleted\",\"format\":\"date-time\",\"nullable\":true,\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the transformation\",\"type\":\"integer\"},\"image\":{\"description\":\"URL to transformation image\",\"format\":\"uri\",\"type\":\"string\"},\"ki\":{\"description\":\"Ki level in this transformation\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the transformation\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Successful response with transformation details\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"},\"statusCode\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Transformation not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error type\",\"type\":\"string\"},\"message\":{\"description\":\"Error message\",\"type\":\"string\"},\"statusCode\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
           }
           method: "GET"
           orig: "/transformations/{id}"
