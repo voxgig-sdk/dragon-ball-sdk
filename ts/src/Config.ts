@@ -127,15 +127,15 @@ class Config {
 
     entity: {
       
-      character: {
-      },
-
-      planet: {
-      },
-
-      transformation: {
-      },
-
+        character: {
+        },
+  
+        planet: {
+        },
+  
+        transformation: {
+        },
+  
     }
   }
 

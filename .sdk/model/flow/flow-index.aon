@@ -1,5 +1,5 @@
 # Flows
 
-@"BasicCharacterFlow.aon"
-@"BasicPlanetFlow.aon"
-@"BasicTransformationFlow.aon"
+@"./BasicCharacterFlow.aon"
+@"./BasicPlanetFlow.aon"
+@"./BasicTransformationFlow.aon"

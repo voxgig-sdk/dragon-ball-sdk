@@ -1,5 +1,5 @@
 # Entity Models
 
-@"character.aon"
-@"planet.aon"
-@"transformation.aon"
+@"./character.aon"
+@"./planet.aon"
+@"./transformation.aon"

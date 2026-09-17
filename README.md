@@ -105,12 +105,12 @@ local results, err = client:Planet():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/dragon-ball-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
-| Python | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
-| PHP | `voxgig-sdk/dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
+| TypeScript | `@voxgig-sdk/dragon-ball-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/tags) |
+| Python | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/tags) |
+| PHP | `voxgig-sdk/dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/dragon-ball-sdk/go` | `go get github.com/voxgig-sdk/dragon-ball-sdk/go@latest` |
-| Ruby | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
-| Lua | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/releases) |
+| Ruby | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/tags) |
+| Lua | `voxgig-sdk-dragon-ball` | publish pending — [install from git tag](https://github.com/voxgig-sdk/dragon-ball-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/dragon-ball-sdk/go-cli` | `go install github.com/voxgig-sdk/dragon-ball-sdk/go-cli/cmd/dragon-ball@latest` |
 | Go MCP server | `github.com/voxgig-sdk/dragon-ball-sdk/go-mcp` | `go get github.com/voxgig-sdk/dragon-ball-sdk/go-mcp@latest` |
 
