@@ -93,65 +93,77 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "affiliation",
-						"short": "Character's affiliation or allegiance",
+						"title": "Affiliation",
 						"type": "`$STRING`",
+						"short": "Character's affiliation or allegiance",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "deletedAt",
-						"short": "Deletion timestamp if character is deleted",
+						"title": "Deleted At",
 						"type": "`$STRING`",
+						"short": "Deletion timestamp if character is deleted",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the character",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the character",
 					},
 					map[string]any{
 						"name": "gender",
-						"short": "Gender of the character",
+						"title": "Gender",
 						"type": "`$STRING`",
+						"short": "Gender of the character",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the character",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the character",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "image",
-						"short": "URL to character image",
+						"title": "Image",
 						"type": "`$STRING`",
+						"short": "URL to character image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "ki",
-						"short": "Current ki (power level) of the character",
+						"title": "Ki",
 						"type": "`$STRING`",
+						"short": "Current ki (power level) of the character",
 					},
 					map[string]any{
 						"name": "maxKi",
-						"short": "Maximum ki the character can achieve",
+						"title": "Max Ki",
 						"type": "`$STRING`",
+						"short": "Maximum ki the character can achieve",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the character",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the character",
 					},
 					map[string]any{
 						"name": "originPlanet",
-						"short": "Planet where the character originated",
+						"title": "Origin Planet",
 						"type": "`$OBJECT`",
+						"short": "Planet where the character originated",
 					},
 					map[string]any{
 						"name": "race",
-						"short": "Race or species of the character",
+						"title": "Race",
 						"type": "`$STRING`",
+						"short": "Race or species of the character",
 					},
 					map[string]any{
 						"name": "transformations",
-						"short": "List of transformations available to the character",
+						"title": "Transformations",
 						"type": "`$ARRAY`",
+						"short": "List of transformations available to the character",
 					},
 				},
 				"id": map[string]any{
@@ -165,48 +177,56 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "affiliation",
-											"orig": "affiliation",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "race",
-											"orig": "race",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters",
 								"segments": []any{
 									map[string]any{
 										"lit": "characters",
+									},
+								},
+								"parts": []any{
+									"characters",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "affiliation",
+											"orig": "affiliation",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "race",
+											"orig": "race",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -218,13 +238,6 @@ func MakeConfig() map[string]any {
 										"race",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"characters",
-								},
 							},
 						},
 					},
@@ -233,17 +246,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/characters/{id}",
@@ -255,18 +257,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"characters",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"characters",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -279,36 +293,42 @@ func MakeConfig() map[string]any {
 			"planet": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "deletedAt",
-						"short": "Deletion timestamp if planet is deleted",
+						"title": "Deleted At",
 						"type": "`$STRING`",
+						"short": "Deletion timestamp if planet is deleted",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "description",
-						"short": "Detailed description of the planet",
+						"title": "Description",
 						"type": "`$STRING`",
+						"short": "Detailed description of the planet",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the planet",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the planet",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "image",
-						"short": "URL to planet image",
+						"title": "Image",
 						"type": "`$STRING`",
+						"short": "URL to planet image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "isDestroyed",
-						"short": "Whether the planet has been destroyed",
+						"title": "Is Destroyed",
 						"type": "`$BOOLEAN`",
+						"short": "Whether the planet has been destroyed",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the planet",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the planet",
 					},
 				},
 				"id": map[string]any{
@@ -322,36 +342,44 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/planets",
 								"segments": []any{
 									map[string]any{
 										"lit": "planets",
+									},
+								},
+								"parts": []any{
+									"planets",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
 									},
 								},
 								"select": map[string]any{
@@ -361,13 +389,6 @@ func MakeConfig() map[string]any {
 										"page",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"planets",
-								},
 							},
 						},
 					},
@@ -376,17 +397,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/planets/{id}",
@@ -398,18 +408,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"planets",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"planets",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},
@@ -422,31 +444,36 @@ func MakeConfig() map[string]any {
 			"transformation": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "deletedAt",
-						"short": "Deletion timestamp if transformation is deleted",
+						"title": "Deleted At",
 						"type": "`$STRING`",
+						"short": "Deletion timestamp if transformation is deleted",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the transformation",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the transformation",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "image",
-						"short": "URL to transformation image",
+						"title": "Image",
 						"type": "`$STRING`",
+						"short": "URL to transformation image",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "ki",
-						"short": "Ki level in this transformation",
+						"title": "Ki",
 						"type": "`$STRING`",
+						"short": "Ki level in this transformation",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the transformation",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the transformation",
 					},
 				},
 				"id": map[string]any{
@@ -460,24 +487,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": 10,
-											"kind": "query",
-											"name": "limit",
-											"orig": "limit",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/transformations",
@@ -486,18 +495,37 @@ func MakeConfig() map[string]any {
 										"lit": "transformations",
 									},
 								},
+								"parts": []any{
+									"transformations",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "limit",
+											"orig": "limit",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 10,
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"limit",
 										"page",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"transformations",
 								},
 							},
 						},
@@ -507,17 +535,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/transformations/{id}",
@@ -529,18 +546,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"transformations",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"transformations",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -116,65 +109,77 @@ class Config {
             "fields": [
                 {
                     "name": "affiliation",
-                    "short": "Character's affiliation or allegiance",
-                    "type": "`$STRING`"
+                    "title": "Affiliation",
+                    "type": "`$STRING`",
+                    "short": "Character's affiliation or allegiance"
                 },
                 {
-                    "format": "date-time",
                     "name": "deletedAt",
+                    "title": "Deleted At",
+                    "type": "`$STRING`",
                     "short": "Deletion timestamp if character is deleted",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "description",
-                    "short": "Detailed description of the character",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Detailed description of the character"
                 },
                 {
                     "name": "gender",
-                    "short": "Gender of the character",
-                    "type": "`$STRING`"
+                    "title": "Gender",
+                    "type": "`$STRING`",
+                    "short": "Gender of the character"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the character",
-                    "type": "`$INTEGER`"
+                    "title": "Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the character"
                 },
                 {
-                    "format": "uri",
                     "name": "image",
+                    "title": "Image",
+                    "type": "`$STRING`",
                     "short": "URL to character image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "ki",
-                    "short": "Current ki (power level) of the character",
-                    "type": "`$STRING`"
+                    "title": "Ki",
+                    "type": "`$STRING`",
+                    "short": "Current ki (power level) of the character"
                 },
                 {
                     "name": "maxKi",
-                    "short": "Maximum ki the character can achieve",
-                    "type": "`$STRING`"
+                    "title": "Max Ki",
+                    "type": "`$STRING`",
+                    "short": "Maximum ki the character can achieve"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the character",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the character"
                 },
                 {
                     "name": "originPlanet",
-                    "short": "Planet where the character originated",
-                    "type": "`$OBJECT`"
+                    "title": "Origin Planet",
+                    "type": "`$OBJECT`",
+                    "short": "Planet where the character originated"
                 },
                 {
                     "name": "race",
-                    "short": "Race or species of the character",
-                    "type": "`$STRING`"
+                    "title": "Race",
+                    "type": "`$STRING`",
+                    "short": "Race or species of the character"
                 },
                 {
                     "name": "transformations",
-                    "short": "List of transformations available to the character",
-                    "type": "`$ARRAY`"
+                    "title": "Transformations",
+                    "type": "`$ARRAY`",
+                    "short": "List of transformations available to the character"
                 }
             ],
             "id": {
@@ -188,42 +193,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "affiliation",
-                                        "orig": "affiliation",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "name",
-                                        "orig": "name",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "race",
-                                        "orig": "race",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/characters",
@@ -232,6 +201,50 @@ class Config {
                                     "lit": "characters"
                                 }
                             ],
+                            "parts": [
+                                "characters"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "affiliation",
+                                        "orig": "affiliation",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "name",
+                                        "orig": "name",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    },
+                                    {
+                                        "name": "race",
+                                        "orig": "race",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "affiliation",
@@ -240,14 +253,7 @@ class Config {
                                     "page",
                                     "race"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "characters"
-                            ]
+                            }
                         }
                     ]
                 },
@@ -256,17 +262,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/characters/{id}",
@@ -278,19 +273,31 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "characters",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "characters",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$INTEGER`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -302,36 +309,42 @@ class Config {
         "planet": {
             "fields": [
                 {
-                    "format": "date-time",
                     "name": "deletedAt",
+                    "title": "Deleted At",
+                    "type": "`$STRING`",
                     "short": "Deletion timestamp if planet is deleted",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "description",
-                    "short": "Detailed description of the planet",
-                    "type": "`$STRING`"
+                    "title": "Description",
+                    "type": "`$STRING`",
+                    "short": "Detailed description of the planet"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the planet",
-                    "type": "`$INTEGER`"
+                    "title": "Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the planet"
                 },
                 {
-                    "format": "uri",
                     "name": "image",
+                    "title": "Image",
+                    "type": "`$STRING`",
                     "short": "URL to planet image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "isDestroyed",
-                    "short": "Whether the planet has been destroyed",
-                    "type": "`$BOOLEAN`"
+                    "title": "Is Destroyed",
+                    "type": "`$BOOLEAN`",
+                    "short": "Whether the planet has been destroyed"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the planet",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the planet"
                 }
             ],
             "id": {
@@ -345,30 +358,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "name",
-                                        "orig": "name",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/planets",
@@ -377,20 +366,45 @@ class Config {
                                     "lit": "planets"
                                 }
                             ],
+                            "parts": [
+                                "planets"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "name",
+                                        "orig": "name",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "limit",
                                     "name",
                                     "page"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "planets"
-                            ]
+                            }
                         }
                     ]
                 },
@@ -399,17 +413,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/planets/{id}",
@@ -421,19 +424,31 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "planets",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "planets",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$INTEGER`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -445,31 +460,36 @@ class Config {
         "transformation": {
             "fields": [
                 {
-                    "format": "date-time",
                     "name": "deletedAt",
+                    "title": "Deleted At",
+                    "type": "`$STRING`",
                     "short": "Deletion timestamp if transformation is deleted",
-                    "type": "`$STRING`"
+                    "format": "date-time"
                 },
                 {
                     "name": "id",
-                    "short": "Unique identifier for the transformation",
-                    "type": "`$INTEGER`"
+                    "title": "Id",
+                    "type": "`$INTEGER`",
+                    "short": "Unique identifier for the transformation"
                 },
                 {
-                    "format": "uri",
                     "name": "image",
+                    "title": "Image",
+                    "type": "`$STRING`",
                     "short": "URL to transformation image",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "ki",
-                    "short": "Ki level in this transformation",
-                    "type": "`$STRING`"
+                    "title": "Ki",
+                    "type": "`$STRING`",
+                    "short": "Ki level in this transformation"
                 },
                 {
                     "name": "name",
-                    "short": "Name of the transformation",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "Name of the transformation"
                 }
             ],
             "id": {
@@ -483,24 +503,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "example": 10,
-                                        "kind": "query",
-                                        "name": "limit",
-                                        "orig": "limit",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/transformations",
@@ -509,19 +511,38 @@ class Config {
                                     "lit": "transformations"
                                 }
                             ],
+                            "parts": [
+                                "transformations"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "limit",
+                                        "orig": "limit",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 10
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "limit",
                                     "page"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body`"
-                            },
-                            "parts": [
-                                "transformations"
-                            ]
+                            }
                         }
                     ]
                 },
@@ -530,17 +551,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$INTEGER`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/transformations/{id}",
@@ -552,19 +562,31 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "transformations",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "transformations",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$INTEGER`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }

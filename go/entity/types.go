@@ -1,7 +1,7 @@
 // Typed models for the DragonBall SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,18 +14,6 @@ import (
 
 // Character is the typed data model for the character entity.
 type Character struct {
-	Affiliation *string `json:"affiliation,omitempty"`
-	DeletedAt *string `json:"deletedAt,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Gender *string `json:"gender,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Ki *string `json:"ki,omitempty"`
-	MaxKi *string `json:"maxKi,omitempty"`
-	Name *string `json:"name,omitempty"`
-	OriginPlanet *map[string]any `json:"originPlanet,omitempty"`
-	Race *string `json:"race,omitempty"`
-	Transformations *[]any `json:"transformations,omitempty"`
 }
 
 // CharacterLoadMatch is the typed request payload for Character.LoadTyped.
@@ -44,12 +32,6 @@ type CharacterListMatch struct {
 
 // Planet is the typed data model for the planet entity.
 type Planet struct {
-	DeletedAt *string `json:"deletedAt,omitempty"`
-	Description *string `json:"description,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	IsDestroyed *bool `json:"isDestroyed,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // PlanetLoadMatch is the typed request payload for Planet.LoadTyped.
@@ -66,11 +48,6 @@ type PlanetListMatch struct {
 
 // Transformation is the typed data model for the transformation entity.
 type Transformation struct {
-	DeletedAt *string `json:"deletedAt,omitempty"`
-	Id *int `json:"id,omitempty"`
-	Image *string `json:"image,omitempty"`
-	Ki *string `json:"ki,omitempty"`
-	Name *string `json:"name,omitempty"`
 }
 
 // TransformationLoadMatch is the typed request payload for Transformation.LoadTyped.

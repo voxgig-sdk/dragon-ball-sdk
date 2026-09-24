@@ -115,65 +115,77 @@ class DragonBallConfig
           'fields' => [
             [
               'name' => 'affiliation',
-              'short' => 'Character\'s affiliation or allegiance',
+              'title' => 'Affiliation',
               'type' => '`$STRING`',
+              'short' => 'Character\'s affiliation or allegiance',
             ],
             [
-              'format' => 'date-time',
               'name' => 'deletedAt',
-              'short' => 'Deletion timestamp if character is deleted',
+              'title' => 'Deleted At',
               'type' => '`$STRING`',
+              'short' => 'Deletion timestamp if character is deleted',
+              'format' => 'date-time',
             ],
             [
               'name' => 'description',
-              'short' => 'Detailed description of the character',
+              'title' => 'Description',
               'type' => '`$STRING`',
+              'short' => 'Detailed description of the character',
             ],
             [
               'name' => 'gender',
-              'short' => 'Gender of the character',
+              'title' => 'Gender',
               'type' => '`$STRING`',
+              'short' => 'Gender of the character',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the character',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Unique identifier for the character',
             ],
             [
-              'format' => 'uri',
               'name' => 'image',
-              'short' => 'URL to character image',
+              'title' => 'Image',
               'type' => '`$STRING`',
+              'short' => 'URL to character image',
+              'format' => 'uri',
             ],
             [
               'name' => 'ki',
-              'short' => 'Current ki (power level) of the character',
+              'title' => 'Ki',
               'type' => '`$STRING`',
+              'short' => 'Current ki (power level) of the character',
             ],
             [
               'name' => 'maxKi',
-              'short' => 'Maximum ki the character can achieve',
+              'title' => 'Max Ki',
               'type' => '`$STRING`',
+              'short' => 'Maximum ki the character can achieve',
             ],
             [
               'name' => 'name',
-              'short' => 'Name of the character',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'Name of the character',
             ],
             [
               'name' => 'originPlanet',
-              'short' => 'Planet where the character originated',
+              'title' => 'Origin Planet',
               'type' => '`$OBJECT`',
+              'short' => 'Planet where the character originated',
             ],
             [
               'name' => 'race',
-              'short' => 'Race or species of the character',
+              'title' => 'Race',
               'type' => '`$STRING`',
+              'short' => 'Race or species of the character',
             ],
             [
               'name' => 'transformations',
-              'short' => 'List of transformations available to the character',
+              'title' => 'Transformations',
               'type' => '`$ARRAY`',
+              'short' => 'List of transformations available to the character',
             ],
           ],
           'id' => [
@@ -187,48 +199,56 @@ class DragonBallConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'affiliation',
-                        'orig' => 'affiliation',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 10,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'name',
-                        'orig' => 'name',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 1,
-                        'kind' => 'query',
-                        'name' => 'page',
-                        'orig' => 'page',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'race',
-                        'orig' => 'race',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/characters',
                   'segments' => [
                     [
                       'lit' => 'characters',
+                    ],
+                  ],
+                  'parts' => [
+                    'characters',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'affiliation',
+                        'orig' => 'affiliation',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 10,
+                      ],
+                      [
+                        'name' => 'name',
+                        'orig' => 'name',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'page',
+                        'orig' => 'page',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 1,
+                      ],
+                      [
+                        'name' => 'race',
+                        'orig' => 'race',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -240,13 +260,6 @@ class DragonBallConfig
                       'race',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'characters',
-                  ],
                 ],
               ],
             ],
@@ -255,17 +268,6 @@ class DragonBallConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/characters/{id}',
@@ -277,18 +279,30 @@ class DragonBallConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'characters',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'characters',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
@@ -301,36 +315,42 @@ class DragonBallConfig
         'planet' => [
           'fields' => [
             [
-              'format' => 'date-time',
               'name' => 'deletedAt',
-              'short' => 'Deletion timestamp if planet is deleted',
+              'title' => 'Deleted At',
               'type' => '`$STRING`',
+              'short' => 'Deletion timestamp if planet is deleted',
+              'format' => 'date-time',
             ],
             [
               'name' => 'description',
-              'short' => 'Detailed description of the planet',
+              'title' => 'Description',
               'type' => '`$STRING`',
+              'short' => 'Detailed description of the planet',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the planet',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Unique identifier for the planet',
             ],
             [
-              'format' => 'uri',
               'name' => 'image',
-              'short' => 'URL to planet image',
+              'title' => 'Image',
               'type' => '`$STRING`',
+              'short' => 'URL to planet image',
+              'format' => 'uri',
             ],
             [
               'name' => 'isDestroyed',
-              'short' => 'Whether the planet has been destroyed',
+              'title' => 'Is Destroyed',
               'type' => '`$BOOLEAN`',
+              'short' => 'Whether the planet has been destroyed',
             ],
             [
               'name' => 'name',
-              'short' => 'Name of the planet',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'Name of the planet',
             ],
           ],
           'id' => [
@@ -344,36 +364,44 @@ class DragonBallConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 10,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'name',
-                        'orig' => 'name',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 1,
-                        'kind' => 'query',
-                        'name' => 'page',
-                        'orig' => 'page',
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/planets',
                   'segments' => [
                     [
                       'lit' => 'planets',
+                    ],
+                  ],
+                  'parts' => [
+                    'planets',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 10,
+                      ],
+                      [
+                        'name' => 'name',
+                        'orig' => 'name',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'page',
+                        'orig' => 'page',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 1,
+                      ],
                     ],
                   ],
                   'select' => [
@@ -383,13 +411,6 @@ class DragonBallConfig
                       'page',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'planets',
-                  ],
                 ],
               ],
             ],
@@ -398,17 +419,6 @@ class DragonBallConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/planets/{id}',
@@ -420,18 +430,30 @@ class DragonBallConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'planets',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'planets',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
@@ -444,31 +466,36 @@ class DragonBallConfig
         'transformation' => [
           'fields' => [
             [
-              'format' => 'date-time',
               'name' => 'deletedAt',
-              'short' => 'Deletion timestamp if transformation is deleted',
+              'title' => 'Deleted At',
               'type' => '`$STRING`',
+              'short' => 'Deletion timestamp if transformation is deleted',
+              'format' => 'date-time',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the transformation',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Unique identifier for the transformation',
             ],
             [
-              'format' => 'uri',
               'name' => 'image',
-              'short' => 'URL to transformation image',
+              'title' => 'Image',
               'type' => '`$STRING`',
+              'short' => 'URL to transformation image',
+              'format' => 'uri',
             ],
             [
               'name' => 'ki',
-              'short' => 'Ki level in this transformation',
+              'title' => 'Ki',
               'type' => '`$STRING`',
+              'short' => 'Ki level in this transformation',
             ],
             [
               'name' => 'name',
-              'short' => 'Name of the transformation',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'Name of the transformation',
             ],
           ],
           'id' => [
@@ -482,24 +509,6 @@ class DragonBallConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 10,
-                        'kind' => 'query',
-                        'name' => 'limit',
-                        'orig' => 'limit',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 1,
-                        'kind' => 'query',
-                        'name' => 'page',
-                        'orig' => 'page',
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/transformations',
@@ -508,18 +517,37 @@ class DragonBallConfig
                       'lit' => 'transformations',
                     ],
                   ],
+                  'parts' => [
+                    'transformations',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'limit',
+                        'orig' => 'limit',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 10,
+                      ],
+                      [
+                        'name' => 'page',
+                        'orig' => 'page',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 1,
+                      ],
+                    ],
+                  ],
                   'select' => [
                     'exist' => [
                       'limit',
                       'page',
                     ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'transformations',
                   ],
                 ],
               ],
@@ -529,17 +557,6 @@ class DragonBallConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/transformations/{id}',
@@ -551,18 +568,30 @@ class DragonBallConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'transformations',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'transformations',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],
