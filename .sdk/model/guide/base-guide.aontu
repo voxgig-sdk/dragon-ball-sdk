@@ -11,6 +11,7 @@ guide: {
   entity: character: {
     path: "/characters": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
     path: "/characters/{id}": {
       op: load: method: *GET
@@ -20,6 +21,7 @@ guide: {
   entity: planet: {
     path: "/planets": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
     path: "/planets/{id}": {
       op: load: method: *GET
@@ -29,6 +31,7 @@ guide: {
   entity: transformation: {
     path: "/transformations": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.items`")|top
     }
     path: "/transformations/{id}": {
       op: load: method: *GET

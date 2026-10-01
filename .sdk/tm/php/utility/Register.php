@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 DragonBallUtility::setRegistrar(function (DragonBallUtility $u): void {
     $u->clean = [DragonBallClean::class, 'call'];
+    $u->clean_add = [DragonBallClean::class, 'add'];
+    $u->clean_explain = [DragonBallDone::class, 'clean_explain'];
     $u->done = [DragonBallDone::class, 'call'];
     $u->make_error = [DragonBallMakeError::class, 'call'];
     $u->feature_add = [DragonBallFeatureAdd::class, 'call'];

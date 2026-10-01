@@ -110,7 +110,7 @@ main: kit: entity: planet: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.items`"
           }
         }
       ]

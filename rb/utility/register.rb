@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 DragonBallUtility.registrar = ->(u) {
   u.clean = DragonBallUtilities::Clean
+  u.clean_add = DragonBallUtilities::CleanAdd
+  u.clean_explain = DragonBallUtilities::CleanExplain
   u.done = DragonBallUtilities::Done
   u.make_error = DragonBallUtilities::MakeError
   u.feature_add = DragonBallUtilities::FeatureAdd

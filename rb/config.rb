@@ -199,7 +199,7 @@ module DragonBallConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.items`",
                   },
                   "args" => {
                     "query" => [
@@ -364,7 +364,7 @@ module DragonBallConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.items`",
                   },
                   "args" => {
                     "query" => [
@@ -509,7 +509,7 @@ module DragonBallConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.items`",
                   },
                   "args" => {
                     "query" => [

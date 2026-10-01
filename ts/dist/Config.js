@@ -207,7 +207,7 @@ class Config {
                             "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
-                                "res": "`body`"
+                                "res": "`body.items`"
                             },
                             "args": {
                                 "query": [
@@ -372,7 +372,7 @@ class Config {
                             "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
-                                "res": "`body`"
+                                "res": "`body.items`"
                             },
                             "args": {
                                 "query": [
@@ -517,7 +517,7 @@ class Config {
                             "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
-                                "res": "`body`"
+                                "res": "`body.items`"
                             },
                             "args": {
                                 "query": [

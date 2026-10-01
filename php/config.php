@@ -213,7 +213,7 @@ class DragonBallConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.items`',
                   ],
                   'args' => [
                     'query' => [
@@ -378,7 +378,7 @@ class DragonBallConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.items`',
                   ],
                   'args' => [
                     'query' => [
@@ -523,7 +523,7 @@ class DragonBallConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.items`',
                   ],
                   'args' => [
                     'query' => [

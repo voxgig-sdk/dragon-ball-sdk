@@ -12,9 +12,14 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`):
+GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/dragon-ball-sdk/releases)), or
+from a clone as a Composer path repository:
 
-- Releases: [https://github.com/voxgig-sdk/dragon-ball-sdk/releases](https://github.com/voxgig-sdk/dragon-ball-sdk/releases)
+```bash
+git clone https://github.com/voxgig-sdk/dragon-ball-sdk
+composer config repositories.dragon-ball-sdk path ./dragon-ball-sdk/php
+composer require voxgig-sdk/dragon-ball-sdk:@dev
+```
 
 
 ## Tutorial: your first API call
