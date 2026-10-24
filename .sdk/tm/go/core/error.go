@@ -12,6 +12,8 @@ type DragonBallError struct {
 	Ctx    *Context `json:"-"`
 	Result any
 	Spec   any
+	// The HTTP status, -1 when there was no response.
+	Status int
 }
 
 func NewDragonBallError(code string, msg string, ctx *Context) *DragonBallError {
@@ -21,7 +23,12 @@ func NewDragonBallError(code string, msg string, ctx *Context) *DragonBallError 
 		Code:               code,
 		Msg:                msg,
 		Ctx:                ctx,
+		Status:             -1,
 	}
+}
+
+func (e *DragonBallError) NotFound() bool {
+	return 404 == e.Status
 }
 
 func (e *DragonBallError) Error() string {
@@ -35,6 +42,7 @@ func (e *DragonBallError) Record() map[string]any {
 		"sdk":     e.Sdk,
 		"code":    e.Code,
 		"message": e.Msg,
+		"status":  e.Status,
 		"result":  e.Result,
 		"spec":    e.Spec,
 	}

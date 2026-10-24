@@ -3,5 +3,32 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Character&#39;s affiliation or allegiance",
+      "Deletion timestamp if character is deleted",
+      "Deletion timestamp if planet is deleted",
+      "Deletion timestamp if transformation is deleted",
+      "Detailed description of the character",
+      "Detailed description of the planet",
+      "Gender of the character",
+      "Ki level in this transformation",
+      "Name of the transformation",
+      "Production server",
+      "Successful response with character details",
+      "Successful response with list of characters",
+      "Successful response with list of planets",
+      "Successful response with list of transformations",
+      "Successful response with planet details",
+      "Successful response with transformation details",
+      "The Dragon Ball API provides comprehensive information about characters, transformations, power stats, planets, and locations from the Dragon Ball universe. It allows users to retrieve data through various endpoints for easy integration into applications or services.",
+      "URL to planet image",
+      "URL to transformation image",
+      "Unique identifier for the character",
+      "Unique identifier for the planet",
+      "Unique identifier for the transformation",
+      "Whether the planet has been destroyed"
+    ]
+  }
 }

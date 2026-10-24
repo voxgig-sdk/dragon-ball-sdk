@@ -93,6 +93,7 @@ class DragonBallConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -222,6 +223,7 @@ class DragonBallConfig
                         'orig' => 'affiliation',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'limit',
@@ -235,6 +237,7 @@ class DragonBallConfig
                         'orig' => 'name',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'page',
@@ -248,17 +251,14 @@ class DragonBallConfig
                         'orig' => 'race',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'affiliation',
-                      'limit',
-                      'name',
-                      'page',
-                      'race',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -303,6 +303,10 @@ class DragonBallConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -394,6 +398,7 @@ class DragonBallConfig
                         'orig' => 'name',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'page',
@@ -404,12 +409,10 @@ class DragonBallConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'limit',
-                      'name',
-                      'page',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -454,6 +457,10 @@ class DragonBallConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -543,11 +550,10 @@ class DragonBallConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'limit',
-                      'page',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
@@ -592,6 +598,10 @@ class DragonBallConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

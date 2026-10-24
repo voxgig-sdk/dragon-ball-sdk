@@ -79,6 +79,7 @@ module DragonBallConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -208,6 +209,7 @@ module DragonBallConfig
                         "orig" => "affiliation",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "limit",
@@ -221,6 +223,7 @@ module DragonBallConfig
                         "orig" => "name",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "page",
@@ -234,17 +237,14 @@ module DragonBallConfig
                         "orig" => "race",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "affiliation",
-                      "limit",
-                      "name",
-                      "page",
-                      "race",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -289,6 +289,10 @@ module DragonBallConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -380,6 +384,7 @@ module DragonBallConfig
                         "orig" => "name",
                         "type" => "`$STRING`",
                         "kind" => "query",
+                        "field" => true,
                       },
                       {
                         "name" => "page",
@@ -390,12 +395,10 @@ module DragonBallConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "limit",
-                      "name",
-                      "page",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -440,6 +443,10 @@ module DragonBallConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -529,11 +536,10 @@ module DragonBallConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "limit",
-                      "page",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
@@ -578,6 +584,10 @@ module DragonBallConfig
                     "exist" => [
                       "id",
                     ],
+                  },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

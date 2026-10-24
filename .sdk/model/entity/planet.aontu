@@ -96,12 +96,9 @@ main: kit: entity: planet: {
           }
           m: "GET"
           o: "/planets"
-          q: {
-            exist: [
-              "limit"
-              "name"
-              "page"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -141,6 +138,10 @@ main: kit: entity: planet: {
             exist: [
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

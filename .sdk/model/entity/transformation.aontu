@@ -82,11 +82,9 @@ main: kit: entity: transformation: {
           }
           m: "GET"
           o: "/transformations"
-          q: {
-            exist: [
-              "limit"
-              "page"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -126,6 +124,10 @@ main: kit: entity: transformation: {
             exist: [
               "id"
             ]
+          }
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

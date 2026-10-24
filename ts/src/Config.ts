@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -244,7 +245,8 @@ class Config {
                     "name": "affiliation",
                     "orig": "affiliation",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "limit",
@@ -257,7 +259,8 @@ class Config {
                     "name": "name",
                     "orig": "name",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "page",
@@ -270,18 +273,15 @@ class Config {
                     "name": "race",
                     "orig": "race",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "affiliation",
-                  "limit",
-                  "name",
-                  "page",
-                  "race"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -326,6 +326,10 @@ class Config {
                 "exist": [
                   "id"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -416,7 +420,8 @@ class Config {
                     "name": "name",
                     "orig": "name",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "page",
@@ -427,12 +432,10 @@ class Config {
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "limit",
-                  "name",
-                  "page"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -477,6 +480,10 @@ class Config {
                 "exist": [
                   "id"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -566,11 +573,10 @@ class Config {
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "limit",
-                  "page"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]
@@ -615,6 +621,10 @@ class Config {
                 "exist": [
                   "id"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
               }
             }
           ]

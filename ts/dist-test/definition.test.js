@@ -17,12 +17,16 @@ const PLAN = [
         "args": [],
         "select": {
             "affiliation": "v1",
-            "limit": "v1",
+            "limit": 10,
             "name": "v1",
-            "page": "v1",
+            "page": 1,
             "race": "v1"
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "page",
             "limit",
@@ -30,52 +34,74 @@ const PLAN = [
             "race",
             "affiliation"
         ],
+        "queryArgs": [
+            {
+                "name": "affiliation",
+                "wire": "affiliation"
+            },
+            {
+                "name": "limit",
+                "wire": "limit"
+            },
+            {
+                "name": "name",
+                "wire": "name"
+            },
+            {
+                "name": "page",
+                "wire": "page"
+            },
+            {
+                "name": "race",
+                "wire": "race"
+            }
+        ],
         "auth": null,
         "status": 200,
         "sample": {
             "items": [
                 {
-                    "affiliation": "x",
-                    "deletedAt": "2026-01-01T00:00:00Z",
-                    "description": "x",
-                    "gender": "Male",
                     "id": 1,
-                    "image": "x",
+                    "name": "x",
                     "ki": "x",
                     "maxKi": "x",
-                    "name": "x",
-                    "originPlanet": {
-                        "deletedAt": "2026-01-01T00:00:00Z",
-                        "description": "x",
-                        "id": 1,
-                        "image": "x",
-                        "isDestroyed": true,
-                        "name": "x"
-                    },
                     "race": "x",
+                    "gender": "Male",
+                    "description": "x",
+                    "image": "x",
+                    "affiliation": "x",
+                    "deletedAt": "2026-01-01T00:00:00Z",
                     "transformations": [
                         {
-                            "deletedAt": "2026-01-01T00:00:00Z",
                             "id": 1,
+                            "name": "x",
                             "image": "x",
                             "ki": "x",
-                            "name": "x"
+                            "deletedAt": "2026-01-01T00:00:00Z"
                         }
-                    ]
+                    ],
+                    "originPlanet": {
+                        "id": 1,
+                        "name": "x",
+                        "isDestroyed": true,
+                        "description": "x",
+                        "image": "x",
+                        "deletedAt": "2026-01-01T00:00:00Z"
+                    }
                 }
             ],
             "meta": {
-                "currentPage": 1,
+                "totalItems": 1,
                 "itemCount": 1,
                 "itemsPerPage": 1,
-                "totalItems": 1,
-                "totalPages": 1
+                "totalPages": 1,
+                "currentPage": 1
             },
             "links": {
                 "first": "x",
-                "last": "x",
+                "previous": "x",
                 "next": "x",
-                "previous": "x"
+                "last": "x"
             }
         },
         "idField": "id"
@@ -95,7 +121,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -111,20 +142,20 @@ const PLAN = [
             "deletedAt": "2026-01-01T00:00:00Z",
             "transformations": [
                 {
-                    "deletedAt": "2026-01-01T00:00:00Z",
                     "id": 1,
+                    "name": "x",
                     "image": "x",
                     "ki": "x",
-                    "name": "x"
+                    "deletedAt": "2026-01-01T00:00:00Z"
                 }
             ],
             "originPlanet": {
-                "deletedAt": "2026-01-01T00:00:00Z",
-                "description": "x",
                 "id": 1,
-                "image": "x",
+                "name": "x",
                 "isDestroyed": true,
-                "name": "x"
+                "description": "x",
+                "image": "x",
+                "deletedAt": "2026-01-01T00:00:00Z"
             }
         },
         "idField": "id"
@@ -137,41 +168,59 @@ const PLAN = [
         "path": "/planets",
         "args": [],
         "select": {
-            "limit": "v1",
+            "limit": 10,
             "name": "v1",
-            "page": "v1"
+            "page": 1
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "page",
             "limit",
             "name"
+        ],
+        "queryArgs": [
+            {
+                "name": "limit",
+                "wire": "limit"
+            },
+            {
+                "name": "name",
+                "wire": "name"
+            },
+            {
+                "name": "page",
+                "wire": "page"
+            }
         ],
         "auth": null,
         "status": 200,
         "sample": {
             "items": [
                 {
-                    "deletedAt": "2026-01-01T00:00:00Z",
-                    "description": "x",
                     "id": 1,
-                    "image": "x",
+                    "name": "x",
                     "isDestroyed": true,
-                    "name": "x"
+                    "description": "x",
+                    "image": "x",
+                    "deletedAt": "2026-01-01T00:00:00Z"
                 }
             ],
             "meta": {
-                "currentPage": 1,
+                "totalItems": 1,
                 "itemCount": 1,
                 "itemsPerPage": 1,
-                "totalItems": 1,
-                "totalPages": 1
+                "totalPages": 1,
+                "currentPage": 1
             },
             "links": {
                 "first": "x",
-                "last": "x",
+                "previous": "x",
                 "next": "x",
-                "previous": "x"
+                "last": "x"
             }
         },
         "idField": "id"
@@ -191,7 +240,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
@@ -212,38 +266,52 @@ const PLAN = [
         "path": "/transformations",
         "args": [],
         "select": {
-            "limit": "v1",
-            "page": "v1"
+            "limit": 10,
+            "page": 1
         },
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [
             "page",
             "limit"
+        ],
+        "queryArgs": [
+            {
+                "name": "limit",
+                "wire": "limit"
+            },
+            {
+                "name": "page",
+                "wire": "page"
+            }
         ],
         "auth": null,
         "status": 200,
         "sample": {
             "items": [
                 {
-                    "deletedAt": "2026-01-01T00:00:00Z",
                     "id": 1,
+                    "name": "x",
                     "image": "x",
                     "ki": "x",
-                    "name": "x"
+                    "deletedAt": "2026-01-01T00:00:00Z"
                 }
             ],
             "meta": {
-                "currentPage": 1,
+                "totalItems": 1,
                 "itemCount": 1,
                 "itemsPerPage": 1,
-                "totalItems": 1,
-                "totalPages": 1
+                "totalPages": 1,
+                "currentPage": 1
             },
             "links": {
                 "first": "x",
-                "last": "x",
+                "previous": "x",
                 "next": "x",
-                "previous": "x"
+                "last": "x"
             }
         },
         "idField": "id"
@@ -263,7 +331,12 @@ const PLAN = [
         ],
         "select": {},
         "headers": [],
+        "cookies": [],
+        "responseMedia": [
+            "application/json"
+        ],
         "query": [],
+        "queryArgs": [],
         "auth": null,
         "status": 200,
         "sample": {
